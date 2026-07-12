@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ANABEE | Smart E-Court &amp; Technology</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hairline-border {
+            border: 1px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0)), linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+        }
+        .emerald-glow {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+        }
+        .emerald-glow:hover {
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#293832",
+                    "on-primary-fixed-variant": "#005236",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-dim": "#081611",
+                    "inverse-on-surface": "#25332e",
+                    "charcoal-black": "#2C2C2C",
+                    "surface-container-high": "#1f2d27",
+                    "inverse-primary": "#006c49",
+                    "tertiary-container": "#fc7c78",
+                    "on-background": "#d6e6de",
+                    "outline-variant": "#3c4a42",
+                    "secondary-fixed": "#ffe088",
+                    "on-primary-fixed": "#002113",
+                    "beecoin-gold": "#D4AF37",
+                    "primary-fixed": "#6ffbbe",
+                    "on-tertiary": "#650911",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "secondary-container": "#af8d11",
+                    "muted-sage": "#9CA3AF",
+                    "background": "#081611",
+                    "inverse-surface": "#d6e6de",
+                    "error-container": "#93000a",
+                    "surface-container-lowest": "#04110c",
+                    "on-primary": "#003824",
+                    "on-error": "#690005",
+                    "on-primary-container": "#00422b",
+                    "surface-container": "#14221d",
+                    "secondary-fixed-dim": "#e9c349",
+                    "luminous-emerald": "#10B981",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-surface": "#d6e6de",
+                    "surface": "#081611",
+                    "primary-fixed-dim": "#4edea3",
+                    "primary-container": "#10b981",
+                    "on-tertiary-fixed": "#410005",
+                    "on-secondary-container": "#342800",
+                    "surface-bright": "#2e3c36",
+                    "secondary": "#e9c349",
+                    "eco-pearl-white": "#F8F9FA",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-container": "#711419",
+                    "tertiary": "#ffb3af",
+                    "on-surface-variant": "#bbcabf",
+                    "outline": "#86948a",
+                    "deep-forest-obsidian": "#0B1914",
+                    "surface-container-highest": "#293832",
+                    "surface-container-low": "#101e19",
+                    "on-secondary": "#3c2f00",
+                    "tertiary-fixed": "#ffdad7",
+                    "surface-tint": "#4edea3",
+                    "primary": "#4edea3",
+                    "on-tertiary-fixed-variant": "#842225",
+                    "error": "#ffb4ab",
+                    "stark-white": "#FFFFFF"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "section-margin": "8rem",
+                    "gutter": "1.5rem",
+                    "card-padding": "2.5rem",
+                    "section-margin-mobile": "4rem"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "display-lg-mobile": ["Manrope"],
+                    "label-sm": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-sm": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface selection:bg-luminous-emerald/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto bg-surface/10 backdrop-blur-xl border-b border-white/20 shadow-[0_0_20px_rgba(16,185,129,0.1)] transition-all duration-300 ease-in-out">
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-stark-white tracking-tighter">ANABEE</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-eco-pearl-white/70 hover:text-luminous-emerald transition-colors" href="#">Ecosystem</a>
+<a class="font-body-md text-body-md text-luminous-emerald font-bold border-b-2 border-luminous-emerald pb-1" href="#">Pillars</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-eco-pearl-white/70 hover:text-luminous-emerald transition-colors" href="#">Governance</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-eco-pearl-white/70 hover:text-luminous-emerald transition-colors" href="#">Roadmap</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-eco-pearl-white/70 hover:text-luminous-emerald transition-colors" href="#">Whitepaper</a>
+</div>
+<button class="px-6 py-2 bg-luminous-emerald text-stark-white rounded-lg font-bold emerald-glow transition-all active:scale-95">
+            Connect Wallet
+        </button>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-margin">
+<div class="relative w-full h-[600px] rounded-3xl overflow-hidden glass-panel hairline-border flex items-center justify-center p-card-padding">
+
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-7 space-y-6">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-luminous-emerald/10 border border-luminous-emerald/30 text-luminous-emerald font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+                            Digital Sovereignty • السيادة الرقمية
+                        </div>
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-stark-white leading-none">
+                            Smart <span class="text-luminous-emerald">E-Court</span> <br/> 
+                            &amp; Governance
+                        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                            Pioneering the world's first decentralized sustainability judicial system. Integrating Web3 transparency, Generative AI legal reasoning, and Big Data environmental metrics.
+                            <br/>
+<span class="text-eco-pearl-white/60">رائد أول نظام قضائي لا مركزي للاستدامة في العالم. دمج شفافية Web3 والاستدلال القانوني للذكاء الاصطناعي التوليدي.</span>
+</p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-luminous-emerald text-stark-white rounded-lg font-bold emerald-glow flex items-center gap-2">
+                                Launch Protocol
+                                <span class="material-symbols-outlined">rocket_launch</span>
+</button>
+<button class="px-8 py-4 border border-white/20 text-stark-white rounded-lg font-bold hover:bg-white/5 transition-all">
+                                Read Whitepaper
+                            </button>
+</div>
+</div>
+<div class="md:col-span-5 relative hidden md:block">
+<div class="animate-float">
+<img class="w-full drop-shadow-[0_0_50px_rgba(16,185,129,0.2)]" data-alt="A highly detailed 3D render of futuristic digital scales of justice made of glowing emerald glass and brushed titanium, floating in a dark minimalist void. Cinematic lighting highlights the sharp edges and translucent materials. The overall aesthetic is eco-futurist, clean, and high-tech, reflecting an advanced AI-driven legal system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLDGmy3CqYk1k4BB44L5tKBxskgnAqI6Gyk1cN4XayCC_1zApH6psRylWcQQ_YMSnhRk8vUIBym2WFyrW6XfbroV-A0P_KUpeHE8hQz4ex2PHiL7elMW4MX_pttS_JzMzBiEorRmjsbX1H8CLzn9eAhBTHQiG0BdF0W1rtjHZLbfMHYpcu4eJ4tn1DCPVPNdh76DBMuAdBSYTOHQrSHy3rNeUknLWU61RDhV6LTqPldSCqyTT1cscEjfMNvAYrFtQ89XZRujCn984"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Tech Stack (Bento Grid) -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-margin">
+<div class="mb-12 text-center">
+<h2 class="font-headline-xl text-headline-xl text-stark-white mb-4">Integrated Intelligence System</h2>
+<p class="font-body-md text-body-md text-muted-sage uppercase tracking-widest">نظام الاستخبارات المتكامل</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Web3 Block -->
+<div class="md:col-span-7 glass-panel hairline-border rounded-2xl p-card-padding flex flex-col justify-between hover:bg-white/10 transition-all group">
+<div class="space-y-4">
+<div class="w-16 h-16 rounded-xl bg-luminous-emerald/20 flex items-center justify-center text-luminous-emerald group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">hub</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-stark-white">Web3 Immutable Proof</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Decentralized ledger technology ensures all environmental claims and legal verdicts are permanent and tamper-proof. Distributed consensus protocols validate sustainability audits.
+                        </p>
+<p class="font-body-sm text-on-surface-variant/70 italic">تضمن تقنية السجل اللامركزي أن تكون جميع المطالبات البيئية والأحكام القانونية دائمة ومحمية من التلاعب.</p>
+</div>
+<div class="mt-8 flex gap-2">
+<span class="px-3 py-1 rounded-full bg-surface-variant text-label-sm text-on-surface border border-outline-variant">Blockchain</span>
+<span class="px-3 py-1 rounded-full bg-surface-variant text-label-sm text-on-surface border border-outline-variant">Smart Contracts</span>
+</div>
+</div>
+<!-- Gen AI Block -->
+<div class="md:col-span-5 glass-panel hairline-border rounded-2xl p-card-padding group overflow-hidden relative">
+<div class="relative z-10 space-y-4">
+<div class="w-16 h-16 rounded-xl bg-beecoin-gold/20 flex items-center justify-center text-beecoin-gold group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined text-[32px]">psychology</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-stark-white">Generative AI Jurisprudence</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Advanced LLMs specialized in international environmental law provide preliminary adjudication frameworks and rapid legal analysis.
+                        </p>
+<p class="font-body-sm text-on-surface-variant/70 italic">توفر النماذج اللغوية الكبيرة المتقدمة أطر عمل للتقاضي الأولي وتحليلاً قانونياً سريعاً.</p>
+</div>
+<div class="absolute -bottom-10 -right-10 opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-[200px] text-beecoin-gold" style="font-variation-settings: 'FILL' 1;">neurology</span>
+</div>
+</div>
+<!-- Big Data Block -->
+<div class="md:col-span-4 glass-panel hairline-border rounded-2xl p-card-padding group">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-lg bg-luminous-emerald/20 flex items-center justify-center text-luminous-emerald">
+<span class="material-symbols-outlined">database</span>
+</div>
+<h4 class="font-headline-lg text-[24px] text-stark-white">Big Data Metrics</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time IoT streaming for planetary health monitoring.</p>
+<p class="text-sm text-on-surface-variant/60">بث إنترنت الأشياء في الوقت الفعلي لمراقبة صحة الكوكب.</p>
+</div>
+</div>
+<!-- Court Visualization -->
+<div class="md:col-span-8 relative rounded-2xl overflow-hidden glass-panel hairline-border min-h-[300px]">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="A hyper-realistic wide shot of a futuristic digital courtroom, interior architecture features sweeping organic curves of white marble and integrated holographic displays. Glowing emerald lines represent data streams flowing through the floor. Soft volumetric lighting creates an atmosphere of serenity and high authority. Minimalist, clean, and visionary aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANEnZbHyNiia-w7exojpAu7bTGmvJEfFYssFabelDdpMI1ImjAqSPf42PS7fTbRAI6aOyJr-rMT-4JY2Po7UZklpekd-fx3oKheMGEa35Rb5yCmmUIt1waFPhKhgH_KpHUa5f-gA1mpzos7iK2aZLI2iWh-AvX-VG0TtfaXHE0ULHiYRkpgFDucgpTEJe6DPko_EtTvUvv-lluyg2TWRAWZJscoS--W1gle37lUQDUOEemNiMkjQ3YCcBX93Bxr0B3UXSp55jJr9c"/>
+</div>
+<div class="relative z-10 p-card-padding h-full flex flex-col justify-end bg-gradient-to-t from-background via-transparent to-transparent">
+<h4 class="font-headline-lg text-headline-lg text-stark-white">Virtual Adjudication Chamber</h4>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">The heart of the ANABEE E-Court, where technology meets justice.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Infographic Flow -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-margin">
+<div class="glass-panel hairline-border rounded-3xl p-card-padding overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-12 relative">
+<!-- Connector line for desktop -->
+<div class="hidden lg:block absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-luminous-emerald/30 to-transparent -translate-y-1/2"></div>
+<!-- Step 1 -->
+<div class="relative z-10 text-center space-y-4">
+<div class="mx-auto w-20 h-20 rounded-full glass-panel hairline-border border-luminous-emerald/50 flex items-center justify-center text-luminous-emerald emerald-glow">
+<span class="font-headline-lg">01</span>
+</div>
+<h5 class="font-headline-lg text-[20px] text-stark-white">Data Ingestion</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Sensors record carbon output and ecological health.</p>
+<p class="text-sm text-on-surface-variant/60 italic">تلقي البيانات البيئية</p>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 text-center space-y-4">
+<div class="mx-auto w-20 h-20 rounded-full glass-panel hairline-border border-luminous-emerald/50 flex items-center justify-center text-luminous-emerald emerald-glow">
+<span class="font-headline-lg">02</span>
+</div>
+<h5 class="font-headline-lg text-[20px] text-stark-white">AI Processing</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Generative AI analyzes data against global standards.</p>
+<p class="text-sm text-on-surface-variant/60 italic">معالجة الذكاء الاصطناعي</p>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 text-center space-y-4">
+<div class="mx-auto w-20 h-20 rounded-full glass-panel hairline-border border-luminous-emerald/50 flex items-center justify-center text-luminous-emerald emerald-glow">
+<span class="font-headline-lg">03</span>
+</div>
+<h5 class="font-headline-lg text-[20px] text-stark-white">Decentralized Jury</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Global token holders vote on critical sustainability cases.</p>
+<p class="text-sm text-on-surface-variant/60 italic">هيئة محلفين لا مركزية</p>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 text-center space-y-4">
+<div class="mx-auto w-20 h-20 rounded-full glass-panel hairline-border border-luminous-emerald/50 flex items-center justify-center text-luminous-emerald emerald-glow">
+<span class="font-headline-lg">04</span>
+</div>
+<h5 class="font-headline-lg text-[20px] text-stark-white">On-Chain Verdict</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Smart contracts execute penalties or rewards instantly.</p>
+<p class="text-sm text-on-surface-variant/60 italic">حكم قانوني على الشبكة</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-container-max mx-auto px-gutter mb-section-margin">
+<div class="relative rounded-3xl overflow-hidden p-card-padding text-center bg-deep-forest-obsidian border border-luminous-emerald/20">
+<div class="absolute inset-0 opacity-10">
+
+</div>
+<div class="relative z-10 space-y-8 max-w-3xl mx-auto">
+<h2 class="font-display-lg text-headline-xl md:text-headline-xl text-stark-white">Ready to govern the future?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Join the global movement using technology to enforce planetary boundaries. Become a validator in our Smart E-Court ecosystem today.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="px-10 py-5 bg-luminous-emerald text-stark-white rounded-xl font-bold emerald-glow hover:scale-105 transition-all">
+                            Apply as Magistrate
+                        </button>
+<button class="px-10 py-5 glass-panel hairline-border text-stark-white rounded-xl font-bold hover:bg-white/5 transition-all">
+                            View Active Cases
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-margin px-gutter flex flex-col md:flex-row justify-between items-start gap-8 bg-deep-forest-obsidian border-t border-outline-variant">
+<div class="space-y-4 max-w-md">
+<span class="font-headline-lg text-headline-lg text-stark-white font-bold">ANABEE</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Global Sustainability Initiative leveraging Web3 and AI for a regenerative future.
+            </p>
+<p class="font-body-md text-body-md text-on-surface-variant/60 text-sm">
+                © 2024 ANABEE Global Sustainability Initiative. All Rights Reserved.
+            </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div class="flex flex-col gap-4">
+<h6 class="text-luminous-emerald font-bold">Protocol</h6>
+<a class="text-muted-sage hover:text-stark-white transition-all" href="#">Environmental Data</a>
+<a class="text-muted-sage hover:text-stark-white transition-all" href="#">Smart E-Court</a>
+<a class="text-muted-sage hover:text-stark-white transition-all" href="#">7 Pillars</a>
+</div>
+<div class="flex flex-col gap-4">
+<h6 class="text-luminous-emerald font-bold">Network</h6>
+<a class="text-muted-sage hover:text-stark-white transition-all" href="#">Global Roadmap</a>
+<a class="text-muted-sage hover:text-stark-white transition-all" href="#">Institutional Partners</a>
+<a class="text-muted-sage hover:text-stark-white transition-all" href="#">Governance</a>
+</div>
+<div class="flex flex-col gap-4">
+<h6 class="text-luminous-emerald font-bold">Social</h6>
+<a class="text-muted-sage hover:text-stark-white transition-all" href="#">Twitter / X</a>
+<a class="text-muted-sage hover:text-stark-white transition-all" href="#">Discord</a>
+<a class="text-muted-sage hover:text-stark-white transition-all" href="#">Telegram</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction: Header scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('py-3', 'shadow-xl');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-3', 'shadow-xl');
+            }
+        });
+
+        // Micro-interaction: Parallax effect for cards
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

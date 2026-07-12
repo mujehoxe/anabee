@@ -1,0 +1,8 @@
+node_modules/
+.netlify/
+9router/
+screenshot*.png
+.env
+.env.*
+!.env.example
+.DS_Store

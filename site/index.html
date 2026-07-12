@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="ANABEE Global Sustainability Initiative — The world's first smart digital ecosystem powered by Blockchain, AI, and Web3 to protect the Earth."/>
+  <title>ANABEE — Global Sustainability Initiative</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F4C3A',
+            mint: '#10B981',
+            gold: '#C5A059',
+            adnoc: '#004B87',
+            surface: '#FCFAF7',
+            mist: '#F3F5F4',
+            charcoal: '#1A1A1A',
+            earth: '#5C6160',
+            border: '#E2E5E4',
+          },
+          spacing: {
+            'container-max': '1440px',
+            'margin-desktop': '64px',
+            'margin-mobile': '20px',
+            'section-gap': '120px',
+            gutter: '32px',
+          },
+          fontFamily: {
+            sans: ['Manrope', 'system-ui', 'sans-serif'],
+          },
+          fontSize: {
+            'display': ['clamp(2.5rem,5vw,4.25rem)', { lineHeight: '1.1', letterSpacing: '-0.01em', fontWeight: '600' }],
+            'section': ['clamp(1.75rem,3vw,2.75rem)', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' }],
+            'card-title': ['clamp(1.25rem,2vw,1.75rem)', { lineHeight: '1.3', fontWeight: '500' }],
+            'body-lg': ['1.125rem', { lineHeight: '1.75', fontWeight: '400' }],
+            'meta': ['0.875rem', { lineHeight: '1.4', fontWeight: '500' }],
+          },
+          borderRadius: {
+            btn: '0.5rem',
+            card: '0.875rem',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'Manrope', sans-serif; }
+    .feature-card {
+      background: #F3F5F4;
+      border: 1px solid #E2E5E4;
+      border-radius: 0.875rem;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .feature-card:hover {
+      box-shadow: 0 4px 20px rgba(15, 76, 58, 0.08);
+      transform: translateY(-2px);
+    }
+    .glass-panel {
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(12px);
+      border: 1px solid #E2E5E4;
+      box-shadow: 0 4px 24px rgba(0,0,0,.04);
+    }
+    .btn-primary {
+      background: #0F4C3A;
+      color: #fff;
+      border-radius: 0.5rem;
+      transition: transform .25s, filter .25s, box-shadow .25s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      box-shadow: 0 8px 24px rgba(15,76,58,.2);
+    }
+    .btn-secondary {
+      border: 1px solid #0F4C3A;
+      color: #0F4C3A;
+      border-radius: 0.5rem;
+      transition: background .25s, transform .25s;
+    }
+    .btn-secondary:hover {
+      background: rgba(16,185,129,.08);
+      transform: translateY(-1px);
+    }
+    .nav-link { color: #5C6160; transition: color .2s; }
+    .nav-link:hover { color: #0F4C3A; }
+    .nav-link.nav-active { color: #0F4C3A !important; font-weight: 600; border-bottom: 2px solid #0F4C3A; padding-bottom: 2px; }
+    #site-nav.nav-scrolled { background: rgba(252,250,247,.95); box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+    .reveal { transform: translateY(16px); transition: transform .6s ease, opacity .6s ease; }
+    .reveal-visible { transform: translateY(0); }
+    h1, h2, h3, h4 { color: #1A1A1A; }
+    .pillar-swiper-card h4 { color: #fff; }
+    p { color: #5C6160; }
+    .feature-card { background: #fff; }
+    .pillar-card {
+      background: #F3F5F4;
+      border: 1px solid #E2E5E4;
+      border-radius: 0.875rem;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .pillar-card:hover {
+      box-shadow: 0 10px 30px rgba(15, 76, 58, 0.08);
+      transform: translateY(-2px);
+    }
+    .pillar-swiper-card {
+      background: #0B1914;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pillar-swiper-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        180deg,
+        rgba(11, 25, 20, 0.35) 0%,
+        transparent 42%
+      );
+      pointer-events: none;
+    }
+    .pillar-swiper-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.4;
+    }
+    .pillar-swiper-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pillar-swiper-card:hover .pillar-swiper-bg {
+      opacity: 0.5;
+    }
+    .pillar-swiper-caption {
+      background: rgba(8, 22, 17, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .pillar-swiper-caption p {
+      color: rgba(214, 230, 222, 0.85);
+    }
+    .pillar-swiper-card:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+      transform: translateY(-8px);
+    }
+    .pillar-title { letter-spacing: 0.08em; text-transform: uppercase; }
+    .pillar-scroll-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+      border: 1px solid #E2E5E4;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .pillar-scroll-btn .material-symbols-outlined {
+      font-size: 1.25rem;
+      line-height: 1;
+      display: block;
+    }
+    .pillar-scroll-btn:hover { background: #F3F5F4; border-color: #10B981; }
+    #pillar-scroll {
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    #pillar-scroll.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+    }
+    #pillar-scroll.is-dragging * { pointer-events: none; }
+    .section-band { background: #F3F5F4; border-top: 1px solid #E2E5E4; border-bottom: 1px solid #E2E5E4; }
+    .gold-glow { color: #C5A059; }
+    .beecoin-chip {
+      background: rgba(197, 160, 89, 0.12);
+      border: 1px solid rgba(197, 160, 89, 0.25);
+    }
+    .chart-btn-active { background: #10B981; color: #fff; }
+    .chart-btn { background: #F3F5F4; color: #1A1A1A; }
+    .chart-btn:hover:not(.chart-btn-active) { background: #E2E5E4; }
+    .ecourt-hero {
+      background: linear-gradient(135deg, rgba(15,76,58,.04) 0%, rgba(252,250,247,1) 50%, rgba(16,185,129,.06) 100%);
+    }
+    .emerald-glow { box-shadow: 0 0 24px rgba(16,185,129,.12); }
+    .emerald-glow:hover { box-shadow: 0 0 32px rgba(16,185,129,.22); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .flow-step {
+      width: 5rem;
+      height: 5rem;
+      border: 2px solid rgba(16,185,129,.35);
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    #toast.visible { opacity: 1; transform: translateY(0); }
+    .video-frame {
+      aspect-ratio: 16 / 9;
+      background: #0B1914;
+    }
+    .video-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body class="bg-surface text-charcoal antialiased overflow-x-hidden">
+
+<header id="site-nav" class="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-md transition-shadow">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20 flex items-center justify-between">
+    <a href="#ecosystem" class="nav-brand flex items-center shrink-0">
+      <img src="assets/anabee-logo-mark.png" alt="ANABEE" class="h-11 md:h-12 w-auto object-contain"/>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 text-meta" aria-label="Main">
+      <a href="#ecosystem" class="nav-link" data-nav>Ecosystem</a>
+      <a href="#pillars" class="nav-link" data-nav>Pillars</a>
+      <a href="#economy" class="nav-link" data-nav>BEECOIN</a>
+      <a href="#governance" class="nav-link" data-nav>Governance</a>
+      <a href="#roadmap" class="nav-link" data-nav>Roadmap</a>
+      <a href="#whitepaper" class="nav-link" data-nav>Whitepaper</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <span class="hidden md:inline-flex items-center gap-1 px-3 py-1.5 rounded-btn border border-border text-meta font-semibold text-earth" title="More languages coming soon">EN</span>
+      <button id="wallet-btn" type="button" class="hidden sm:inline-flex btn-primary px-6 py-2.5 text-meta font-semibold">Connect Wallet</button>
+      <button id="mobile-toggle" type="button" class="lg:hidden text-primary p-2" aria-label="Open menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mobile-menu" class="hidden fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm" aria-hidden="true">
+  <div class="absolute right-0 top-0 h-full w-[min(100%,320px)] bg-surface p-6 shadow-2xl flex flex-col">
+    <div class="flex justify-between items-center mb-8">
+      <img src="assets/anabee-logo-mark.png" alt="ANABEE" class="h-10 w-auto object-contain"/>
+      <button id="mobile-close" type="button" class="text-earth p-2" aria-label="Close menu">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-4 text-body-lg">
+      <a href="#ecosystem" class="nav-link" data-nav>Ecosystem</a>
+      <a href="#pillars" class="nav-link" data-nav>7 Pillars</a>
+      <a href="#economy" class="nav-link" data-nav>BEECOIN Economy</a>
+      <a href="#governance" class="nav-link" data-nav>Smart E-Court</a>
+      <a href="#roadmap" class="nav-link" data-nav>Roadmap</a>
+      <a href="#whitepaper" class="nav-link" data-nav>Whitepaper</a>
+    </nav>
+    <button type="button" data-wallet class="mt-8 btn-primary w-full py-3 font-semibold">Connect Wallet</button>
+  </div>
+</div>
+
+<div id="wallet-modal" class="hidden fixed inset-0 z-[70] flex items-center justify-center bg-black/50 p-4" aria-hidden="true" role="dialog" aria-labelledby="wallet-title">
+  <div class="glass-panel rounded-card max-w-md w-full p-8 relative">
+    <button id="wallet-close" type="button" class="absolute top-4 right-4 text-earth hover:text-primary" aria-label="Close">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <h2 id="wallet-title" class="text-section text-charcoal mb-2">Connect Wallet</h2>
+    <p class="text-earth text-meta mb-6">Choose a provider to join the ANABEE ecosystem. Full wallet integration launches with mainnet.</p>
+    <div class="space-y-3">
+      <button type="button" class="w-full feature-card px-4 py-3 flex items-center gap-3 text-left">
+        <span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+        <span class="font-semibold">MetaMask</span>
+      </button>
+      <button type="button" class="w-full feature-card px-4 py-3 flex items-center gap-3 text-left">
+        <span class="material-symbols-outlined text-primary">hub</span>
+        <span class="font-semibold">WalletConnect</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[80] px-6 py-3 rounded-btn bg-primary text-white text-meta font-medium shadow-lg opacity-0 translate-y-4 transition-all duration-300 pointer-events-none" role="status"></div>
+
+<main>
+
+  <!-- Hero -->
+  <section id="ecosystem" class="relative pt-28 md:pt-36 pb-24 md:pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto scroll-mt-24">
+    <div class="absolute top-32 left-1/2 -translate-x-1/2 w-[min(800px,90vw)] h-[min(800px,90vw)] bg-mint/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="grid lg:grid-cols-12 gap-gutter items-center min-h-[72vh]">
+      <div class="lg:col-span-7 space-y-8 reveal">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel">
+          <span class="w-2 h-2 rounded-full bg-mint animate-pulse"></span>
+          <span class="text-meta text-primary uppercase tracking-widest">UAE · Global Initiative</span>
+        </div>
+        <h1 class="text-display text-charcoal">
+          <span class="text-primary">ANABEE</span><br/>
+          Global Sustainability Initiative
+        </h1>
+        <p class="text-earth text-body-lg max-w-2xl">
+          The world's first smart digital ecosystem powered by Blockchain, AI, and Web3 to protect the Earth for generations to come. A transparent, decentralized movement redefining environmental stewardship from the United Arab Emirates.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#pillars" class="btn-primary inline-flex items-center gap-2 px-10 py-4 font-semibold">
+            Enter the Ecosystem
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+          <a href="#whitepaper" class="btn-secondary inline-flex items-center gap-2 px-10 py-4 font-semibold bg-white/60">
+            Read Manifesto
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-5 relative reveal">
+        <div class="relative w-full max-w-[480px] mx-auto rounded-[1.75rem] glass-panel overflow-hidden shadow-lg">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Celebrities and activists supporting ANABEE">
+              <source src="assets/videos/celebrities-anabee.mp4" type="video/mp4"/>
+            </video>
+          </div>
+          <div class="absolute -top-4 -left-4 px-4 py-2 rounded-card glass-panel text-meta gold-glow font-semibold flex items-center gap-2 shadow-md pointer-events-none">
+            <span class="material-symbols-outlined text-sm">eco</span> 7 Pillars Active
+          </div>
+          <div class="absolute bottom-4 -right-4 px-4 py-2 rounded-card glass-panel text-meta text-primary font-semibold flex items-center gap-2 shadow-md pointer-events-none">
+            <span class="material-symbols-outlined text-sm">deployed_code</span> Web3 Integrated
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live metrics strip -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter mt-20 reveal">
+      <a href="#economy" class="feature-card p-6 block">
+        <div class="flex items-center gap-2 text-gold mb-2">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">generating_tokens</span>
+          <span class="text-meta uppercase tracking-wider text-earth">BEECOIN</span>
+        </div>
+        <p class="text-section text-charcoal" data-metric="beecoin">$2.45</p>
+        <p class="text-meta text-mint mt-1">+4.2% (24h) · Live</p>
+      </a>
+      <div class="feature-card p-6">
+        <div class="flex items-center gap-2 text-primary mb-2">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">forest</span>
+          <span class="text-meta uppercase tracking-wider text-earth">Trees Planted</span>
+        </div>
+        <p class="text-section text-charcoal" data-metric="trees">1.2M+</p>
+      </div>
+      <div class="feature-card p-6">
+        <div class="flex items-center gap-2 text-primary mb-2">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">category</span>
+          <span class="text-meta uppercase tracking-wider text-earth">Environmental Products</span>
+        </div>
+        <p class="text-section text-charcoal">75</p>
+      </div>
+      <div class="feature-card p-6">
+        <div class="flex items-center gap-2 text-primary mb-2">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">hub</span>
+          <span class="text-meta uppercase tracking-wider text-earth">Active Pillars</span>
+        </div>
+        <p class="text-section text-charcoal">7 / 7</p>
+      </div>
+    </div>
+
+    <!-- Ecosystem trio -->
+    <div class="grid md:grid-cols-3 gap-gutter mt-gutter reveal">
+      <article class="feature-card p-10">
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-5 border border-border">
+          <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings:'FILL' 1">public</span>
+        </div>
+        <h3 class="text-card-title text-charcoal mb-3">Decentralized Trust</h3>
+        <p class="text-earth text-body-lg">Immutable ledgers and decentralized identity ensuring transparent environmental impact tracking across every continent.</p>
+      </article>
+      <article class="feature-card p-10 relative overflow-hidden">
+        <div class="absolute -right-6 -top-6 w-28 h-28 bg-gold/10 rounded-full blur-2xl"></div>
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-5 border border-border">
+          <span class="material-symbols-outlined text-gold text-2xl" style="font-variation-settings:'FILL' 1">token</span>
+        </div>
+        <h3 class="text-card-title text-charcoal mb-3">BEECOIN Economy</h3>
+        <p class="text-earth text-body-lg">A cryptocurrency mined purely via positive environmental behaviors — not energy consumption — rewarding every verified eco-action.</p>
+      </article>
+      <article class="feature-card p-10">
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center mb-5 border border-border">
+          <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings:'FILL' 1">psychology</span>
+        </div>
+        <h3 class="text-card-title text-charcoal mb-3">AI & Big Data</h3>
+        <p class="text-earth text-body-lg">Generative AI powering the world's first global environmental search engine — instant planetary insights at scale.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Movement videos -->
+  <section id="movement" class="py-24 md:py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto scroll-mt-24">
+    <header class="text-center max-w-2xl mx-auto mb-12 reveal">
+      <span class="text-meta text-mint uppercase tracking-widest font-semibold">Global Momentum</span>
+      <h2 class="text-section text-charcoal mt-3 mb-4">ANABEE in the World</h2>
+      <p class="text-earth text-body-lg">Climate leadership in the Gulf — the movement is building in public.</p>
+    </header>
+    <article class="glass-panel rounded-card overflow-hidden flex flex-col reveal max-w-2xl mx-auto">
+      <div class="video-frame">
+        <video autoplay muted loop playsinline preload="metadata" aria-label="MENA Climate Week Riyadh 2026">
+          <source src="assets/videos/mena-climate-week-riyadh.mp4" type="video/mp4"/>
+        </video>
+      </div>
+      <div class="p-6 md:p-8">
+        <h3 class="text-card-title text-charcoal mb-2">MENA Climate Week</h3>
+        <p class="text-earth text-body-lg">Regional climate leadership from Riyadh — aligning Gulf ambition with global sustainability goals.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- 7 Pillars -->
+  <section id="pillars" class="section-band py-24 md:py-section-gap scroll-mt-24 overflow-hidden">
+    <header class="text-center max-w-3xl mx-auto mb-12 px-margin-mobile md:px-margin-desktop reveal">
+      <span class="text-meta text-mint uppercase tracking-widest font-semibold">Foundational Architecture</span>
+      <h2 class="text-section text-charcoal mt-3 mb-4">The 7 Pillars</h2>
+      <p class="text-earth text-body-lg">ANABEE's ecosystem is built upon seven fundamental pillars of global sustainability, integrating biological wisdom with decentralized technological governance.</p>
+    </header>
+
+    <div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-8 reveal">
+      <h3 class="text-card-title text-charcoal">Ecosystem Framework</h3>
+      <div class="flex gap-3">
+        <button type="button" id="pillar-scroll-left" class="pillar-scroll-btn rounded-full text-primary shrink-0" aria-label="Previous pillar">
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+        </button>
+        <button type="button" id="pillar-scroll-right" class="pillar-scroll-btn rounded-full text-primary shrink-0" aria-label="Next pillar">
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="pillar-scroll" class="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-12 hide-scrollbar px-margin-mobile md:px-margin-desktop lg:px-[max(1.25rem,calc((100vw-1440px)/2+64px))] reveal">
+
+      <div class="pillar-slide snap-start shrink-0 w-[85vw] md:w-[400px]">
+        <article class="pillar-swiper-card rounded-card overflow-hidden h-[520px] md:h-[600px] flex flex-col relative">
+          <div class="pillar-swiper-bg"><img alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9_wJiegVv890InEENve17X02Ts1GMywRtB9yu6D-fzHDOcsyM7wYhDSWSF7afiqVSERtQowWhCbG5ADCBoicL8_sDO_ZuZSyEB_BW-YKidDEGWbkIoeK1gTO7cCBBUuarwB3UVkDYh_hBB8JgIXGEA5F27L7hkhSSUH_SOfs_eXO7d127P_hKg1aAc1Ns3gz5V5w9UZFPk97IteB6wW8rBOYmg1y-NMX-A_2D0hQCZtewtmYZDwNMVTtIky0n74Ljji2sUJ8_zCc"/></div>
+          <div class="relative z-10 p-8 md:p-10 flex flex-col h-full">
+            <div class="mb-auto">
+              <span class="material-symbols-outlined text-mint text-5xl mb-4 block" style="font-variation-settings:'FILL' 0">air</span>
+              <span class="text-meta text-mint font-semibold opacity-90">Pillar 01</span>
+              <h4 class="text-card-title text-white pillar-title mt-1 drop-shadow-sm">Air</h4>
+            </div>
+            <div class="mt-auto pillar-swiper-caption p-6 rounded-card">
+              <p class="text-body-lg">Atmospheric purification through decentralized carbon sequestration networks and smart-city canopy systems.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="pillar-slide snap-start shrink-0 w-[85vw] md:w-[400px]">
+        <article class="pillar-swiper-card rounded-card overflow-hidden h-[520px] md:h-[600px] flex flex-col relative">
+          <div class="pillar-swiper-bg"><img alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClabGMlP3RvfKE1P3s-nFVt-sgK1xxLAB8hHp-61JJiB4U3lW7YKnfvPhxS_tkkjVB7hB1KlrQuL46pSAW_fyifwXzfq3ye237OCVqyeNSmSKZuX71hyrGas8U66wtk8mqGfbqc9-XRiz9TeEEvJbuVqHjANVYk6GhAJQyCg9R_pfe8yVXWcvOd-ZETL6_I7F3p-oMIAzRs42EMln2hXIEUZ3gISVfkm1Gov-FEyXhOAPvXlkFgtW_eBFBf_i09l5hbJlkHPY3zTE"/></div>
+          <div class="relative z-10 p-8 md:p-10 flex flex-col h-full">
+            <div class="mb-auto">
+              <span class="material-symbols-outlined text-mint text-5xl mb-4 block" style="font-variation-settings:'FILL' 0">water_drop</span>
+              <span class="text-meta text-mint font-semibold opacity-90">Pillar 02</span>
+              <h4 class="text-card-title text-white pillar-title mt-1 drop-shadow-sm">Water</h4>
+            </div>
+            <div class="mt-auto pillar-swiper-caption p-6 rounded-card">
+              <p class="text-body-lg">Hydro-governance systems utilizing smart sensors for real-time water quality tracking and conservation rewards.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="pillar-slide snap-start shrink-0 w-[85vw] md:w-[400px]">
+        <article class="pillar-swiper-card rounded-card overflow-hidden h-[520px] md:h-[600px] flex flex-col relative">
+          <div class="pillar-swiper-bg"><img alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs_lQ1YhuaR5e_MFXSuMMllBubTZhQ-p7a3-LgGVqD9qgEXrokjY_zbsP4v3GwSnbGVeX9k7DjWQaghEbGrmibkriWM6nzP0xgLNsgCnReEexyAQqnS8YF0a3H5DKF5BJC-LV4gq-uCVMNidvQ6BfzBJknpkgYuYSh1bbmzH0r5tiqwMuVAJQq149Ov6WX42cDpk0GExAOcUZ96BnyllT0yqFVG206CJCFR_PE2uxtfKf8woN_kLNlyJ31CzxQdzk-FfpBvbDmxkI"/></div>
+          <div class="relative z-10 p-8 md:p-10 flex flex-col h-full">
+            <div class="mb-auto">
+              <span class="material-symbols-outlined text-mint text-5xl mb-4 block" style="font-variation-settings:'FILL' 0">grass</span>
+              <span class="text-meta text-mint font-semibold opacity-90">Pillar 03</span>
+              <h4 class="text-card-title text-white pillar-title mt-1 drop-shadow-sm">Soil</h4>
+            </div>
+            <div class="mt-auto pillar-swiper-caption p-6 rounded-card">
+              <p class="text-body-lg">Regenerative agriculture protocols managed by AI-driven nutrient monitoring and soil health verification.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="pillar-slide snap-start shrink-0 w-[85vw] md:w-[400px]">
+        <article class="pillar-swiper-card rounded-card overflow-hidden h-[520px] md:h-[600px] flex flex-col relative">
+          <div class="pillar-swiper-bg"><img alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWCm9g5Gy8-U0uUBq67SZ5dmKIgoNAisged6t-zLkWgRTf7XpV0_WmqCYmicXrdzxn34axHldVx1f35Jji4lTI5qHx02cGyEXZTkelchOTphhjjIZWf6MxlsojBgkSqqpI23c4C1tvysJPgvw3DT_MgZ1pQBxVO7ELNhOfoHfl_SL890uNr_ldiuS4CmoFv-fNTBk0G-I6wS9KohRGa4JZcEatTGK6tuA7uQnEJnVpNt7DLAtjSgcZfuuagSmtOslnuUlDTAeuWNw"/></div>
+          <div class="relative z-10 p-8 md:p-10 flex flex-col h-full">
+            <div class="mb-auto">
+              <span class="material-symbols-outlined text-mint text-5xl mb-4 block" style="font-variation-settings:'FILL' 0">bolt</span>
+              <span class="text-meta text-mint font-semibold opacity-90">Pillar 04</span>
+              <h4 class="text-card-title text-white pillar-title mt-1 drop-shadow-sm">Energy</h4>
+            </div>
+            <div class="mt-auto pillar-swiper-caption p-6 rounded-card">
+              <p class="text-body-lg">Decentralized renewable grids leveraging peer-to-peer energy trading and autonomous battery storage.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="pillar-slide snap-start shrink-0 w-[85vw] md:w-[400px]">
+        <article class="pillar-swiper-card rounded-card overflow-hidden h-[520px] md:h-[600px] flex flex-col relative">
+          <div class="pillar-swiper-bg"><img alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdlskINqKbH_0JfR45rc59T5JtbnSjlsyf5fckjJfhd_lF42S9HNTSQrcMgjhy3_3bzutKSLpGJlY5diBOfZiFHlBXmCxwv88MtJvssL_uC-XBBJ0KiVpsHkq4Jx9o5Ke8aLHcYGcl9gkK5bdBGGzBwMDC9fz-EWp5EcgrgvYjHBN-CjdbakqnGbzAl-ZvLGuPNr-WYfEI7VjypezrTigB55Yk0buCjTGLJhhjvVm7jbAb1QZqMEjM_XR8pz_4aFnmBJFYcmnKpEs"/></div>
+          <div class="relative z-10 p-8 md:p-10 flex flex-col h-full">
+            <div class="mb-auto">
+              <span class="material-symbols-outlined text-mint text-5xl mb-4 block" style="font-variation-settings:'FILL' 0">restaurant</span>
+              <span class="text-meta text-mint font-semibold opacity-90">Pillar 05</span>
+              <h4 class="text-card-title text-white pillar-title mt-1 drop-shadow-sm">Food</h4>
+            </div>
+            <div class="mt-auto pillar-swiper-caption p-6 rounded-card">
+              <p class="text-body-lg">Decentralized food security chains ensuring transparency and equitable distribution via blockchain logistics.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="pillar-slide snap-start shrink-0 w-[85vw] md:w-[400px]">
+        <article class="pillar-swiper-card rounded-card overflow-hidden h-[520px] md:h-[600px] flex flex-col relative">
+          <div class="pillar-swiper-bg"><img alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-fuph9AB-XtY0CUeDed_mFhtGyzBFxvra4rR-XTC6r_1tRzs2LQErztmcSUrJcqEjG6yX1pKbrsK356YPT7gO7J6zJG7j0tPd2yHRWagK7nNxWAYf6cJnb_ByFN1GT066cKF_0qwdZDv7eSO6BF99Oi0RTY-LA0BtNsU-3aVurSnSVAyU3AslX5ULLejZlo239Nx_7jMS_-bzTcyIhZu8cBVT7bob2nao2zcjwzUzYoT2_DOL-q8we9dOBASHsKHfOMZT1yEaM4E"/></div>
+          <div class="relative z-10 p-8 md:p-10 flex flex-col h-full">
+            <div class="mb-auto">
+              <span class="material-symbols-outlined text-mint text-5xl mb-4 block" style="font-variation-settings:'FILL' 0">potted_plant</span>
+              <span class="text-meta text-mint font-semibold opacity-90">Pillar 06</span>
+              <h4 class="text-card-title text-white pillar-title mt-1 drop-shadow-sm">Plant</h4>
+            </div>
+            <div class="mt-auto pillar-swiper-caption p-6 rounded-card">
+              <p class="text-body-lg">Global reforestation and ecosystem restoration backed by tokenized botanical assets and genomic banking.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="pillar-slide snap-start shrink-0 w-[85vw] md:w-[400px]">
+        <article class="pillar-swiper-card rounded-card overflow-hidden h-[520px] md:h-[600px] flex flex-col relative">
+          <div class="pillar-swiper-bg"><img alt="" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6gr9U0ZcvUgmbk3tWN9Vkfm3MRH2TsVhwXlQREjQin8osn8fmjaG8ZFP3OBXsJBnrR5YOrCQjvfnV9HZL74r39IqdTADpMHt8J4rWMTjJLLNCGGS4JWD0I21VvKzKdGn5pFAlFcSTybSUoeu-XiglGx3S9cfhIzPad5XKW6zGJl_C0dEuBtB54srxuFV5jl0BQ-7E_pwgzU3az0crLSPtlPgBqH6h8j6tCEtlKEPwJP3-FzdCtqnVarzGKKaE1feN8BTn3CyOwOw"/></div>
+          <div class="relative z-10 p-8 md:p-10 flex flex-col h-full">
+            <div class="mb-auto">
+              <span class="material-symbols-outlined text-mint text-5xl mb-4 block" style="font-variation-settings:'FILL' 0">pets</span>
+              <span class="text-meta text-mint font-semibold opacity-90">Pillar 07</span>
+              <h4 class="text-card-title text-white pillar-title mt-1 drop-shadow-sm">Animal</h4>
+            </div>
+            <div class="mt-auto pillar-swiper-caption p-6 rounded-card">
+              <p class="text-body-lg">Biodiversity protection through non-invasive monitoring and habitats secured by automated E-Courts.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <!-- Governance + tokenomics bento -->
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-8 grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+      <article class="md:col-span-2 glass-panel rounded-card p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center">
+        <div class="w-full md:w-1/2 rounded-card overflow-hidden aspect-video shrink-0">
+          <img class="w-full h-full object-cover" alt="Smart city sustainability dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi4XbBBOSw9HB75B6TU5tAVzPRLBdk70T8T_uQC431bD_u_6WR9qEXP9w1BuuSDzIQdnA6U16oG5KT1HKWOR0XtTN-M6yTjGdidwMIicNkaRbBbInk46q8YwK3GLiyShRMKOVfrlDVhSYasCxXjmcLhFCQcc1aWMCf3igW7nho-LmZOGnWk9Qm0ZU6raFa5SVXx8VZbGm4jfnpCwjEHZFaZ4XTQMEffyAwXSI8jTmtmJosm08FRVx9Ssne63HHF1kjYp7r1Z8P76M"/>
+        </div>
+        <div class="w-full md:w-1/2 space-y-4">
+          <h4 class="text-card-title text-charcoal">Governance Integration</h4>
+          <p class="text-earth text-body-lg">Every pillar is governed by a Decentralized Autonomous Organization (DAO), ensuring ecological decisions are transparent, data-driven, and community-verified.</p>
+          <ul class="space-y-2">
+            <li class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-meta font-semibold text-charcoal">Real-time Data Verifiability</span></li>
+            <li class="flex items-center gap-2 text-primary"><span class="material-symbols-outlined text-sm">check_circle</span><span class="text-meta font-semibold text-charcoal">Automated Reward Distribution</span></li>
+          </ul>
+        </div>
+      </article>
+      <article class="glass-panel rounded-card p-8 flex flex-col justify-center items-center text-center space-y-4 border-l-4 border-l-gold">
+        <div class="w-16 h-16 rounded-full bg-gold/15 flex items-center justify-center">
+          <span class="material-symbols-outlined text-gold text-3xl">token</span>
+        </div>
+        <h4 class="text-card-title gold-glow">Eco-Tokenomics</h4>
+        <p class="text-earth text-body-lg">Our internal economy rewards sustainable actions across all seven pillars.</p>
+        <a href="#economy" class="text-primary font-semibold text-meta flex items-center gap-1 hover:underline">Explore BEECOIN <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+      </article>
+    </div>
+  </section>
+
+  <!-- BEECOIN Economy -->
+  <section id="economy" class="py-24 md:py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto scroll-mt-24 space-y-12">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 reveal">
+      <div class="max-w-2xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-mint"></span>
+          </span>
+          <span class="text-meta text-primary uppercase tracking-widest font-semibold">Live Network Status</span>
+        </div>
+        <h2 class="text-section text-charcoal mb-4">BEECOIN Economy</h2>
+        <p class="text-earth text-body-lg">Real-time metrics of the "Mined by Behavior" protocol, quantifying environmental stewardship across 75 distinct impact pillars.</p>
+      </div>
+      <div class="beecoin-chip rounded-full px-4 py-2 flex items-center gap-2 shrink-0">
+        <span class="material-symbols-outlined text-gold text-lg">monetization_on</span>
+        <span class="text-meta text-gold uppercase font-semibold tracking-wider">Current Epoch: 42.A</span>
+      </div>
+    </div>
+
+    <!-- Key metrics -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter reveal">
+      <div class="glass-panel rounded-card p-8 hover:-translate-y-1 transition-transform group">
+        <div class="flex justify-between items-start mb-4">
+          <span class="material-symbols-outlined text-earth group-hover:text-primary transition-colors">account_balance_wallet</span>
+          <span class="text-meta text-mint bg-mint/10 px-2 py-1 rounded font-semibold">+2.4% 24h</span>
+        </div>
+        <p class="text-meta text-earth mb-1">Total Minted</p>
+        <p class="text-section text-charcoal flex items-baseline gap-2">
+          <span class="text-meta text-gold font-semibold tracking-wider">BEE</span>
+          <span data-metric="minted">482.5M</span>
+        </p>
+      </div>
+      <div class="glass-panel rounded-card p-8 hover:-translate-y-1 transition-transform group">
+        <div class="flex justify-between items-start mb-4">
+          <span class="material-symbols-outlined text-earth group-hover:text-primary transition-colors">recycling</span>
+          <span class="text-meta text-gold beecoin-chip px-2 py-1 rounded font-semibold">Active</span>
+        </div>
+        <p class="text-meta text-earth mb-1">Mined by Behavior Rate</p>
+        <p class="text-section text-charcoal flex items-baseline gap-2">
+          <span data-metric="rate">12.4</span>
+          <span class="text-meta text-earth">BEE/sec</span>
+        </p>
+      </div>
+      <div class="glass-panel rounded-card p-8 hover:-translate-y-1 transition-transform group">
+        <div class="flex justify-between items-start mb-4">
+          <span class="material-symbols-outlined text-earth group-hover:text-primary transition-colors">public</span>
+          <span class="text-meta text-mint bg-mint/10 px-2 py-1 rounded font-semibold">Verified</span>
+        </div>
+        <p class="text-meta text-earth mb-1">Active Environmental Pillars</p>
+        <p class="text-section text-charcoal">75<span class="text-earth text-xl">/75</span></p>
+      </div>
+      <div class="glass-panel rounded-card p-8 hover:-translate-y-1 transition-transform group">
+        <div class="flex justify-between items-start mb-4">
+          <span class="material-symbols-outlined text-earth group-hover:text-primary transition-colors">energy_savings_leaf</span>
+          <span class="text-meta text-mint bg-mint/10 px-2 py-1 rounded font-semibold">+18% 30d</span>
+        </div>
+        <p class="text-meta text-earth mb-1">Total Carbon Offset</p>
+        <p class="text-section text-charcoal flex items-baseline gap-2">
+          2.1M
+          <span class="text-meta text-earth">Tons</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Bento dashboard -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter reveal">
+
+      <!-- Ecosystem velocity chart -->
+      <div class="lg:col-span-8 glass-panel rounded-card p-8 flex flex-col min-h-[420px] lg:min-h-[500px]">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+          <div>
+            <h3 class="text-card-title text-charcoal">Ecosystem Velocity</h3>
+            <p class="text-meta text-earth mt-1">Behavioral mining issuance over the last 30 epochs.</p>
+          </div>
+          <div class="flex gap-2" role="group" aria-label="Chart period">
+            <button type="button" data-chart-period="1D" class="chart-btn px-3 py-1.5 text-meta font-semibold rounded-btn transition-colors">1D</button>
+            <button type="button" data-chart-period="1W" class="chart-btn chart-btn-active px-3 py-1.5 text-meta font-semibold rounded-btn transition-colors">1W</button>
+            <button type="button" data-chart-period="1M" class="chart-btn px-3 py-1.5 text-meta font-semibold rounded-btn transition-colors">1M</button>
+          </div>
+        </div>
+        <div class="flex-grow rounded-card overflow-hidden relative bg-mist border border-border min-h-[260px]">
+          <img id="chart-image" class="absolute inset-0 w-full h-full object-cover opacity-90 mix-blend-multiply" alt="BEECOIN ecosystem velocity chart" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlne3JLo9eWuqS8fsa5SaZHGcjt4hjBREfiOVc4tYr8v2W4I6KYtm2uZ7p-SMsEpirZ77Y1RwdLGUkRkFMmwhgl4tH4Z4BQmDpJIPexqwXlMsdVwcbpGJ_Y4RIv8H9YwiEz4bRHr7kphFhGx_CGD1E5EnCEQsVo3p29Eh3kIiPE4YHwktXjLZh_2EbfkXErriWPmEtiEmWIAMXGYFAEtoQmVHNzxzxTV0Vu99J4f1Eh-G8dTc7fDcsPlTWoGGy6AoSkzOZ-fSjknA"/>
+          <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-surface to-transparent z-10"></div>
+        </div>
+      </div>
+
+      <!-- Pillars breakdown -->
+      <div class="lg:col-span-4 glass-panel rounded-card p-8 flex flex-col min-h-[420px] lg:min-h-[500px]">
+        <div class="mb-6">
+          <h3 class="text-card-title text-charcoal">Pillars Breakdown</h3>
+          <p class="text-meta text-earth mt-1">Top behavior categories.</p>
+        </div>
+        <div class="flex-grow space-y-4 overflow-y-auto pr-1">
+          <div class="flex flex-col gap-2 p-3 rounded-card hover:bg-mist/80 transition-colors">
+            <div class="flex justify-between items-center">
+              <span class="text-meta font-semibold text-charcoal flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-sm">water_drop</span> Ocean Cleanup
+              </span>
+              <span class="text-meta text-gold font-semibold">32%</span>
+            </div>
+            <div class="w-full bg-mist rounded-full h-1.5"><div class="bg-mint h-1.5 rounded-full" style="width:32%"></div></div>
+          </div>
+          <div class="flex flex-col gap-2 p-3 rounded-card hover:bg-mist/80 transition-colors">
+            <div class="flex justify-between items-center">
+              <span class="text-meta font-semibold text-charcoal flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-sm">forest</span> Reforestation
+              </span>
+              <span class="text-meta text-gold font-semibold">28%</span>
+            </div>
+            <div class="w-full bg-mist rounded-full h-1.5"><div class="bg-mint h-1.5 rounded-full" style="width:28%"></div></div>
+          </div>
+          <div class="flex flex-col gap-2 p-3 rounded-card hover:bg-mist/80 transition-colors">
+            <div class="flex justify-between items-center">
+              <span class="text-meta font-semibold text-charcoal flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-sm">solar_power</span> Clean Energy Adoption
+              </span>
+              <span class="text-meta text-gold font-semibold">18%</span>
+            </div>
+            <div class="w-full bg-mist rounded-full h-1.5"><div class="bg-mint h-1.5 rounded-full" style="width:18%"></div></div>
+          </div>
+          <div class="flex flex-col gap-2 p-3 rounded-card hover:bg-mist/80 transition-colors">
+            <div class="flex justify-between items-center">
+              <span class="text-meta font-semibold text-charcoal flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-sm">compost</span> Waste Reduction
+              </span>
+              <span class="text-meta text-gold font-semibold">12%</span>
+            </div>
+            <div class="w-full bg-mist rounded-full h-1.5"><div class="bg-mint h-1.5 rounded-full" style="width:12%"></div></div>
+          </div>
+        </div>
+        <a href="#pillars" class="mt-4 w-full py-3 border border-border rounded-btn text-meta font-semibold text-charcoal hover:bg-mist transition-colors flex items-center justify-center gap-2 group">
+          View All 75 Pillars
+          <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </a>
+      </div>
+
+      <!-- Tokenomics -->
+      <div class="lg:col-span-6 glass-panel rounded-card p-8 relative overflow-hidden">
+        <div class="relative z-10">
+          <div class="flex justify-between items-start mb-6">
+            <h3 class="text-card-title text-charcoal">Tokenomics Integrity</h3>
+            <div class="beecoin-chip rounded-full p-2 flex items-center justify-center">
+              <span class="material-symbols-outlined text-gold">verified_user</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 rounded-card bg-white/60 border border-border">
+              <p class="text-meta text-earth uppercase mb-1 font-semibold">Community Pool</p>
+              <p class="text-body-lg font-semibold text-charcoal">60.0%</p>
+            </div>
+            <div class="p-4 rounded-card bg-white/60 border border-border">
+              <p class="text-meta text-earth uppercase mb-1 font-semibold">Ecosystem Fund</p>
+              <p class="text-body-lg font-semibold text-charcoal">25.0%</p>
+            </div>
+            <div class="p-4 rounded-card bg-white/60 border border-border">
+              <p class="text-meta text-earth uppercase mb-1 font-semibold">Core Contributors</p>
+              <p class="text-body-lg font-semibold text-charcoal">10.0%</p>
+            </div>
+            <div class="p-4 rounded-card bg-white/60 border border-border">
+              <p class="text-meta text-earth uppercase mb-1 font-semibold">Liquidity Reserve</p>
+              <p class="text-body-lg font-semibold text-charcoal">5.0%</p>
+            </div>
+          </div>
+        </div>
+        <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+      </div>
+
+      <!-- Recent minting events -->
+      <div class="lg:col-span-6 glass-panel rounded-card p-8">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-card-title text-charcoal">Recent Minting Events</h3>
+          <span class="text-meta text-earth flex items-center gap-1 font-semibold">
+            <span class="material-symbols-outlined text-sm">schedule</span> Real-time
+          </span>
+        </div>
+        <div class="space-y-4" id="mint-events">
+          <div class="flex items-center justify-between p-3 border-b border-border last:border-0 gap-4">
+            <div class="flex items-center gap-4 min-w-0">
+              <div class="w-10 h-10 rounded-full bg-mint/10 flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-sm">directions_bike</span>
+              </div>
+              <div class="min-w-0">
+                <p class="font-semibold text-charcoal text-meta">Urban Mobility Pivot</p>
+                <p class="text-meta text-earth truncate">Pillar #12 · Verified by Node 8xA...</p>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="text-meta text-gold beecoin-chip px-2 py-1 rounded font-semibold">+ 2.45 BEE</p>
+              <p class="text-meta text-earth mt-1">Just now</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-between p-3 border-b border-border last:border-0 gap-4">
+            <div class="flex items-center gap-4 min-w-0">
+              <div class="w-10 h-10 rounded-full bg-mint/10 flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-sm">shopping_bag</span>
+              </div>
+              <div class="min-w-0">
+                <p class="font-semibold text-charcoal text-meta">Zero-Waste Purchase</p>
+                <p class="text-meta text-earth truncate">Pillar #44 · Verified by Node 2zB...</p>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="text-meta text-gold beecoin-chip px-2 py-1 rounded font-semibold">+ 1.10 BEE</p>
+              <p class="text-meta text-earth mt-1">2m ago</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-between p-3 border-b border-border gap-4">
+            <div class="flex items-center gap-4 min-w-0">
+              <div class="w-10 h-10 rounded-full bg-mint/10 flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-sm">home_iot_device</span>
+              </div>
+              <div class="min-w-0">
+                <p class="font-semibold text-charcoal text-meta">Smart Grid Integration</p>
+                <p class="text-meta text-earth truncate">Pillar #03 · Verified by Node 9cV...</p>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <p class="text-meta text-gold beecoin-chip px-2 py-1 rounded font-semibold">+ 5.00 BEE</p>
+              <p class="text-meta text-earth mt-1">5m ago</p>
+            </div>
+          </div>
+        </div>
+        <button type="button" data-wallet class="mt-6 w-full btn-primary py-3 font-semibold flex items-center justify-center gap-2">
+          Connect BEECOIN Wallet
+          <span class="material-symbols-outlined">account_balance_wallet</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Governance / Smart E-Court -->
+  <section id="governance" class="py-24 md:py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto scroll-mt-24 space-y-16">
+
+    <!-- Hero -->
+    <div class="glass-panel ecourt-hero rounded-[1.75rem] p-8 md:p-12 lg:p-14 reveal overflow-hidden relative">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-mint/8 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-mint/10 border border-mint/25 text-primary text-meta font-semibold">
+            <span class="material-symbols-outlined text-lg">gavel</span>
+            Digital Sovereignty
+          </div>
+          <h2 class="text-display text-charcoal leading-tight">
+            Smart <span class="text-primary">E-Court</span><br/>&amp; Governance
+          </h2>
+          <p class="text-earth text-body-lg max-w-xl">
+            Pioneering the world's first decentralized sustainability judicial system. Integrating Web3 transparency, generative AI legal reasoning, and big data environmental metrics.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <button type="button" data-wallet class="btn-primary px-8 py-4 font-semibold emerald-glow inline-flex items-center gap-2">
+              Launch Protocol
+              <span class="material-symbols-outlined">rocket_launch</span>
+            </button>
+            <a href="#whitepaper" class="btn-secondary px-8 py-4 font-semibold bg-white/70 inline-flex items-center gap-2">Read Whitepaper</a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 hidden lg:block">
+          <div class="animate-float">
+            <img class="w-full drop-shadow-[0_20px_50px_rgba(16,185,129,.15)]" alt="Digital scales of justice" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLDGmy3CqYk1k4BB44L5tKBxskgnAqI6Gyk1cN4XayCC_1zApH6psRylWcQQ_YMSnhRk8vUIBym2WFyrW6XfbroV-A0P_KUpeHE8hQz4ex2PHiL7elMW4MX_pttS_JzMzBiEorRmjsbX1H8CLzn9eAhBTHQiG0BdF0W1rtjHZLbfMHYpcu4eJ4tn1DCPVPNdh76DBMuAdBSYTOHQrSHy3rNeUknLWU61RDhV6LTqPldSCqyTT1cscEjfMNvAYrFtQ89XZRujCn984"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Integrated Intelligence System -->
+    <div class="reveal">
+      <header class="text-center mb-12">
+        <h3 class="text-section text-charcoal mb-2">Integrated Intelligence System</h3>
+        <p class="text-meta text-earth uppercase tracking-widest font-semibold">Web3 · AI · Big Data</p>
+      </header>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <article class="md:col-span-7 glass-panel rounded-card p-8 md:p-10 flex flex-col justify-between hover:shadow-lg transition-shadow group">
+          <div class="space-y-4">
+            <div class="w-16 h-16 rounded-card bg-mint/15 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+              <span class="material-symbols-outlined text-4xl">hub</span>
+            </div>
+            <h4 class="text-card-title text-charcoal">Web3 Immutable Proof</h4>
+            <p class="text-earth text-body-lg">Decentralized ledger technology ensures all environmental claims and legal verdicts are permanent and tamper-proof. Distributed consensus protocols validate sustainability audits.</p>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-mist text-meta text-charcoal border border-border font-semibold">Blockchain</span>
+            <span class="px-3 py-1 rounded-full bg-mist text-meta text-charcoal border border-border font-semibold">Smart Contracts</span>
+            <span class="px-3 py-1 rounded-full bg-mist text-meta text-charcoal border border-border font-semibold">Eco-NFTs</span>
+          </div>
+        </article>
+        <article class="md:col-span-5 glass-panel rounded-card p-8 md:p-10 group overflow-hidden relative">
+          <div class="relative z-10 space-y-4">
+            <div class="w-16 h-16 rounded-card bg-gold/15 flex items-center justify-center text-gold group-hover:rotate-6 transition-transform">
+              <span class="material-symbols-outlined text-4xl">psychology</span>
+            </div>
+            <h4 class="text-card-title text-charcoal">Generative AI Jurisprudence</h4>
+            <p class="text-earth text-body-lg">Advanced LLMs specialized in international environmental law provide preliminary adjudication frameworks and rapid legal analysis.</p>
+          </div>
+          <span class="material-symbols-outlined absolute -bottom-8 -right-8 text-[10rem] text-gold/10 pointer-events-none" style="font-variation-settings:'FILL' 1">neurology</span>
+        </article>
+        <article class="md:col-span-4 glass-panel rounded-card p-8 group">
+          <div class="w-12 h-12 rounded-card bg-mint/15 flex items-center justify-center text-primary mb-4">
+            <span class="material-symbols-outlined">database</span>
+          </div>
+          <h4 class="text-card-title text-charcoal mb-2">Big Data Metrics</h4>
+          <p class="text-earth text-body-lg">Real-time IoT streaming for planetary health monitoring and instant ecological insights.</p>
+        </article>
+        <article class="md:col-span-8 relative rounded-card overflow-hidden glass-panel min-h-[280px] group">
+          <img class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700" alt="Virtual adjudication chamber" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANEnZbHyNiia-w7exojpAu7bTGmvJEfFYssFabelDdpMI1ImjAqSPf42PS7fTbRAI6aOyJr-rMT-4JY2Po7UZklpekd-fx3oKheMGEa35Rb5yCmmUIt1waFPhKhgH_KpHUa5f-gA1mpzos7iK2aZLI2iWh-AvX-VG0TtfaXHE0ULHiYRkpgFDucgpTEJe6DPko_EtTvUvv-lluyg2TWRAWZJscoS--W1gle37lUQDUOEemNiMkjQ3YCcBX93Bxr0B3UXSp55jJr9c"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+          <div class="relative z-10 p-8 h-full flex flex-col justify-end min-h-[280px]">
+            <h4 class="text-card-title text-white mb-2">Virtual Adjudication Chamber</h4>
+            <p class="text-white/85 text-body-lg max-w-md">The heart of the ANABEE E-Court, where technology meets justice.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Verification flow -->
+    <div class="glass-panel rounded-[1.75rem] p-8 md:p-12 reveal">
+      <header class="text-center mb-12">
+        <h3 class="text-card-title text-charcoal mb-2">How Verification Works</h3>
+        <p class="text-earth text-body-lg">From sensor data to on-chain verdict in four transparent steps.</p>
+      </header>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 relative">
+        <div class="hidden lg:block absolute top-10 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-transparent via-mint/40 to-transparent"></div>
+        <div class="relative z-10 text-center space-y-4">
+          <div class="flow-step mx-auto rounded-full glass-panel flex items-center justify-center text-primary font-semibold text-xl emerald-glow">01</div>
+          <h5 class="font-semibold text-charcoal text-body-lg">Data Ingestion</h5>
+          <p class="text-earth text-meta">Sensors record carbon output and ecological health across all seven pillars.</p>
+        </div>
+        <div class="relative z-10 text-center space-y-4">
+          <div class="flow-step mx-auto rounded-full glass-panel flex items-center justify-center text-primary font-semibold text-xl emerald-glow">02</div>
+          <h5 class="font-semibold text-charcoal text-body-lg">AI Processing</h5>
+          <p class="text-earth text-meta">Generative AI analyzes submissions against global environmental standards.</p>
+        </div>
+        <div class="relative z-10 text-center space-y-4">
+          <div class="flow-step mx-auto rounded-full glass-panel flex items-center justify-center text-primary font-semibold text-xl emerald-glow">03</div>
+          <h5 class="font-semibold text-charcoal text-body-lg">Decentralized Jury</h5>
+          <p class="text-earth text-meta">Global token holders vote on critical sustainability cases.</p>
+        </div>
+        <div class="relative z-10 text-center space-y-4">
+          <div class="flow-step mx-auto rounded-full glass-panel flex items-center justify-center text-primary font-semibold text-xl emerald-glow">04</div>
+          <h5 class="font-semibold text-charcoal text-body-lg">On-Chain Verdict</h5>
+          <p class="text-earth text-meta">Smart contracts execute BEECOIN rewards or penalties instantly.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="rounded-[1.75rem] overflow-hidden p-10 md:p-14 text-center bg-primary border border-primary reveal relative">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,.25),transparent_60%)] pointer-events-none"></div>
+      <div class="relative z-10 space-y-6 max-w-2xl mx-auto">
+        <h3 class="text-section text-white">Ready to govern the future?</h3>
+        <p class="text-white/80 text-body-lg">Join the global movement using technology to enforce planetary boundaries. Become a validator in our Smart E-Court ecosystem.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+          <button type="button" data-wallet class="px-10 py-4 bg-mint text-white rounded-btn font-semibold emerald-glow hover:brightness-110 transition-all inline-flex items-center justify-center gap-2">
+            Apply as Magistrate
+          </button>
+          <button type="button" id="view-cases" class="px-10 py-4 border border-white/30 text-white rounded-btn font-semibold hover:bg-white/10 transition-all">
+            View Active Cases
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Roadmap -->
+  <section id="roadmap" class="section-band py-24 md:py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto scroll-mt-24">
+    <header class="text-center max-w-2xl mx-auto mb-14 reveal">
+      <span class="text-meta text-mint uppercase tracking-widest font-semibold">Global Roadmap</span>
+      <h2 class="text-section text-charcoal mt-3 mb-4">Path to Planetary Stewardship</h2>
+      <p class="text-earth text-body-lg">From UAE launch to worldwide zero-neutrality — four deliberate phases of ecosystem growth.</p>
+    </header>
+
+    <div class="relative reveal">
+      <div class="hidden lg:block absolute top-[4.5rem] left-[12.5%] right-[12.5%] h-0.5 bg-border z-0"></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="glass-panel rounded-card p-8 relative z-10 flex flex-col h-full">
+          <div class="hidden lg:flex justify-center -mt-2 mb-6">
+            <span class="w-3.5 h-3.5 rounded-full bg-mint ring-4 ring-mist"></span>
+          </div>
+          <p class="text-4xl font-bold text-primary/15 leading-none mb-3">01</p>
+          <span class="text-meta text-mint font-semibold uppercase tracking-wider">Mid-2026</span>
+          <h3 class="text-card-title text-charcoal mt-2 mb-3">Launch &amp; Foundation</h3>
+          <p class="text-earth text-body-lg flex-grow">UAE headquarters, core blockchain infrastructure, sensory networks, and BEECOIN alpha protocol.</p>
+          <span class="inline-flex mt-6 text-meta font-semibold text-mint bg-mint/10 px-3 py-1 rounded-full self-start">Active</span>
+        </article>
+        <article class="glass-panel rounded-card p-8 relative z-10 flex flex-col h-full">
+          <div class="hidden lg:flex justify-center -mt-2 mb-6">
+            <span class="w-3.5 h-3.5 rounded-full bg-gold ring-4 ring-mist"></span>
+          </div>
+          <p class="text-4xl font-bold text-primary/15 leading-none mb-3">02</p>
+          <span class="text-meta text-gold font-semibold uppercase tracking-wider">2027</span>
+          <h3 class="text-card-title text-charcoal mt-2 mb-3">75 Products Live</h3>
+          <p class="text-earth text-body-lg flex-grow">Gulf-wide platform rollout — Smart E-Court, Eco-NFTs, and all environmental products activated.</p>
+        </article>
+        <article class="glass-panel rounded-card p-8 relative z-10 flex flex-col h-full">
+          <div class="hidden lg:flex justify-center -mt-2 mb-6">
+            <span class="w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-mist"></span>
+          </div>
+          <p class="text-4xl font-bold text-primary/15 leading-none mb-3">03</p>
+          <span class="text-meta text-primary font-semibold uppercase tracking-wider">2028–2029</span>
+          <h3 class="text-card-title text-charcoal mt-2 mb-3">Global Bridges</h3>
+          <p class="text-earth text-body-lg flex-grow">Institutional partnerships, cross-border data exchange, and international funding channels.</p>
+        </article>
+        <article class="glass-panel rounded-card p-8 relative z-10 flex flex-col h-full">
+          <div class="hidden lg:flex justify-center -mt-2 mb-6">
+            <span class="w-3.5 h-3.5 rounded-full bg-charcoal ring-4 ring-mist"></span>
+          </div>
+          <p class="text-4xl font-bold text-primary/15 leading-none mb-3">04</p>
+          <span class="text-meta text-charcoal font-semibold uppercase tracking-wider">2030</span>
+          <h3 class="text-card-title text-charcoal mt-2 mb-3">Zero Neutrality</h3>
+          <p class="text-earth text-body-lg flex-grow">Planetary-scale network, open environmental API, and comprehensive global reach.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADNOC Pro League -->
+  <section id="adnoc-league" class="py-24 md:py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto scroll-mt-24">
+    <div class="glass-panel rounded-card overflow-hidden reveal relative">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#004B87]/8 via-mint/5 to-primary/8 pointer-events-none"></div>
+      <div class="relative flex flex-col gap-10 lg:grid lg:grid-cols-12 lg:gap-10 lg:items-center p-10 md:p-14">
+        <div class="lg:col-span-4 flex justify-center lg:justify-start items-center gap-5 md:gap-6 shrink-0">
+          <img src="assets/adnoc-league/adnoc-pro-league.png" alt="ADNOC Pro League" class="h-32 md:h-40 w-auto shrink-0 object-contain"/>
+          <span class="text-earth/40 text-2xl md:text-3xl font-light select-none shrink-0" aria-hidden="true">×</span>
+          <img src="assets/anabee-logo.png" alt="ANABEE" class="h-28 md:h-36 w-auto shrink-0 object-contain"/>
+        </div>
+        <div class="lg:col-span-5 text-center lg:text-left min-w-0">
+          <p class="text-meta text-adnoc font-semibold uppercase tracking-widest mb-2">UAE · 2026–2027 Season</p>
+          <h2 class="text-section text-charcoal mb-3">ANABEE × ADNOC Pro League</h2>
+          <p class="text-earth text-body-lg max-w-2xl mx-auto lg:mx-0">
+            The Ana Bee'i sports initiative brings environmental stewardship to professional football — 14 clubs, 7 environmental pillars, and season-long ADNOC awards across the league.
+          </p>
+        </div>
+        <div class="lg:col-span-3 flex justify-center lg:justify-end">
+          <a href="adnoc-league.html" class="btn-primary inline-flex items-center gap-2 px-8 py-4 font-semibold whitespace-nowrap">
+            Explore Initiative
+            <span class="material-symbols-outlined">sports_soccer</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Whitepaper & Partners -->
+  <section id="whitepaper" class="py-24 md:py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto scroll-mt-24">
+    <div class="glass-panel rounded-card p-10 md:p-16 text-center reveal relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-mint/5 to-gold/5 pointer-events-none"></div>
+      <div class="relative max-w-2xl mx-auto">
+        <span class="material-symbols-outlined text-5xl text-primary mb-4">description</span>
+        <h2 class="text-section text-charcoal mb-4">ANABEE Manifesto & Whitepaper</h2>
+        <p class="text-earth text-body-lg mb-8">Deep dive into tokenomics, governance architecture, sensory networks, Smart E-Court verification, and the path to verifiable planetary health.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <button type="button" id="download-whitepaper" class="btn-primary px-10 py-4 font-semibold inline-flex items-center gap-2">
+            Download Whitepaper
+            <span class="material-symbols-outlined">download</span>
+          </button>
+          <button type="button" id="join-waitlist" class="btn-secondary px-10 py-4 font-semibold bg-white/70">Join Waitlist</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="partners" class="mt-20 reveal">
+      <h3 class="text-meta text-center uppercase tracking-widest text-earth mb-10">Strategic Alliance Network</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div class="feature-card p-6 flex items-center justify-center min-h-[80px]">
+          <span class="text-meta font-semibold text-earth text-center">BlackRock</span>
+        </div>
+        <div class="feature-card p-6 flex items-center justify-center min-h-[80px]">
+          <span class="text-meta font-semibold text-earth text-center">Goldman Sachs</span>
+        </div>
+        <div class="feature-card p-6 flex items-center justify-center min-h-[80px]">
+          <span class="text-meta font-semibold text-earth text-center">World Bank</span>
+        </div>
+        <div class="feature-card p-6 flex items-center justify-center min-h-[80px]">
+          <span class="text-meta font-semibold text-earth text-center">ADIB</span>
+        </div>
+        <div class="feature-card p-6 flex items-center justify-center min-h-[80px] col-span-2 md:col-span-1">
+          <span class="text-meta font-semibold text-earth text-center">FAB</span>
+        </div>
+      </div>
+      <p class="text-center text-meta text-earth/70 mt-6">Institutional partnership invitations — placeholders for alliance network.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-border bg-mist py-16 px-margin-mobile md:px-margin-desktop">
+  <div class="max-w-container-max mx-auto grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-5">
+      <a href="#ecosystem" class="inline-block mb-4">
+        <img src="assets/anabee-logo.png" alt="ANABEE" class="h-10 w-auto object-contain"/>
+      </a>
+      <p class="text-earth text-meta max-w-sm leading-relaxed">Pioneering the Natural Tech ecosystem for transparent environmental stewardship. Originating from the United Arab Emirates.</p>
+      <p class="text-earth text-meta mt-8">© 2026 ANABEE Ecosystem. All rights reserved.</p>
+    </div>
+    <div class="md:col-span-3 md:col-start-7">
+      <h4 class="text-meta uppercase tracking-wider font-semibold mb-4 text-charcoal">Ecosystem</h4>
+      <ul class="space-y-3 text-meta">
+        <li><a href="#ecosystem" class="text-earth hover:text-primary transition-colors">Environmental Data</a></li>
+        <li><a href="#pillars" class="text-earth hover:text-primary transition-colors">7 Pillars</a></li>
+        <li><a href="#governance" class="text-earth hover:text-primary transition-colors">Smart E-Court</a></li>
+        <li><a href="#economy" class="text-earth hover:text-primary transition-colors">BEECOIN</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-2">
+      <h4 class="text-meta uppercase tracking-wider font-semibold mb-4 text-charcoal">Organization</h4>
+      <ul class="space-y-3 text-meta">
+        <li><a href="adnoc-league.html" class="text-earth hover:text-primary transition-colors">ADNOC Pro League</a></li>
+        <li><a href="#roadmap" class="text-earth hover:text-primary transition-colors">Global Roadmap</a></li>
+        <li><a href="#partners" class="text-earth hover:text-primary transition-colors">Partners</a></li>
+        <li><a href="#whitepaper" class="text-earth hover:text-primary transition-colors">Whitepaper</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

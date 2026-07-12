@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="ANABEE × ADNOC Pro League — Environmental sports initiative launching from the UAE for the 2026–2027 season."/>
+  <title>ANABEE × ADNOC Pro League</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F4C3A',
+            mint: '#10B981',
+            gold: '#C5A059',
+            adnoc: '#004B87',
+            surface: '#FCFAF7',
+            mist: '#F3F5F4',
+            charcoal: '#1A1A1A',
+            earth: '#5C6160',
+            border: '#E2E5E4',
+          },
+          spacing: {
+            'container-max': '1440px',
+            'margin-desktop': '64px',
+            'margin-mobile': '20px',
+          },
+          fontFamily: {
+            sans: ['Manrope', 'system-ui', 'sans-serif'],
+          },
+          fontSize: {
+            'body-lg': ['1.125rem', { lineHeight: '1.75', fontWeight: '400' }],
+            'meta': ['0.875rem', { lineHeight: '1.4', fontWeight: '500' }],
+          },
+          borderRadius: { btn: '0.5rem', card: '0.875rem' },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'Manrope', sans-serif; }
+    .glass-panel {
+      background: rgba(255,255,255,.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid #E2E5E4;
+      box-shadow: 0 4px 24px rgba(0,0,0,.04);
+    }
+    .btn-primary {
+      background: #0F4C3A;
+      color: #fff;
+      border-radius: 0.5rem;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(15,76,58,.2); }
+    .nav-link { color: #5C6160; transition: color .2s; }
+    .nav-link:hover { color: #0F4C3A; }
+    .nav-link.nav-active { color: #0F4C3A !important; font-weight: 600; border-bottom: 2px solid #0F4C3A; padding-bottom: 2px; }
+    #site-nav.nav-scrolled { background: rgba(252,250,247,.95); box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+    .feature-card {
+      background: #F3F5F4;
+      border: 1px solid #E2E5E4;
+      border-radius: 0.875rem;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .feature-card:hover {
+      box-shadow: 0 4px 20px rgba(15, 76, 58, 0.08);
+      transform: translateY(-2px);
+    }
+    #toast.visible { opacity: 1; transform: translateY(0); }
+    .btn-adnoc { background: #004B87; color: #fff; border-radius: 0.5rem; }
+    .btn-adnoc:hover { filter: brightness(1.1); }
+    .hero-league {
+      background: linear-gradient(135deg, rgba(0,75,135,.06) 0%, rgba(15,76,58,.08) 50%, rgba(252,250,247,1) 100%);
+    }
+    .icon-badge { background: rgba(15,76,58,.08); border: 1px solid rgba(15,76,58,.12); }
+    .video-frame {
+      aspect-ratio: 16 / 9;
+      background: #0B1914;
+      border-radius: 0.875rem;
+      overflow: hidden;
+    }
+    .video-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body class="bg-surface text-charcoal antialiased overflow-x-hidden">
+
+<header id="site-nav" class="fixed top-0 inset-x-0 z-50 border-b border-border/60 backdrop-blur-md transition-shadow">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center shrink-0">
+      <img src="assets/anabee-logo-mark.png" alt="ANABEE" class="h-11 md:h-12 w-auto object-contain"/>
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 text-meta" aria-label="Main">
+      <a href="index.html#ecosystem" class="nav-link">Ecosystem</a>
+      <a href="index.html#pillars" class="nav-link">Pillars</a>
+      <a href="index.html#economy" class="nav-link">BEECOIN</a>
+      <a href="index.html#governance" class="nav-link">Governance</a>
+      <a href="index.html#roadmap" class="nav-link">Roadmap</a>
+      <a href="index.html#whitepaper" class="nav-link">Whitepaper</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <span class="hidden md:inline-flex items-center gap-1 px-3 py-1.5 rounded-btn border border-border text-meta font-semibold text-earth" title="More languages coming soon">EN</span>
+      <button id="wallet-btn" type="button" class="hidden sm:inline-flex btn-primary px-6 py-2.5 text-meta font-semibold">Connect Wallet</button>
+      <button id="mobile-toggle" type="button" class="lg:hidden text-primary p-2" aria-label="Open menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mobile-menu" class="hidden fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm" aria-hidden="true">
+  <div class="absolute right-0 top-0 h-full w-[min(100%,320px)] bg-surface p-6 shadow-2xl flex flex-col">
+    <div class="flex justify-between items-center mb-8">
+      <img src="assets/anabee-logo-mark.png" alt="ANABEE" class="h-10 w-auto object-contain"/>
+      <button id="mobile-close" type="button" class="text-earth p-2" aria-label="Close menu">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-4 text-body-lg">
+      <a href="index.html#ecosystem" class="nav-link">Ecosystem</a>
+      <a href="index.html#pillars" class="nav-link">7 Pillars</a>
+      <a href="index.html#economy" class="nav-link">BEECOIN Economy</a>
+      <a href="index.html#governance" class="nav-link">Smart E-Court</a>
+      <a href="index.html#roadmap" class="nav-link">Roadmap</a>
+      <a href="index.html#whitepaper" class="nav-link">Whitepaper</a>
+      <a href="adnoc-league.html" class="nav-link nav-active">ADNOC Pro League</a>
+    </nav>
+    <button type="button" data-wallet class="mt-8 btn-primary w-full py-3 font-semibold">Connect Wallet</button>
+  </div>
+</div>
+
+<div id="wallet-modal" class="hidden fixed inset-0 z-[70] flex items-center justify-center bg-black/50 p-4" aria-hidden="true" role="dialog" aria-labelledby="wallet-title">
+  <div class="glass-panel rounded-card max-w-md w-full p-8 relative">
+    <button id="wallet-close" type="button" class="absolute top-4 right-4 text-earth hover:text-primary" aria-label="Close">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <h2 id="wallet-title" class="text-2xl font-semibold text-charcoal mb-2">Connect Wallet</h2>
+    <p class="text-earth text-meta mb-6">Choose a provider to join the ANABEE ecosystem. Full wallet integration launches with mainnet.</p>
+    <div class="space-y-3">
+      <button type="button" class="w-full feature-card px-4 py-3 flex items-center gap-3 text-left">
+        <span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+        <span class="font-semibold">MetaMask</span>
+      </button>
+      <button type="button" class="w-full feature-card px-4 py-3 flex items-center gap-3 text-left">
+        <span class="material-symbols-outlined text-primary">hub</span>
+        <span class="font-semibold">WalletConnect</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[80] px-6 py-3 rounded-btn bg-primary text-white text-meta font-medium shadow-lg opacity-0 translate-y-4 transition-all duration-300 pointer-events-none" role="status"></div>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero-league pt-28 md:pt-36 pb-20 md:pb-28 px-margin-mobile md:px-margin-desktop scroll-mt-24">
+    <div class="max-w-container-max mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-meta text-adnoc font-semibold uppercase tracking-widest mb-3">ANABEE × ADNOC Pro League</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-charcoal leading-tight mb-4">
+          Ana Bee'i Sports Initiative
+        </h1>
+        <p class="text-earth text-lg leading-relaxed mb-8">
+          A new environmental vision launching from the United Arab Emirates — beginning the <strong>2026–2027 season</strong> across the ADNOC Professional League.
+        </p>
+        <div class="grid grid-cols-3 gap-4 mb-8">
+          <div class="glass-panel rounded-card p-4 text-center">
+            <p class="text-3xl font-bold text-primary">14</p>
+            <p class="text-meta text-earth mt-1">Participating Clubs</p>
+          </div>
+          <div class="glass-panel rounded-card p-4 text-center">
+            <p class="text-3xl font-bold text-mint">7</p>
+            <p class="text-meta text-earth mt-1">Environmental Pillars</p>
+          </div>
+          <div class="glass-panel rounded-card p-4 text-center">
+            <p class="text-3xl font-bold text-gold">2026</p>
+            <p class="text-meta text-earth mt-1">Launch Season</p>
+          </div>
+        </div>
+        <a href="#partnership" class="btn-primary inline-flex items-center gap-2 px-8 py-4 font-semibold">
+          Partnership Details
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+      <div class="relative w-full max-w-lg mx-auto">
+        <div class="video-frame shadow-lg mb-8">
+          <video autoplay muted loop playsinline preload="metadata" aria-label="Artistic football and breakdance for Ana Bee'i">
+            <source src="assets/videos/artistic-football-breakdance.mp4" type="video/mp4"/>
+          </video>
+        </div>
+        <div class="flex justify-center items-center gap-6 md:gap-10">
+          <img src="assets/adnoc-league/adnoc-pro-league.png" alt="ADNOC Pro League" class="h-32 md:h-40 w-auto shrink-0 object-contain drop-shadow-lg"/>
+          <span class="text-earth/40 text-3xl font-light select-none shrink-0" aria-hidden="true">×</span>
+          <img src="assets/anabee-logo.png" alt="ANABEE" class="h-28 md:h-36 w-auto shrink-0 object-contain"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction -->
+  <section class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop bg-mist border-y border-border">
+    <div class="max-w-container-max mx-auto max-w-3xl">
+      <h2 class="text-3xl font-bold text-charcoal mb-4">Introduction</h2>
+      <p class="text-primary text-lg font-medium mb-6">Why protecting the environment is a fundamental human responsibility</p>
+      <p class="text-earth text-lg leading-relaxed mb-4">
+        Humanity was created with intellect and entrusted with the Earth and its resources — a reciprocal relationship that imposes a duty to protect the environment. Recognizing our impact on nature makes every individual a partner in safeguarding their surroundings.
+      </p>
+      <p class="text-earth text-lg leading-relaxed mb-8">
+        Excessive consumption has depleted resources, polluted air and water, driven species to extinction, and accelerated climate change — demanding a renewed relationship with our planet. This initiative was born from that awareness: a personal pledge that begins with the individual, extends to community, and reaches the world.
+      </p>
+      <div class="glass-panel rounded-card p-8">
+        <h3 class="text-xl font-semibold text-charcoal mb-4">Deep Roots</h3>
+        <p class="text-earth mb-4">Environmental stewardship is a value upheld by faiths and civilizations throughout history:</p>
+        <blockquote class="text-lg text-primary border-l-4 border-mint pl-4 mb-4 italic">"If the Hour comes while one of you holds a sapling, let him plant it." — Prophetic tradition</blockquote>
+        <blockquote class="text-lg text-primary border-l-4 border-mint pl-4 italic">"Do not cause corruption on earth after it has been set right." — Al-A'raf 56</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section id="vision" class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <header class="max-w-3xl mb-12">
+      <h2 class="text-3xl font-bold text-charcoal mb-4">Vision</h2>
+      <p class="text-earth text-lg leading-relaxed">
+        For the Ana Bee'i – ANABEE initiative to become a global leading platform for environmental awareness — launched from the UAE through the ADNOC Pro League — uniting people from across the world under one environmental pledge.
+      </p>
+    </header>
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="glass-panel rounded-card p-8">
+        <span class="material-symbols-outlined text-mint text-3xl mb-4">home_pin</span>
+        <h3 class="font-semibold text-charcoal text-lg mb-2">Locally</h3>
+        <p class="text-earth">Launching from the ADNOC Pro League and its UAE clubs.</p>
+      </article>
+      <article class="glass-panel rounded-card p-8">
+        <span class="material-symbols-outlined text-gold text-3xl mb-4">public</span>
+        <h3 class="font-semibold text-charcoal text-lg mb-2">Regionally</h3>
+        <p class="text-earth">Expanding across Gulf and Arab sporting forums.</p>
+      </article>
+      <article class="glass-panel rounded-card p-8">
+        <span class="material-symbols-outlined text-primary text-3xl mb-4">language</span>
+        <h3 class="font-semibold text-charcoal text-lg mb-2">Globally</h3>
+        <p class="text-earth">An international platform aligned with sustainability and the COP28 legacy.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Sporting role models -->
+  <section class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop bg-mist border-y border-border">
+    <div class="max-w-container-max mx-auto">
+      <header class="mb-12">
+        <h2 class="text-3xl font-bold text-charcoal mb-2">Sporting Role Models</h2>
+        <p class="text-xl text-earth">Today's player is tomorrow's environmental role model.</p>
+      </header>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="glass-panel rounded-card p-6 text-center">
+          <img src="assets/adnoc-league/image-4-1.png" alt="" class="w-14 h-14 mx-auto mb-4 object-contain"/>
+          <h3 class="font-semibold text-charcoal mb-2">Mass Reach</h3>
+          <p class="text-meta text-earth">Millions follow ADNOC Pro League stars — sustainable behaviors spread fast.</p>
+        </article>
+        <article class="glass-panel rounded-card p-6 text-center">
+          <img src="assets/adnoc-league/image-4-2.png" alt="" class="w-14 h-14 mx-auto mb-4 object-contain"/>
+          <h3 class="font-semibold text-charcoal mb-2">Youth Inspiration</h3>
+          <p class="text-meta text-earth">Young fans emulate their heroes on and off the pitch.</p>
+        </article>
+        <article class="glass-panel rounded-card p-6 text-center">
+          <img src="assets/adnoc-league/image-4-3.png" alt="" class="w-14 h-14 mx-auto mb-4 object-contain"/>
+          <h3 class="font-semibold text-charcoal mb-2">Global Message</h3>
+          <p class="text-meta text-earth">Continental and international presence carries Ana Bee'i worldwide.</p>
+        </article>
+        <article class="glass-panel rounded-card p-6 text-center">
+          <img src="assets/adnoc-league/image-4-4.png" alt="" class="w-14 h-14 mx-auto mb-4 object-contain"/>
+          <h3 class="font-semibold text-charcoal mb-2">Daily Habits</h3>
+          <p class="text-meta text-earth">Simple environmental steps led by players in everyday life.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Season presence -->
+  <section id="season" class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <header class="mb-12 max-w-3xl">
+      <h2 class="text-3xl font-bold text-charcoal mb-4">Ana Bee'i Throughout the Season</h2>
+      <p class="text-earth text-lg">Environmental messages synchronized with the UAE's sustainability leadership.</p>
+    </header>
+    <div class="grid lg:grid-cols-2 gap-10">
+      <div>
+        <h3 class="font-semibold text-charcoal mb-4 flex items-center gap-2">
+          <img src="assets/adnoc-league/image-5-1.png" alt="" class="w-8 h-8 object-contain"/>
+          Where the brand appears
+        </h3>
+        <ul class="space-y-3 text-earth">
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-mint text-sm mt-0.5">check_circle</span> On the shoulders of all player jerseys</li>
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-mint text-sm mt-0.5">check_circle</span> Stadium screens and match-day venues</li>
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-mint text-sm mt-0.5">check_circle</span> Training camps and practice sessions</li>
+          <li class="flex items-start gap-2"><span class="material-symbols-outlined text-mint text-sm mt-0.5">check_circle</span> League events and official occasions</li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <article class="glass-panel rounded-card p-5 flex gap-4">
+          <div class="text-center shrink-0 w-16"><p class="text-meta text-mint font-bold">AUG</p><p class="text-xs text-earth">Opening</p></div>
+          <div><p class="font-semibold text-charcoal">Season Kickoff</p><p class="text-meta text-earth">We start clean — Ana Bee'i on every pitch.</p></div>
+        </article>
+        <article class="glass-panel rounded-card p-5 flex gap-4">
+          <div class="text-center shrink-0 w-16"><p class="text-meta text-gold font-bold">DEC</p><p class="text-xs text-earth">Mid-season</p></div>
+          <div><p class="font-semibold text-charcoal">National Environment Day</p><p class="text-meta text-earth">Every drop counts.</p></div>
+        </article>
+        <article class="glass-panel rounded-card p-5 flex gap-4">
+          <div class="text-center shrink-0 w-16"><p class="text-meta text-primary font-bold">MAR</p><p class="text-xs text-earth">Decisive</p></div>
+          <div><p class="font-semibold text-charcoal">Final Stretch</p><p class="text-meta text-earth">Clean energy for clean crowds.</p></div>
+        </article>
+        <article class="glass-panel rounded-card p-5 flex gap-4">
+          <div class="text-center shrink-0 w-16"><p class="text-meta text-charcoal font-bold">MAY</p><p class="text-xs text-earth">Finale</p></div>
+          <div><p class="font-semibold text-charcoal">Season Close</p><p class="text-meta text-earth">Champions on the pitch, champions for the Earth.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section id="awards" class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop bg-mist border-y border-border">
+    <div class="max-w-container-max mx-auto">
+      <header class="text-center max-w-2xl mx-auto mb-12">
+        <img src="assets/adnoc-league/adnoc-logo.svg" alt="ADNOC" class="h-14 md:h-16 w-auto mx-auto mb-4 object-contain"/>
+        <p class="text-meta text-adnoc font-semibold uppercase tracking-widest mb-2">Presented by ADNOC</p>
+        <h2 class="text-3xl font-bold text-charcoal mb-4">Ana Bee'i Awards</h2>
+        <p class="text-earth text-lg">Season-long recognition supporting sustainability and protecting the UAE's environment.</p>
+      </header>
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        <article class="glass-panel rounded-card p-8 text-center">
+          <img src="assets/adnoc-league/image-6-1.png" alt="" class="w-16 h-16 mx-auto mb-4 object-contain"/>
+          <h3 class="font-semibold text-charcoal mb-2">Best ANABEE Player</h3>
+          <p class="text-meta text-earth">Honored at season end for environmental commitment and youth leadership.</p>
+        </article>
+        <article class="glass-panel rounded-card p-8 text-center">
+          <img src="assets/adnoc-league/image-6-2.png" alt="" class="w-16 h-16 mx-auto mb-4 object-contain"/>
+          <h3 class="font-semibold text-charcoal mb-2">Best ANABEE Facility</h3>
+          <p class="text-meta text-earth">For the sports venue that best implements sustainable practices.</p>
+        </article>
+        <article class="glass-panel rounded-card p-8 text-center">
+          <img src="assets/adnoc-league/image-6-3.png" alt="" class="w-16 h-16 mx-auto mb-4 object-contain"/>
+          <h3 class="font-semibold text-charcoal mb-2">Best ANABEE Supporters</h3>
+          <p class="text-meta text-earth">For the fan group that leads in environmental awareness and behavior.</p>
+        </article>
+      </div>
+      <div class="glass-panel rounded-card p-8 max-w-3xl mx-auto">
+        <h3 class="font-semibold text-charcoal mb-2 flex items-center gap-2">
+          <img src="assets/adnoc-league/image-6-4.png" alt="" class="w-8 h-8"/>
+          Selection: Specialized Environmental Auditing
+        </h3>
+        <p class="text-earth text-body-lg">
+          Awards are granted through Environmental Friendly &amp; Ecological Auditing — measuring real impact on the UAE's environment and natural ecosystems.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership -->
+  <section id="partnership" class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="glass-panel rounded-card p-10 md:p-14 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-adnoc/5 to-mint/5 pointer-events-none"></div>
+      <div class="relative max-w-3xl">
+        <div class="flex flex-wrap items-center gap-6 mb-8">
+          <img src="assets/adnoc-league/adnoc-pro-league.png" alt="ADNOC Pro League" class="h-20 w-auto object-contain"/>
+          <img src="assets/adnoc-league/adnoc-logo.svg" alt="ADNOC" class="h-12 w-auto object-contain"/>
+        </div>
+        <h2 class="text-3xl font-bold text-charcoal mb-4">Partnership &amp; Sponsorship</h2>
+        <p class="text-earth text-lg mb-8">
+          In partnership with the ANABEE Global Sustainability Initiative — preserving the Earth for generations to come.
+        </p>
+        <h3 class="font-semibold text-charcoal mb-4">League sponsorship placements</h3>
+        <ul class="grid sm:grid-cols-2 gap-3 text-earth mb-10">
+          <li class="flex items-center gap-2"><img src="assets/adnoc-league/image-7-4.png" alt="" class="w-6 h-6"/> Player jersey shoulders</li>
+          <li class="flex items-center gap-2"><img src="assets/adnoc-league/image-7-5.png" alt="" class="w-6 h-6"/> Pitch boards and playing surface</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-mint">phone_android</span> Ana Bee'i Meter app &amp; digital platforms</li>
+          <li class="flex items-center gap-2"><span class="material-symbols-outlined text-gold">emoji_events</span> End-of-season awards ceremony</li>
+        </ul>
+        <p class="text-2xl font-bold text-primary mb-8">
+          Let's make the ADNOC Pro League the world's first sustainable environmental league.
+        </p>
+        <p class="text-meta text-earth">
+          Study prepared by the office of Dr. Eng. Ali Al-Muqr Al-Shahri — Business Development Consultancy<br/>
+          CN6244349 — Abu Dhabi, United Arab Emirates
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-border bg-mist py-10 px-margin-mobile md:px-margin-desktop text-center">
+  <a href="index.html" class="text-primary font-semibold hover:underline">← Back to ANABEE Ecosystem</a>
+  <p class="text-meta text-earth mt-4">© 2026 ANABEE Ecosystem · ADNOC Pro League Initiative</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

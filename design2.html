@@ -1,0 +1,1269 @@
+<!-- ANABEE | BEECOIN Economy (Light) -->
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BEECOIN Economy Dashboard - ANABEE</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "tertiary": "#5f5e5e",
+                    "primary-fixed": "#6ffbbe",
+                    "on-surface": "#191c1d",
+                    "surface-container-high": "#e7e8e9",
+                    "secondary-fixed-dim": "#e9c349",
+                    "primary": "#006c49",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191c1d",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2e3132",
+                    "on-primary-fixed": "#002113",
+                    "outline": "#6c7a71",
+                    "tertiary-fixed": "#e4e2e1",
+                    "surface": "#f8f9fa",
+                    "tertiary-container": "#a4a2a2",
+                    "surface-tint": "#006c49",
+                    "background": "#f8f9fa",
+                    "surface-bright": "#f8f9fa",
+                    "on-primary-container": "#00422b",
+                    "secondary-container": "#fed65b",
+                    "surface-container": "#edeeef",
+                    "primary-container": "#10b981",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-fixed": "#241a00",
+                    "outline-variant": "#bbcabf",
+                    "error-container": "#ffdad6",
+                    "secondary": "#735c00",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "primary-fixed-dim": "#4edea3",
+                    "secondary-fixed": "#ffe088",
+                    "surface-container-low": "#f3f4f5",
+                    "inverse-primary": "#4edea3",
+                    "surface-dim": "#d9dadb",
+                    "surface-variant": "#e1e3e4",
+                    "on-surface-variant": "#3c4a42",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-primary-fixed-variant": "#005236",
+                    "on-tertiary-container": "#393939",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#745c00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "container-max": "1440px",
+                    "margin-mobile": "20px",
+                    "section-gap": "120px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-xl": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Glassmorphism utilities */
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04), 0px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        
+        .beecoin-chip {
+            background-color: rgba(233, 195, 73, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="bg-surface/70 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/50 shadow-[0px_4px_24px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<!-- Brand -->
+<div class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-primary flex items-center gap-2 hover:scale-[1.02] transition-transform duration-200">
+<span class="material-symbols-outlined icon-fill text-[32px]">hive</span>
+                ANABEE
+            </div>
+<!-- Navigation -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200" href="#">Ecosystem</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200" href="#">Pillars</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200" href="#">Governance</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200" href="#">Roadmap</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200" href="#">Whitepaper</a>
+</nav>
+<!-- Action -->
+<button class="bg-primary-container text-on-primary font-body-md text-body-md font-medium px-6 py-2.5 rounded-full hover:brightness-110 hover:scale-[1.02] transition-all duration-200 active:scale-[0.98]">
+                Connect Wallet
+            </button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-32 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-16">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 relative z-10">
+<div class="max-w-2xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary-container"></span>
+</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Live Network Status</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-4">BEECOIN Economy</h1>
+<p class="text-on-surface-variant font-body-md text-body-md text-lg">Real-time metrics of the "Mined by Behavior" protocol, quantifying environmental stewardship across 75 distinct impact pillars.</p>
+</div>
+<div class="beecoin-chip rounded-full px-4 py-2 border border-secondary-fixed-dim/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-lg">monetization_on</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase">Current Epoch: 42.A</span>
+</div>
+</section>
+<!-- Key Metrics Row -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Metric 1 -->
+<div class="glass-card rounded-xl p-8 hover:-translate-y-1 transition-transform duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2 py-1 rounded">+2.4% 24h</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">Total Minted</p>
+<div class="font-headline-lg text-headline-lg text-on-surface flex items-baseline gap-2">
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim tracking-wider">BEE</span>
+                    482.5M
+                </div>
+</div>
+<!-- Metric 2 -->
+<div class="glass-card rounded-xl p-8 hover:-translate-y-1 transition-transform duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">recycling</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim beecoin-chip px-2 py-1 rounded">Active</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">Mined by Behavior Rate</p>
+<div class="font-headline-lg text-headline-lg text-on-surface flex items-baseline gap-2">
+                    12.4
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">BEE/sec</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="glass-card rounded-xl p-8 hover:-translate-y-1 transition-transform duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">public</span>
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2 py-1 rounded">Verified</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">Active Environmental Pillars</p>
+<div class="font-headline-lg text-headline-lg text-on-surface flex items-baseline gap-2">
+                    75<span class="text-outline-variant text-xl">/75</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="glass-card rounded-xl p-8 hover:-translate-y-1 transition-transform duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">energy_savings_leaf</span>
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2 py-1 rounded">+18% 30d</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">Total Carbon Offset</p>
+<div class="font-headline-lg text-headline-lg text-on-surface flex items-baseline gap-2">
+                    2.1M
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">Tons</span>
+</div>
+</div>
+</section>
+<!-- Main Bento Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Chart Area (Spans 8 cols) -->
+<div class="lg:col-span-8 glass-card rounded-xl p-8 flex flex-col h-[500px]">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Ecosystem Velocity</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Behavioral mining issuance over the last 30 epochs.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-sm font-medium rounded-md bg-surface-variant text-on-surface hover:bg-surface-dim transition-colors">1D</button>
+<button class="px-3 py-1 text-sm font-medium rounded-md bg-primary-container text-on-primary shadow-sm">1W</button>
+<button class="px-3 py-1 text-sm font-medium rounded-md bg-surface-variant text-on-surface hover:bg-surface-dim transition-colors">1M</button>
+</div>
+</div>
+<!-- Chart Placeholder using animated SVG or Image -->
+<div class="flex-grow rounded-lg overflow-hidden relative bg-surface border border-outline-variant/30 flex items-center justify-center">
+<div class="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-multiply" data-alt="A clean, modern data visualization chart in a light theme. The chart displays a smooth, glowing green area graph representing ecosystem velocity and token issuance over time, set against an eco-pearl white background. Thin, precise grid lines map the X and Y axes, while subtle digital gold accents highlight key data peaks. The visual style is clinical, precise, and gallery-like." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlne3JLo9eWuqS8fsa5SaZHGcjt4hjBREfiOVc4tYr8v2W4I6KYtm2uZ7p-SMsEpirZ77Y1RwdLGUkRkFMmwhgl4tH4Z4BQmDpJIPexqwXlMsdVwcbpGJ_Y4RIv8H9YwiEz4bRHr7kphFhGx_CGD1E5EnCEQsVo3p29Eh3kIiPE4YHwktXjLZh_2EbfkXErriWPmEtiEmWIAMXGYFAEtoQmVHNzxzxTV0Vu99J4f1Eh-G8dTc7fDcsPlTWoGGy6AoSkzOZ-fSjknA')"></div>
+<!-- Decorative Chart Elements -->
+<div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-surface to-transparent z-10"></div>
+</div>
+</div>
+<!-- Pillars Distribution Sidebar (Spans 4 cols) -->
+<div class="lg:col-span-4 glass-card rounded-xl p-8 flex flex-col h-[500px]">
+<div class="mb-6">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Pillars Breakdown</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Top behavior categories.</p>
+</div>
+<div class="flex-grow overflow-y-auto pr-2 space-y-4 scrollbar-thin">
+<!-- Item 1 -->
+<div class="flex flex-col gap-2 p-3 rounded-lg hover:bg-surface-variant/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">water_drop</span> Ocean Cleanup
+                            </span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim">32%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 32%"></div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col gap-2 p-3 rounded-lg hover:bg-surface-variant/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">forest</span> Reforestation
+                            </span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim">28%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 28%"></div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex flex-col gap-2 p-3 rounded-lg hover:bg-surface-variant/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">solar_power</span> Clean Energy Adoption
+                            </span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim">18%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 18%"></div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex flex-col gap-2 p-3 rounded-lg hover:bg-surface-variant/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">compost</span> Waste Reduction
+                            </span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim">12%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 12%"></div>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full py-3 border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface hover:bg-surface-variant transition-colors flex items-center justify-center gap-2 group">
+                    View All 75 Pillars
+                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Bottom Left (Spans 6) -->
+<div class="lg:col-span-6 glass-card rounded-xl p-8 relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Tokenomics Integrity</h2>
+<div class="beecoin-chip rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-fixed-dim">verified_user</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-8">
+<div class="p-4 rounded-lg bg-surface/50 border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Community Pool</p>
+<p class="font-body-md text-body-md text-on-surface font-medium text-lg">60.0%</p>
+</div>
+<div class="p-4 rounded-lg bg-surface/50 border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Ecosystem Fund</p>
+<p class="font-body-md text-body-md text-on-surface font-medium text-lg">25.0%</p>
+</div>
+<div class="p-4 rounded-lg bg-surface/50 border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Core Contributors</p>
+<p class="font-body-md text-body-md text-on-surface font-medium text-lg">10.0%</p>
+</div>
+<div class="p-4 rounded-lg bg-surface/50 border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Liquidity Reserve</p>
+<p class="font-body-md text-body-md text-on-surface font-medium text-lg">5.0%</p>
+</div>
+</div>
+</div>
+<!-- Abstract BG for the card -->
+<div class="absolute -bottom-20 -right-20 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+</div>
+<!-- Bottom Right (Spans 6) -->
+<div class="lg:col-span-6 glass-card rounded-xl p-8">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Recent Minting Events</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> Real-time
+                    </span>
+</div>
+<div class="space-y-4">
+<!-- Event 1 -->
+<div class="flex items-center justify-between p-3 border-b border-outline-variant/20 last:border-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">directions_bike</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-medium">Urban Mobility Pivot</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pillar #12 • Verified by Node 8xA...</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-secondary-fixed-dim bg-secondary-container/20 px-2 py-1 rounded">+ 2.45 BEE</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Just now</p>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="flex items-center justify-between p-3 border-b border-outline-variant/20 last:border-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-medium">Zero-Waste Purchase</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pillar #44 • Verified by Node 2zB...</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-secondary-fixed-dim bg-secondary-container/20 px-2 py-1 rounded">+ 1.10 BEE</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">2m ago</p>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="flex items-center justify-between p-3 border-b border-outline-variant/20 last:border-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">home_iot_device</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-medium">Smart Grid Integration</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pillar #03 • Verified by Node 9cV...</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-secondary-fixed-dim bg-secondary-container/20 px-2 py-1 rounded">+ 5.00 BEE</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">5m ago</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full py-section-gap border-t border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="col-span-1 md:col-span-4 flex flex-col gap-4">
+<div class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined icon-fill text-[32px]">hive</span>
+                    ANABEE
+                </div>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant mt-2 max-w-sm">Pioneering the Natural Tech movement through behavioral mining and verifiable environmental impact.</p>
+<p class="font-label-sm text-label-sm text-on-tertiary-fixed-variant mt-8">© 2024 ANABEE Ecosystem. All rights reserved.</p>
+</div>
+<div class="col-span-1 md:col-span-8 flex flex-wrap gap-8 md:justify-end items-start mt-8 md:mt-0">
+<nav class="flex flex-col gap-4">
+<h3 class="font-label-sm text-label-sm text-on-surface font-bold uppercase tracking-wider mb-2">Ecosystem</h3>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Environmental Data</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Smart E-Court</a>
+</nav>
+<nav class="flex flex-col gap-4 ml-0 md:ml-12">
+<h3 class="font-label-sm text-label-sm text-on-surface font-bold uppercase tracking-wider mb-2">Protocol</h3>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">7 Pillars</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Global Roadmap</a>
+</nav>
+<nav class="flex flex-col gap-4 ml-0 md:ml-12">
+<h3 class="font-label-sm text-label-sm text-on-surface font-bold uppercase tracking-wider mb-2">Network</h3>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Institutional Partners</a>
+</nav>
+</div>
+</div>
+</footer>
+</body></html>
+
+<!-- ANABEE | Hero (Light) -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ANABEE - Natural Tech</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "tertiary": "#5f5e5e",
+                        "primary-fixed": "#6ffbbe",
+                        "on-surface": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary-fixed-dim": "#e9c349",
+                        "primary": "#006c49",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132",
+                        "on-primary-fixed": "#002113",
+                        "outline": "#6c7a71",
+                        "tertiary-fixed": "#e4e2e1",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#a4a2a2",
+                        "surface-tint": "#006c49",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "on-primary-container": "#00422b",
+                        "secondary-container": "#fed65b",
+                        "surface-container": "#edeeef",
+                        "primary-container": "#10b981",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-fixed": "#241a00",
+                        "outline-variant": "#bbcabf",
+                        "error-container": "#ffdad6",
+                        "secondary": "#735c00",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "primary-fixed-dim": "#4edea3",
+                        "secondary-fixed": "#ffe088",
+                        "surface-container-low": "#f3f4f5",
+                        "inverse-primary": "#4edea3",
+                        "surface-dim": "#d9dadb",
+                        "surface-variant": "#e1e3e4",
+                        "on-surface-variant": "#3c4a42",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-primary-fixed-variant": "#005236",
+                        "on-tertiary-container": "#393939",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#745c00"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    },
+                    spacing: {
+                        unit: "8px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px",
+                        "margin-mobile": "20px",
+                        "section-gap": "120px",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-xl": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Space Grotesk"]
+                    },
+                    fontSize: {
+                        "label-sm": ["12px", { lineHeight: "1.0", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "headline-xl": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "headline-lg": ["40px", { lineHeight: "1.2", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "1.6", letterSpacing: "0.01em", fontWeight: "400" }],
+                        "headline-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04), 0px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        
+        .pulse-dot {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-md dark:bg-surface-container/70 border-b border-white/50 shadow-[0px_4px_24px_rgba(0,0,0,0.04),0px_2px_8px_rgba(0,0,0,0.02)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
+<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim">
+                ANABEE
+            </div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200 active:scale-[0.98] active:transition-all active:duration-100" href="#">Ecosystem</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] active:scale-[0.98] active:transition-all active:duration-100" href="#">Pillars</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] active:scale-[0.98] active:transition-all active:duration-100" href="#">Governance</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] active:scale-[0.98] active:transition-all active:duration-100" href="#">Roadmap</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] active:scale-[0.98] active:transition-all active:duration-100" href="#">Whitepaper</a>
+</div>
+<button class="hidden md:block bg-primary-container text-on-primary px-6 py-3 rounded-full font-body-md text-body-md font-medium hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+                Connect Wallet
+            </button>
+<!-- Mobile Menu Trigger -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center mb-section-gap min-h-[716px]">
+<!-- Typography Column -->
+<div class="lg:col-span-7 flex flex-col gap-8 z-10">
+<div class="space-y-4">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary" dir="rtl">
+                        أول منصة رقمية ذكية صديقة للبيئة في العالم
+                    </h2>
+<h1 class="font-headline-xl text-headline-xl text-on-surface">
+                        World's First Smart Eco-Friendly Digital Platform
+                    </h1>
+</div>
+<p class="text-on-surface-variant max-w-2xl font-body-md text-body-md">
+                    Merging high-precision digital interfaces with an organic, airy sensibility. Join the movement towards sustainable digital ecosystems powered by transparent, verifiable environmental data.
+                </p>
+<div class="flex gap-4 pt-4">
+<button class="bg-primary-container text-on-primary px-8 py-4 rounded-full font-body-md text-body-md font-medium hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-[0_4px_14px_0_rgba(16,185,129,0.39)]">
+                        Explore Ecosystem
+                    </button>
+<button class="bg-surface border border-outline-variant text-on-surface px-8 py-4 rounded-full font-body-md text-body-md font-medium hover:border-primary hover:bg-surface-container-lowest transition-all duration-200">
+                        Read Whitepaper
+                    </button>
+</div>
+</div>
+<!-- Bento Grid / Glassmorphic Metrics Column -->
+<div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
+<!-- Decorative blur blob -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-fixed-dim/30 rounded-full blur-[80px] -z-10"></div>
+<div class="absolute -bottom-20 -left-20 w-64 h-64 bg-secondary-fixed-dim/20 rounded-full blur-[80px] -z-10"></div>
+<!-- BEECOIN Card -->
+<div class="glass-card rounded-xl p-8 col-span-1 sm:col-span-2 flex flex-col justify-between min-h-[160px] transform hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">generating_tokens</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">BEECOIN Value</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-container pulse-dot"></div>
+<span class="text-xs text-on-surface-variant">Live</span>
+</div>
+</div>
+<div class="mt-4 flex items-end gap-3">
+<span class="font-headline-lg text-headline-lg text-on-surface font-label-sm">$2.45</span>
+<span class="text-primary-container font-medium text-sm mb-2">+4.2% (24h)</span>
+</div>
+</div>
+<!-- Trees Planted Card -->
+<div class="glass-card rounded-xl p-6 flex flex-col justify-between min-h-[140px] transform hover:-translate-y-1 transition-transform duration-300">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">forest</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Trees Planted</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary font-label-sm">1.2M+</span>
+</div>
+<!-- Active Pillars Card -->
+<div class="glass-card rounded-xl p-6 flex flex-col justify-between min-h-[140px] transform hover:-translate-y-1 transition-transform duration-300">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Pillars</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-on-surface font-label-sm">7/7</span>
+</div>
+<!-- Floating Feature Card -->
+<div class="glass-card rounded-xl p-4 col-span-1 sm:col-span-2 flex items-center gap-4 transform hover:-translate-y-1 transition-transform duration-300 bg-gradient-to-r from-surface to-surface-container-lowest">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">compost</span>
+</div>
+<div>
+<h4 class="font-medium text-on-surface">Verified Carbon Offsets</h4>
+<p class="text-sm text-on-surface-variant">Powered by transparent ledger technology.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/30 mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-container-max mx-auto px-margin-desktop">
+<div class="md:col-span-4 flex flex-col gap-4">
+<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim">
+                    ANABEE
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4">
+                    © 2024 ANABEE Ecosystem. All rights reserved.
+                </p>
+</div>
+<div class="md:col-span-8 flex flex-wrap gap-x-12 gap-y-6 md:justify-end">
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">Environmental Data</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">Smart E-Court</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">7 Pillars</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">Global Roadmap</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">Institutional Partners</a>
+</div>
+</div>
+</footer>
+</body></html>
+
+<!-- ANABEE | The 7 Pillars (Light) -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ANABEE - The 7 Pillars</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "tertiary": "#5f5e5e",
+                      "primary-fixed": "#6ffbbe",
+                      "on-surface": "#191c1d",
+                      "surface-container-high": "#e7e8e9",
+                      "secondary-fixed-dim": "#e9c349",
+                      "primary": "#006c49",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#191c1d",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "inverse-surface": "#2e3132",
+                      "on-primary-fixed": "#002113",
+                      "outline": "#6c7a71",
+                      "tertiary-fixed": "#e4e2e1",
+                      "surface": "#f8f9fa",
+                      "tertiary-container": "#a4a2a2",
+                      "surface-tint": "#006c49",
+                      "background": "#f8f9fa",
+                      "surface-bright": "#f8f9fa",
+                      "on-primary-container": "#00422b",
+                      "secondary-container": "#fed65b",
+                      "surface-container": "#edeeef",
+                      "primary-container": "#10b981",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#e1e3e4",
+                      "on-secondary-fixed": "#241a00",
+                      "outline-variant": "#bbcabf",
+                      "error-container": "#ffdad6",
+                      "secondary": "#735c00",
+                      "on-tertiary-fixed-variant": "#474747",
+                      "primary-fixed-dim": "#4edea3",
+                      "secondary-fixed": "#ffe088",
+                      "surface-container-low": "#f3f4f5",
+                      "inverse-primary": "#4edea3",
+                      "surface-dim": "#d9dadb",
+                      "surface-variant": "#e1e3e4",
+                      "on-surface-variant": "#3c4a42",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#574500",
+                      "on-tertiary-fixed": "#1b1c1c",
+                      "inverse-on-surface": "#f0f1f2",
+                      "on-primary-fixed-variant": "#005236",
+                      "on-tertiary-container": "#393939",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#745c00"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "margin-desktop": "64px",
+                      "container-max": "1440px",
+                      "margin-mobile": "20px",
+                      "section-gap": "120px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-xl": [
+                              "Space Grotesk"
+                      ],
+                      "headline-lg": [
+                              "Space Grotesk"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Space Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-xl": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04), 0px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col pt-20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-md dark:bg-surface-container/70 border-b border-white/50 shadow-[0px_4px_24px_rgba(0,0,0,0.04)] shadow-[0px_4px_24px_rgba(0,0,0,0.04),0px_2px_8px_rgba(0,0,0,0.02)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<!-- Brand -->
+<a class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-primary dark:text-primary-fixed-dim hover:scale-[1.02] transition-transform duration-200 Active: scale-[0.98] transition-all duration-100" href="#">
+                ANABEE
+            </a>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex space-x-8 items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200 hover:scale-[1.02] Active: scale-[0.98]" href="#">Ecosystem</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 hover:scale-[1.02] transition-transform duration-200 Active: scale-[0.98] transition-all duration-100" href="#">Pillars</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200 hover:scale-[1.02] Active: scale-[0.98]" href="#">Governance</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200 hover:scale-[1.02] Active: scale-[0.98]" href="#">Roadmap</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-200 hover:scale-[1.02] Active: scale-[0.98]" href="#">Whitepaper</a>
+</div>
+<!-- Trailing Action -->
+<button class="hidden md:block bg-primary-container text-white px-6 py-3 rounded-lg font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200 Active: scale-[0.98] transition-all duration-100">
+                Connect Wallet
+            </button>
+<!-- Mobile Menu Icon (Placeholder) -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<!-- Header Section -->
+<header class="mb-section-gap text-center md:text-left max-w-3xl">
+<div class="inline-flex items-center space-x-2 bg-secondary-fixed/30 px-3 py-1 rounded-full mb-6 border border-secondary-fixed">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider">Foundation</span>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-6">The 7 Pillars of Environmental Equilibrium</h1>
+<p class="font-body-md text-body-md text-on-surface-variant text-lg md:text-xl">
+                A holistic approach to restoring and maintaining planetary health. Each pillar represents a critical interconnected system, monitored by our decentralized sensory network.
+            </p>
+</header>
+<!-- Bento Grid / Gallery Layout -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Pillar 1: Air (Large feature card) -->
+<div class="md:col-span-8 group relative rounded-2xl overflow-hidden glass-card aspect-[16/9] md:aspect-auto md:h-[500px]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A pristine, highly detailed macro photograph of dew droplets suspended on a fragile, translucent leaf skeleton, backlit by crisp, cool morning light. The image embodies a light-themed, modern 'Natural Tech' aesthetic with dominant tones of bright Eco-Pearl white and subtle Luminous Emerald green accents, conveying a sense of airy purity, clinical precision, and atmospheric clarity. Soft, ambient shadows define the delicate structure." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBnVLsnKLpo2-u66gXqt9KONhRpcBd6VqsHEUq3TrQu2Td-u-R4lWSRbwbR6F7uLOer0E8oQOPkhEnn_Zm4q6VQ_xsbUJ7h6k5j6Yk6_Lvoc7Vi3Q4pJVQgvIV1rtpJi0KDxeHwqMKlb_rgB5qMyaLmxexGXVo061ZGD6Oug9lzQbJpOTWV9dJJNYGJMhUBkgrSgNegMhqAqOPLomAZHALG2H0PBEcYc89jegzDj2YjGVxSE7doBuCaXdK2Uwjdakb7J5FuoPW9CNk')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-full p-8 glass-card rounded-b-2xl md:rounded-2xl md:m-6 md:w-auto md:max-w-md">
+<div class="flex items-center space-x-3 mb-3">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">air</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface md:text-2xl">Air Quality</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Monitoring particulate matter, CO2 levels, and atmospheric composition globally.</p>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary-container">Active Nodes: 12,450</span>
+<button class="text-primary-container hover:text-primary transition-colors"><span class="material-symbols-outlined">arrow_forward</span></button>
+</div>
+</div>
+</div>
+<!-- Pillar 2: Water (Vertical card) -->
+<div class="md:col-span-4 group relative rounded-2xl overflow-hidden glass-card aspect-square md:aspect-auto md:h-[500px]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A macro shot of a single, perfectly spherical water droplet creating a rippling splash in a shallow, crystal-clear pool. The lighting is high-key and pristine, emphasizing a light-themed 'Natural Tech' aesthetic. The color palette features expansive Eco-Pearl whites with subtle hints of cyan and Luminous Emerald green reflecting off the water. The composition is clean, architectural, and serene." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAarOFA6wxWGIC1rag4ZQV2IdwHAGsfAA-cYaMUfXRsPL8uOv-_n79qjFIG2Gg1THJ6IG1w0An6Smwvz87YSTEF4OFnrz_DbyGVBL9EgDR07ESz8kMLaeF6T9JZU5tXwbbct0MR9SIJ2rk8a4fykTedeHG1s3ECj5D_xF5JaZ6gG8zHUTN2lhZedkQzt4z03fkAx16HNnBxjTbKKLeBp1XwL8Z3WT2n6y6lsPtM2IU4kazt4Z2FWk2fAGajLpb4zDl3LKRx-fIuYnw')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-full p-6 glass-card rounded-b-2xl">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-xl">Water Purity</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Tracking pH, contaminants, and flow rates in major waterways.</p>
+</div>
+</div>
+<!-- Pillar 3: Soil -->
+<div class="md:col-span-4 group relative rounded-2xl overflow-hidden glass-card aspect-square">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A detailed macro view of rich, aerated topsoil interwoven with delicate, glowing fiber-optic threads simulating root structures. The scene is brightly lit with a light-themed, modern 'Natural Tech' vibe. Background is an expansive Eco-Pearl white, while the glowing roots feature Luminous Emerald accents. The mood is precise, organic, and optimistic, showcasing environmental stewardship." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6GmR4_aujL1drJz_niTYlwnvTOf_se6yBhcGZRWg5gHys5yIbMdtAkp_AmUhWxnb8rEFw0cyixEtvm34TIBXH-C47MbY-Mjqi3Z6e_fL6kW-5rND4TcCM2uuwgLzUeTYUBZ7HzHedvIs-elOCu1Pv4NlhuALBSz_1gunipeSscm9fO91yZaYEHrCcm5uZ_-DAlR1UBPyZBj0F89NxpBMMl3BBENDslkl15L9jZC982Lqnyiuj7s_ddlqtGKLcEH72d_oG9MDs0g4')"></div>
+<div class="absolute inset-0 bg-white/20 backdrop-blur-[2px] pointer-events-none"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<div class="glass-card p-4 rounded-xl">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">grass</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-xl">Soil Health</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Nutrient density, microbiome analysis, and erosion tracking.</p>
+</div>
+</div>
+</div>
+<!-- Pillar 4: Biodiversity -->
+<div class="md:col-span-4 group relative rounded-2xl overflow-hidden glass-card aspect-square">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="An abstract macro photograph of a vividly colored, iridescent butterfly wing resting on a clean, geometric white surface. The lighting is bright and diffuse, creating a high-end, light-themed 'Natural Tech' look. The overarching color palette relies on Eco-Pearl white with striking, saturated Luminous Emerald and azure highlights on the wing. Soft ambient shadows emphasize the gallery-like setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBIuRlQJoWOgZCHza59xpUiY1CJAH3pZFkSWS7yY3s5j1rK0DtQw1d50r9eWITjxO2n9PZQfqIkoRkk23Ob67_XatcFmQbyk90cRvqDois28UHvF5xdelN9KF5DbJCaeQMXahMXOi-o0PnWdKGeKuixj0Vx8lYIH8VTIHoXU25tKN_ZbVpND2_dAatVXoBJmBQKiE5PD77rMnfI--kC4dlivk7fbVpVQ1wsRhexqki6eFUAImyjMCzkLJ772rvY8m6o-o2dKuaTHJo')"></div>
+<div class="absolute inset-0 bg-white/20 backdrop-blur-[2px] pointer-events-none"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<div class="glass-card p-4 rounded-xl">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">bug_report</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-xl">Biodiversity</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Acoustic monitoring and species population density metrics.</p>
+</div>
+</div>
+</div>
+<!-- Pillar 5: Climate -->
+<div class="md:col-span-4 group relative rounded-2xl overflow-hidden glass-card aspect-square">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A clean, abstract macro shot of crystallized frost forming geometric patterns on a clear glass pane against a bright white background. The image fits a light-themed, modern 'Natural Tech' aesthetic. The overarching palette is a crisp Eco-Pearl white with subtle Luminous Emerald green refractions in the ice crystals. The mood is clinical, calm, and highly precise." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANFRJZWRoyPIABpM-t88mVkMdjd0P0xWy4Qfpt00ENLsyHQa9wRSj9pJ1B05rmcOWy4w1JxOsR1jx9Kv7-cHx3wAkitFuMaE8tRwxEQS8pQA_zjUzk5pOA4XjtqMK1KT2VGScOm0VoBE-g_4Wimg2UyOOQpmt9hN1qGzRr6IKkxKBbKeWswzZbMhVrkTLqZmNWsXYz4QYJo2U1YY41IMgsv_WcxKbZeOgZWbvIw5qe2Lm1ePe-NjkeCIcRIXt0l8gW3QTUtKFAzKQ')"></div>
+<div class="absolute inset-0 bg-white/20 backdrop-blur-[2px] pointer-events-none"></div>
+<div class="absolute inset-0 p-6 flex flex-col justify-end">
+<div class="glass-card p-4 rounded-xl">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">thermostat</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-xl">Climate Shift</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Micro-climate temperature variations and extreme weather prediction.</p>
+</div>
+</div>
+</div>
+<!-- Pillar 6 & 7: Horizontal Scroll Area for smaller pillars -->
+<div class="md:col-span-12 mt-8">
+<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">Emerging Focus Areas</h3>
+<div class="flex overflow-x-auto hide-scrollbar space-x-6 pb-8">
+<!-- Pillar 6: Energy -->
+<div class="flex-none w-80 group relative rounded-2xl overflow-hidden glass-card">
+<div class="h-48 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A macro photograph of a sleek, translucent solar cell component, reflecting bright white light. The aesthetic is explicitly light-themed 'Natural Tech', dominated by expansive Eco-Pearl white and offset by vibrant Luminous Emerald accents within the circuitry. Soft, multi-layered ambient shadows give the component a floating, premium appearance." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAly5F9lCn15VdXv7LwMNXAMvMxrYwK_2p5mJZi24pn-qMZs6yNarnX9LaJ9LkAJAwJG_0i3nhGUIOd908CRpvVGft4qTc8D8evE-JqlEwbU_RFpbL3F_sLVFWhX8I9Z8fFKvPU2wxSkZt83DMmbMho4nzfQYpgaMZrM8hjCtebIboAZLKaEwSnufj8kv5BJxC5oGuMP3muaikgkg44PyBw4nc_4khrOwTMq1K4Ar_Zf3-BHv3M5jpOMXx1mvyHwaW6d4is0cfFAG4')"></div>
+<div class="p-6">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<h2 class="font-body-md text-body-md font-semibold text-on-surface text-lg">Energy Flux</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Renewable energy generation metrics and grid efficiency.</p>
+</div>
+</div>
+<!-- Pillar 7: Waste -->
+<div class="flex-none w-80 group relative rounded-2xl overflow-hidden glass-card">
+<div class="h-48 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="An abstract, pristine macro shot of recycled, compressed organic materials forming a clean, geometric block on a bright white surface. The image aligns perfectly with a light-themed 'Natural Tech' style, utilizing Eco-Pearl white backgrounds and subtle Luminous Emerald green highlights. The lighting is high-key and clinical, emphasizing transparency and environmental stewardship." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXGbh_kE8DzBRLXj5rosC1Hxh_jeKCi2cs0PM4OkpXIVyglZqIM18ZwQXnkBazLMkYPd1-9Hsos4PfJVSmplhJsZcHDbRi5Ob_NZQYgKBhVIQfnyDOhgvfdhTgiQSxokCcU0G1c2rpK-yP3eysFD7JXsqOCuG4AMEhu9X4nks9bGEFXJS4tPonLcUEI5oQq3dXURl_eZYlp0amIDYKnojelz9PUA_35I-4SO1mLhMBpHJKlGF5vkzoBWh3jqhLRdpXtmiO7dAM_lg')"></div>
+<div class="p-6">
+<div class="flex items-center space-x-3 mb-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">recycling</span>
+<h2 class="font-body-md text-body-md font-semibold text-on-surface text-lg">Resource Cycle</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Tracking material repurposing and biological breakdown rates.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/30 flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Brand & Copyright -->
+<div class="md:col-span-4 flex flex-col justify-between">
+<div>
+<a class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-primary dark:text-primary-fixed-dim focus:outline-none focus:ring-2 focus:ring-primary inline-block mb-4" href="#">
+                        ANABEE
+                    </a>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-8">
+                        Pioneering the Natural Tech ecosystem for transparent environmental stewardship.
+                    </p>
+</div>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant text-sm">
+                    © 2024 ANABEE Ecosystem. All rights reserved.
+                </p>
+</div>
+<!-- Links Column 1 -->
+<div class="md:col-span-4 md:col-start-6">
+<h4 class="font-label-sm text-label-sm text-on-surface mb-6 uppercase tracking-wider">Ecosystem</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">Environmental Data</a></li>
+<li><a class="font-body-md text-body-md text-primary font-semibold focus:outline-none focus:ring-2 focus:ring-primary" href="#">7 Pillars</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">Smart E-Court</a></li>
+</ul>
+</div>
+<!-- Links Column 2 -->
+<div class="md:col-span-3">
+<h4 class="font-label-sm text-label-sm text-on-surface mb-6 uppercase tracking-wider">Organization</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">Global Roadmap</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary" href="#">Institutional Partners</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>
+
+<!-- ANABEE | Smart E-Court (Light) -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Smart E-Court - ANABEE Ecosystem</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "tertiary": "#5f5e5e",
+                        "primary-fixed": "#6ffbbe",
+                        "on-surface": "#191c1d",
+                        "surface-container-high": "#e7e8e9",
+                        "secondary-fixed-dim": "#e9c349",
+                        "primary": "#006c49",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132",
+                        "on-primary-fixed": "#002113",
+                        "outline": "#6c7a71",
+                        "tertiary-fixed": "#e4e2e1",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#a4a2a2",
+                        "surface-tint": "#006c49",
+                        "background": "#f8f9fa",
+                        "surface-bright": "#f8f9fa",
+                        "on-primary-container": "#00422b",
+                        "secondary-container": "#fed65b",
+                        "surface-container": "#edeeef",
+                        "primary-container": "#10b981",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-secondary-fixed": "#241a00",
+                        "outline-variant": "#bbcabf",
+                        "error-container": "#ffdad6",
+                        "secondary": "#735c00",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "primary-fixed-dim": "#4edea3",
+                        "secondary-fixed": "#ffe088",
+                        "surface-container-low": "#f3f4f5",
+                        "inverse-primary": "#4edea3",
+                        "surface-dim": "#d9dadb",
+                        "surface-variant": "#e1e3e4",
+                        "on-surface-variant": "#3c4a42",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-primary-fixed-variant": "#005236",
+                        "on-tertiary-container": "#393939",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#745c00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px",
+                        "margin-mobile": "20px",
+                        "section-gap": "120px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-xl": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-xl": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04), 0px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        body {
+            background-color: #F8F9FA;
+            background-image: radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.03), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(0, 108, 73, 0.03), transparent 25%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased overflow-x-hidden min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-md dark:bg-surface-container/70 border-b border-white/50 shadow-[0px_4px_24px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20 md:px-margin-desktop px-margin-mobile">
+<!-- Brand -->
+<a class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim hover:scale-[1.02] transition-transform duration-200" href="#">
+                ANABEE
+            </a>
+<!-- Desktop Navigation -->
+<ul class="hidden md:flex items-center space-x-8">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] inline-block" href="#">Ecosystem</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] inline-block" href="#">Pillars</a></li>
+<li><a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:scale-[1.02] inline-block" href="#">Governance</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] inline-block" href="#">Roadmap</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] inline-block" href="#">Whitepaper</a></li>
+</ul>
+<!-- Primary Action -->
+<button class="bg-primary-container text-on-primary hover:brightness-110 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] px-6 py-2 rounded-full font-body-md text-body-md hidden md:block">
+                Connect Wallet
+            </button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-[120px] pb-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center mb-section-gap">
+<div class="lg:col-span-5 space-y-6 z-10">
+<div class="inline-flex items-center space-x-2 bg-surface-container-high px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary-container pulse-dot"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Live Network</span>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface">
+                        Smart E-Court System
+                    </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Decentralized adjudication powered by AI jurisprudence and Web3 cryptographic proof. Resolving ecosystem disputes with mathematical fairness and immutable transparency.
+                    </p>
+<div class="flex space-x-4 pt-4">
+<button class="bg-primary-container text-on-primary hover:brightness-110 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] px-6 py-3 rounded-full font-body-md text-body-md flex items-center space-x-2 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">gavel</span>
+<span>Submit Case</span>
+</button>
+<button class="bg-transparent border border-outline text-on-surface hover:bg-surface-container transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] px-6 py-3 rounded-full font-body-md text-body-md flex items-center space-x-2">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span>View Ledger</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-7 lg:col-start-6 relative mt-12 lg:mt-0">
+<div class="absolute inset-0 bg-primary-container/5 rounded-full blur-[100px] z-0"></div>
+<div class="relative z-10 glass-card rounded-xl overflow-hidden h-[400px] md:h-[500px]">
+<img class="w-full h-full object-cover opacity-90" data-alt="A pristine 3D rendering of futuristic scales of justice floating in a clean, brightly lit, gallery-like space. The scales are constructed from translucent glass and brushed metallic accents, reflecting a soft emerald green light. The background is a soft, pearl white gradient, creating a clinical, high-tech, yet organic and calm aesthetic typical of a modern natural tech light mode interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKL4KeZ7iAia9A0pkYYrgtOI_uKIkesPpVGPh_SqgPQJgiszdDLtNq1Wky7BEzLXG6Bymz9uDeGWtPrSU86V1ew_AeKdDKMLxy3hIeMJ2Eaa5XuUxhIU3b-q5Z-xhfw4BnfYrjoojnuYYvSpooUJIBgChcw9IUrF2xodmUorcxmmsSr2UOlrQ4j5n2Xl5P8OC3pWG5yDyMKszUaCHllqq4-s0uvQtfDrSL9CsNl3Gl1YUy7H9Rl52lRXZ_hXNivkOHKZKwkSdDZw4"/>
+<!-- Overlay Stats -->
+<div class="absolute bottom-6 left-6 right-6 flex justify-between gap-4">
+<div class="glass-card p-4 rounded-lg flex-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Active Arbitrators</span>
+<span class="font-headline-lg text-headline-lg text-primary block">1,204</span>
+</div>
+<div class="glass-card p-4 rounded-lg flex-1 hidden md:block">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Resolution Time</span>
+<span class="font-headline-lg text-headline-lg text-primary block">2.4<span class="text-body-md font-body-md">hrs</span></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Infographic Section -->
+<section class="mb-section-gap relative">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-4">The Tripartite Adjudication Process</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">A seamless integration of human oversight, artificial intelligence, and blockchain verification ensuring equitable outcomes.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Step 1 -->
+<div class="glass-card p-8 rounded-xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+<div class="absolute top-0 right-0 w-24 h-24 bg-surface-tint/5 rounded-bl-full transition-all duration-300 group-hover:scale-110"></div>
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-3">1. AI Analysis</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Initial case data is processed through our jurisprudence engine. NLP models analyze precedent and contract terms.</p>
+<div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/3"></div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="glass-card p-8 rounded-xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+<div class="absolute top-0 right-0 w-24 h-24 bg-surface-tint/5 rounded-bl-full transition-all duration-300 group-hover:scale-110"></div>
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-3">2. Decentralized Jury</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Randomly selected, stake-holding ecosystem members review the AI summary and cast cryptographically secured votes.</p>
+<div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3"></div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="glass-card p-8 rounded-xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+<div class="absolute top-0 right-0 w-24 h-24 bg-surface-tint/5 rounded-bl-full transition-all duration-300 group-hover:scale-110"></div>
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock_open</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-3">3. Web3 Execution</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Smart contracts automatically execute the verdict, transferring assets or enforcing penalties immutably.</p>
+<div class="h-1 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-container-max mx-auto px-margin-desktop md:px-margin-desktop px-margin-mobile">
+<div class="md:col-span-4 mb-8 md:mb-0">
+<a class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim block mb-4" href="#">
+                    ANABEE
+                </a>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 ANABEE Ecosystem. All rights reserved.</p>
+</div>
+<div class="md:col-span-8 flex flex-wrap gap-x-8 gap-y-4 md:justify-end items-center">
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Environmental Data</a>
+<a class="font-body-md text-body-md text-primary font-semibold focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Smart E-Court</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">7 Pillars</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Global Roadmap</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Institutional Partners</a>
+</div>
+</div>
+</footer>
+</body></html>

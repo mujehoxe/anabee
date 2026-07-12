@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" dir="ltr" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Seven Interactive Pillars | ANABEE</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from system prompt -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-background": "#191c1d",
+                    "surface": "#f8f9fa",
+                    "outline": "#6c7a71",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-dim": "#d9dadb",
+                    "primary-fixed": "#6ffbbe",
+                    "surface-container": "#edeeef",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-tertiary-container": "#393939",
+                    "background": "#f8f9fa",
+                    "secondary-container": "#fed65b",
+                    "on-primary-fixed": "#002113",
+                    "on-secondary-fixed": "#241a00",
+                    "outline-variant": "#bbcabf",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-primary-fixed-variant": "#005236",
+                    "surface-container-high": "#e7e8e9",
+                    "secondary": "#735c00",
+                    "primary-container": "#10b981",
+                    "secondary-fixed": "#ffe088",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "on-primary-container": "#00422b",
+                    "tertiary-fixed": "#e4e2e1",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#191c1d",
+                    "on-secondary-container": "#745c00",
+                    "inverse-surface": "#2e3132",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e1e3e4",
+                    "primary-fixed-dim": "#4edea3",
+                    "on-surface-variant": "#3c4a42",
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#4edea3",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "surface-container-highest": "#e1e3e4",
+                    "tertiary-container": "#a4a2a2",
+                    "tertiary": "#5f5e5e",
+                    "surface-tint": "#006c49",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f8f9fa",
+                    "primary": "#006c49"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "section-gap": "120px",
+                    "container-max": "1440px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-xl": [
+                            "Space Grotesk"
+                    ],
+                    "headline-lg-mobile": [
+                            "Space Grotesk"
+                    ],
+                    "label-sm": [
+                            "JetBrains Mono"
+                    ],
+                    "headline-lg": [
+                            "Space Grotesk"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-xl": [
+                            "64px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        body {
+            background-color: #FCFAF7; /* Pristine Alabaster Cream */
+            color: #1A1A1A; /* Charcoal Near-Black */
+        }
+        
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04), 0px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        
+        .pillar-card {
+            background-color: #F3F5F4; /* Crisp Morning Mist */
+            border: 1px solid #E2E5E4; /* Soft Border Silver */
+            transition: all 0.3s ease;
+        }
+        
+        .pillar-card:hover {
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+        
+        .btn-emerald {
+            background-color: #0F4C3A; /* Deep Velvet Emerald */
+            color: white;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-emerald:hover {
+            filter: brightness(1.1);
+            transform: scale(1.02);
+        }
+        
+        .ambient-glow {
+            position: absolute;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, rgba(252, 250, 247, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+            top: -20%;
+            right: -10%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<div class="ambient-glow"></div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-md dark:bg-surface-container/70 border-b border-white/50 shadow-[0px_4px_24px_rgba(0,0,0,0.04),0px_2px_8px_rgba(0,0,0,0.02)] hidden md:block">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-20">
+<!-- Brand -->
+<a class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim" href="#">
+                ANABEE
+            </a>
+<!-- Navigation Links -->
+<div class="flex space-x-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transform" href="#">Ecosystem</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:scale-[1.02] transform transition-transform duration-200 scale-[0.98]" href="#">Pillars</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transform" href="#">Governance</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transform" href="#">Roadmap</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transform" href="#">Whitepaper</a>
+</div>
+<!-- Trailing Action -->
+<button class="btn-emerald px-6 py-3 rounded-full font-body-md text-body-md font-medium shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">wallet</span>
+                Connect Wallet
+            </button>
+</div>
+</nav>
+<!-- Mobile Nav (Simplified for example) -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-white/50 p-4 flex justify-between items-center md:hidden">
+<a class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary" href="#">ANABEE</a>
+<button class="text-on-surface">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
+<!-- Header Section -->
+<header class="text-center mb-24 max-w-3xl mx-auto">
+<h1 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl mb-6 text-on-background">
+                The Seven Interactive Pillars
+                <span class="block text-2xl md:text-3xl mt-4 font-normal text-on-surface-variant" dir="rtl">(المحاور السبعة)</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant text-lg">
+                Explore the foundational vectors driving the ANABEE ecosystem towards sustainable equilibrium. Each pillar represents a critical environmental domain integrated within our blockchain infrastructure.
+            </p>
+</header>
+<!-- Bento Grid Layout for 7 Pillars -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+<!-- Pillar 1: Air (الهواء) - Spans 2 columns on large screens -->
+<article class="pillar-card rounded-2xl overflow-hidden flex flex-col lg:col-span-2 group">
+<div class="h-64 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A breathtaking macro shot of pristine morning mist rolling over a lush, verdant forest canopy. The light is soft and diffused, filtering through the trees in delicate rays, highlighting the absolute purity and clarity of the air. The overall mood is ethereal, clean, and deeply restorative, aligning with a high-end natural tech light mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOa8WFa8GEy6BNxoe4akYD_aENrrvS411rMMv-oc7n_o78uielnDXOTi3MprSWMh_3HjOyl07-uW906Ozw30IfPN-98TdM3XZWHXhdMR3DiFCdJXFIEcWa863fgNB2YN99irAiEw5h9nNUZYqEAHsYEspuOqu7J5j5l1gt-OdCe1u5t1dOB5aGF7oLa9y9a5e4UwWIwZyr-ohKRttHuW7UmYN8bqn7s1iYJcL3WiUv3l9IiVtAGe1LWJHRRokmV73hq7cZ1CSO0Bw"/>
+<div class="absolute bottom-6 left-6 z-20 text-white">
+<h2 class="text-3xl font-bold font-headline-lg tracking-tight">Air</h2>
+<span class="text-xl font-medium block mt-1" dir="rtl">الهواء</span>
+</div>
+</div>
+<div class="p-8 flex-grow flex flex-col justify-between">
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        Monitoring atmospheric purity and carbon sequestration metrics. This pillar focuses on reducing airborne pollutants through tokenized carbon offset initiatives and real-time air quality data validation.
+                    </p>
+<div class="flex items-center gap-4 border-t border-outline-variant/30 pt-4 mt-auto">
+<div class="flex items-center gap-2 text-primary">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm">LIVE DATA</span>
+</div>
+<div class="ml-auto flex gap-2">
+<span class="inline-flex items-center rounded-md bg-[rgba(212,175,55,0.1)] px-2 py-1 font-label-sm text-label-sm text-[#D4AF37] ring-1 ring-inset ring-[rgba(212,175,55,0.2)]">124.5k BEE</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Pillar 2: Water (الماء) -->
+<article class="pillar-card rounded-2xl overflow-hidden flex flex-col group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An extreme close-up macro photograph of a perfectly spherical, crystal-clear water droplet resting on a vibrant green leaf. The droplet acts as a lens, refracting the bright, clean ambient light of a gallery-like setting. The image exudes incredible sharpness, purity, and cool hydration, fitting perfectly within a refined, optimistic natural tech visual language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIPSYNYvIXC9dHfm_3f1mlJwptvnNcatdfW_qpu7PuvmBzO-_4Jxqd5EJJyjhw891KPaFuVLJ_KE_e9TKvSIkUhzWrNtnKdfB3LMB9hsUSPnPP_FpQiB4Z-Qsp2CJnH-FkvpZRruMkHahQtofDeXeL11GFOaxzPlezfEMHQBqqL_ztOApmuKLbXFVF9zfVYvrx_XKNTH5Ige6XLfWlLPZrVGy11ZURwDdaXW1c680rptwIoIIPnkqOeTg7MLO71ruMb0z4d-FhS8w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-4 left-4 z-20 text-white">
+<h2 class="text-2xl font-bold font-headline-lg">Water</h2>
+<span class="text-lg font-medium block" dir="rtl">الماء</span>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4">
+                        Ensuring hydrologic balance and water resource management across integrated ecosystems.
+                    </p>
+<a class="mt-auto text-primary font-medium text-sm flex items-center gap-1 hover:underline" href="#">
+                        Explore Metrics <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Pillar 3: Soil (التربة) -->
+<article class="pillar-card rounded-2xl overflow-hidden flex flex-col group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A highly detailed macro image of rich, dark, fertile soil held gently in an unidentifiable pair of clean hands. Small, bright green shoots are just beginning to emerge from the earth. The lighting is warm and natural, emphasizing the organic texture and life-giving properties of the soil against a clean, light-mode background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5doyC2F8T9QD0XB-6zM1wnAgaTbmevrQtIdiYQeu-JqAOqYqkOXSTs8fmWL1CQfkfRCPAIDiCe0qYLkUtiHTwqZjQ5X2vvw4IKnd-yYH3xLXPqdjWaerQC4pTy3HsdXlaCLXGot6bjRlV2dSKU9n53s3QKBXMG4Vch34EOf2GcvZduKJCwz7xpDCc31aLg3ntIcPlq1D9ulESrvIr10iuJBAFCn1Iztdcy7dgxMlEka2aHlt5-Yp1CNLmo3Nl5SG1D3x6KwyvjWc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-4 left-4 z-20 text-white">
+<h2 class="text-2xl font-bold font-headline-lg">Soil</h2>
+<span class="text-lg font-medium block" dir="rtl">التربة</span>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4">
+                        Regenerative agriculture tracking and soil microbiome health verification.
+                    </p>
+<a class="mt-auto text-primary font-medium text-sm flex items-center gap-1 hover:underline" href="#">
+                        Explore Metrics <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Pillar 4: Energy (الطاقة) - Center Highlight -->
+<article class="glass-panel rounded-2xl overflow-hidden flex flex-col relative group lg:col-span-2">
+<div class="absolute top-0 right-0 p-4 z-20">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="flex flex-col md:flex-row h-full">
+<div class="md:w-1/2 p-8 flex flex-col justify-center">
+<div class="mb-2">
+<h2 class="text-3xl font-bold font-headline-lg text-on-background">Energy</h2>
+<span class="text-xl font-medium text-on-surface-variant block mt-1" dir="rtl">الطاقة</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-4 mb-6">
+                            Transitioning to renewable micro-grids. We tokenize solar and wind generation to create localized, sustainable energy markets that empower communities.
+                        </p>
+<div class="mt-auto">
+<button class="px-5 py-2 border border-outline rounded-full text-on-surface hover:bg-surface-variant transition-colors text-sm font-medium">View Network Grid</button>
+</div>
+</div>
+<div class="md:w-1/2 h-64 md:h-auto relative overflow-hidden rounded-b-2xl md:rounded-l-none md:rounded-r-2xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An abstract, high-end conceptual visualization of clean energy. Glowing, thin lines of warm amber and bright emerald green weave through a minimalist, bright white geometric landscape, simulating the flow of renewable energy in a high-tech microgrid. The aesthetic is clean, modern, and perfectly aligned with a light-themed glassmorphism UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAacUZGeBHOfdyk0QSuRuaiKA-j9-rVvMHlJ152md7olbJZ9u_xNIzL8PgpFa70aqIRl_EeA-Q61rkQ_JdM0uKrsnA4EQR6QuhwCK-VDz0R4ZUvCL4JCYgCnzjN4XZXKHn4CJwyF0aiSbwlUzbXozyPy_No40sqEE40hwvUJEWJFkVIqORRy1spxE7zsXm3ZUH8XEsQJGwmnWIsP4M5Ddr3YjcMQ9KZjvrmEft4FXwzFfcUvXlA0gv9qe1eK0rsab0NgZGllOPXEE"/>
+</div>
+</div>
+</article>
+<!-- Pillar 5: Food (الطعام) -->
+<article class="pillar-card rounded-2xl overflow-hidden flex flex-col group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A pristine macro composition of fresh, vibrant organic produce, specifically a cluster of heirloom tomatoes and microgreens, set against a soft, clean white background. The lighting is studio-quality, bright and crisp, highlighting the natural textures, vivid reds, and deep greens, conveying health, sustainability, and premium quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN43O1BDOnQtcLApJmY8GRtNQSPAlR6xZvw_nT_hlLI68d6SJkxxsPAlQeZhur5CWVVyBHD8IOsYZ2UmXgWIok3CrUhSWF57eDSM3xYQplAklmY_GQixw16NEKptMpeDzbfp6sULqRCJDw6jGwRamszsZknly-Yrnkv_Y3oz5D461nOY-qPLhC-70BngQnvA9RMAJd5p6pLF_05AoXi_F1bptguMnutNq6uuAtnRh1lxe7mrwy2807ENu6yJZDTUW75MNzg93RYB0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-4 left-4 z-20 text-white">
+<h2 class="text-2xl font-bold font-headline-lg">Food</h2>
+<span class="text-lg font-medium block" dir="rtl">الطعام</span>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4">
+                        Transparent supply chains and sustainable yield tracking for local food systems.
+                    </p>
+<a class="mt-auto text-primary font-medium text-sm flex items-center gap-1 hover:underline" href="#">
+                        Explore Metrics <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Pillar 6: Plant (النبات) -->
+<article class="pillar-card rounded-2xl overflow-hidden flex flex-col group">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A macro shot focusing on the intricate vein structure of a single, vibrant green leaf, back-lit by bright, clean, natural sunlight. The shallow depth of field blurs the background into a soft, airy, light-toned bokeh. The image represents biological complexity and environmental health in a refined, modern tech-adjacent style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIeqct_Eg_JOJXMToPH_Mp58kzwSJ2ZIOGjT-qWFrF27t6ObIG5vXEUlJ4DOs_zmDlOX6IbMldmJtuJ-raYs0pwnXdcl-3TswSVcxdxnI71xB7tohDWAQpyyggSek9yOBPEX_M30ICyi-wAdsoj9_npEvQWdO-gAfHUEZD6Aam8bG2n91f-chNa-ndeJR3XCEjvWIWKtM-Zl_yUo8FPNXfdtz6gza5SN1OzZsBwiLIF0AKOckQDUtZf_P6qndeetZo28UJ9tfID3Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-4 left-4 z-20 text-white">
+<h2 class="text-2xl font-bold font-headline-lg">Plant</h2>
+<span class="text-lg font-medium block" dir="rtl">النبات</span>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4">
+                        Biodiversity mapping and flora conservation efforts verified on-chain.
+                    </p>
+<a class="mt-auto text-primary font-medium text-sm flex items-center gap-1 hover:underline" href="#">
+                        Explore Metrics <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Pillar 7: Animal (الحيوان) -->
+<article class="pillar-card rounded-2xl overflow-hidden flex flex-col group lg:col-span-2">
+<div class="flex flex-col md:flex-row h-full">
+<div class="h-48 md:h-full md:w-2/5 relative overflow-hidden rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A respectful, high-quality photograph of a honeybee resting delicately on a pale, white blossom. The background is a beautifully diffused, light, and airy space. The lighting is soft and analytical, emphasizing the intricate details of the bee's wings and the texture of the flower, symbolizing vital ecological networks and biodiversity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9n6UtCclEODBhWXIn5q_3RSdSQgqyZJwmM6URpQnguJxuuoHDKGmBHySJsZIm44a1hieJvvgK21C-s36svNMZ6gurNJpGaPeuh4KVLUT-KMgeQ8PrLA0-Ju__EZa43woLz9bJa0znCbT2JwEGrt6JOaJTbPxG29x6b0fZVKjbxfnu2IFZCYRp0GyJiqZMV0bU60Rc0KKC4_QX5Eho9D423zsywJi2-8nYRHevltoYUogBfPXTtKZX25QGceuxEml6PTQA75qBj_o"/>
+</div>
+<div class="p-6 md:p-8 flex-grow flex flex-col md:w-3/5">
+<div class="mb-4">
+<h2 class="text-2xl font-bold font-headline-lg text-on-background">Animal</h2>
+<span class="text-lg font-medium text-on-surface-variant block mt-1" dir="rtl">الحيوان</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm md:text-base mb-6">
+                            Protecting fauna habitats and monitoring species populations. We utilize sensor networks and decentralized reporting to ensure the protection of crucial ecological keystones.
+                        </p>
+<div class="mt-auto flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 text-sm">warning</span>
+<span class="text-xs text-on-surface-variant uppercase tracking-wider">Habitat Alerts: 2</span>
+</div>
+<a class="text-primary font-medium text-sm flex items-center gap-1 hover:underline" href="#">
+                                View Dashboard <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/30 mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-container-max mx-auto px-margin-desktop">
+<div class="md:col-span-4 flex flex-col gap-4">
+<span class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed-dim focus:outline-none focus:ring-2 focus:ring-primary">
+                    ANABEE
+                </span>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-2 max-w-xs">
+                    Pioneering ecological balance through decentralized infrastructure and Natural Tech.
+                </p>
+</div>
+<div class="md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8 pt-8 md:pt-0">
+<div class="flex flex-col gap-3">
+<h4 class="font-bold text-on-background mb-2">Ecosystem</h4>
+<a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md text-body-md text-sm" href="#">Environmental Data</a>
+<a class="text-primary font-semibold font-body-md text-body-md text-sm" href="#">7 Pillars</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-bold text-on-background mb-2">Framework</h4>
+<a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md text-body-md text-sm" href="#">Smart E-Court</a>
+<a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md text-body-md text-sm" href="#">Global Roadmap</a>
+</div>
+<div class="flex flex-col gap-3 col-span-2 md:col-span-1">
+<h4 class="font-bold text-on-background mb-2">Connect</h4>
+<a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-body-md text-body-md text-sm" href="#">Institutional Partners</a>
+</div>
+</div>
+<div class="md:col-span-12 mt-16 pt-8 border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-body-md text-xs text-on-surface-variant">
+                    © 2024 ANABEE Ecosystem. All rights reserved.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

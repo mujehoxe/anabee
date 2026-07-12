@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BEECOIN Economy Dashboard - ANABEE</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "tertiary": "#5f5e5e",
+                    "primary-fixed": "#6ffbbe",
+                    "on-surface": "#191c1d",
+                    "surface-container-high": "#e7e8e9",
+                    "secondary-fixed-dim": "#e9c349",
+                    "primary": "#006c49",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191c1d",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2e3132",
+                    "on-primary-fixed": "#002113",
+                    "outline": "#6c7a71",
+                    "tertiary-fixed": "#e4e2e1",
+                    "surface": "#f8f9fa",
+                    "tertiary-container": "#a4a2a2",
+                    "surface-tint": "#006c49",
+                    "background": "#f8f9fa",
+                    "surface-bright": "#f8f9fa",
+                    "on-primary-container": "#00422b",
+                    "secondary-container": "#fed65b",
+                    "surface-container": "#edeeef",
+                    "primary-container": "#10b981",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-fixed": "#241a00",
+                    "outline-variant": "#bbcabf",
+                    "error-container": "#ffdad6",
+                    "secondary": "#735c00",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "primary-fixed-dim": "#4edea3",
+                    "secondary-fixed": "#ffe088",
+                    "surface-container-low": "#f3f4f5",
+                    "inverse-primary": "#4edea3",
+                    "surface-dim": "#d9dadb",
+                    "surface-variant": "#e1e3e4",
+                    "on-surface-variant": "#3c4a42",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-primary-fixed-variant": "#005236",
+                    "on-tertiary-container": "#393939",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#745c00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "container-max": "1440px",
+                    "margin-mobile": "20px",
+                    "section-gap": "120px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-xl": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Glassmorphism utilities */
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            border-left: 1px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04), 0px 2px 8px rgba(0, 0, 0, 0.02);
+        }
+        
+        .beecoin-chip {
+            background-color: rgba(233, 195, 73, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="bg-surface/70 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/50 shadow-[0px_4px_24px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<!-- Brand -->
+<div class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-primary flex items-center gap-2 hover:scale-[1.02] transition-transform duration-200">
+<span class="material-symbols-outlined icon-fill text-[32px]">hive</span>
+                ANABEE
+            </div>
+<!-- Navigation -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200" href="#">Ecosystem</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200" href="#">Pillars</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200" href="#">Governance</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200" href="#">Roadmap</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md hover:scale-[1.02] transition-transform duration-200" href="#">Whitepaper</a>
+</nav>
+<!-- Action -->
+<button class="bg-primary-container text-on-primary font-body-md text-body-md font-medium px-6 py-2.5 rounded-full hover:brightness-110 hover:scale-[1.02] transition-all duration-200 active:scale-[0.98]">
+                Connect Wallet
+            </button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-32 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-16">
+<!-- Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 relative z-10">
+<div class="max-w-2xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary-container"></span>
+</span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Live Network Status</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-4">BEECOIN Economy</h1>
+<p class="text-on-surface-variant font-body-md text-body-md text-lg">Real-time metrics of the "Mined by Behavior" protocol, quantifying environmental stewardship across 75 distinct impact pillars.</p>
+</div>
+<div class="beecoin-chip rounded-full px-4 py-2 border border-secondary-fixed-dim/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-lg">monetization_on</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase">Current Epoch: 42.A</span>
+</div>
+</section>
+<!-- Key Metrics Row -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Metric 1 -->
+<div class="glass-card rounded-xl p-8 hover:-translate-y-1 transition-transform duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2 py-1 rounded">+2.4% 24h</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">Total Minted</p>
+<div class="font-headline-lg text-headline-lg text-on-surface flex items-baseline gap-2">
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim tracking-wider">BEE</span>
+                    482.5M
+                </div>
+</div>
+<!-- Metric 2 -->
+<div class="glass-card rounded-xl p-8 hover:-translate-y-1 transition-transform duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">recycling</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim beecoin-chip px-2 py-1 rounded">Active</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">Mined by Behavior Rate</p>
+<div class="font-headline-lg text-headline-lg text-on-surface flex items-baseline gap-2">
+                    12.4
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">BEE/sec</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="glass-card rounded-xl p-8 hover:-translate-y-1 transition-transform duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">public</span>
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2 py-1 rounded">Verified</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">Active Environmental Pillars</p>
+<div class="font-headline-lg text-headline-lg text-on-surface flex items-baseline gap-2">
+                    75<span class="text-outline-variant text-xl">/75</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="glass-card rounded-xl p-8 hover:-translate-y-1 transition-transform duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">energy_savings_leaf</span>
+<span class="font-label-sm text-label-sm text-primary bg-primary/10 px-2 py-1 rounded">+18% 30d</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">Total Carbon Offset</p>
+<div class="font-headline-lg text-headline-lg text-on-surface flex items-baseline gap-2">
+                    2.1M
+                    <span class="font-label-sm text-label-sm text-on-surface-variant">Tons</span>
+</div>
+</div>
+</section>
+<!-- Main Bento Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Chart Area (Spans 8 cols) -->
+<div class="lg:col-span-8 glass-card rounded-xl p-8 flex flex-col h-[500px]">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Ecosystem Velocity</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Behavioral mining issuance over the last 30 epochs.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-sm font-medium rounded-md bg-surface-variant text-on-surface hover:bg-surface-dim transition-colors">1D</button>
+<button class="px-3 py-1 text-sm font-medium rounded-md bg-primary-container text-on-primary shadow-sm">1W</button>
+<button class="px-3 py-1 text-sm font-medium rounded-md bg-surface-variant text-on-surface hover:bg-surface-dim transition-colors">1M</button>
+</div>
+</div>
+<!-- Chart Placeholder using animated SVG or Image -->
+<div class="flex-grow rounded-lg overflow-hidden relative bg-surface border border-outline-variant/30 flex items-center justify-center">
+<div class="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-multiply" data-alt="A clean, modern data visualization chart in a light theme. The chart displays a smooth, glowing green area graph representing ecosystem velocity and token issuance over time, set against an eco-pearl white background. Thin, precise grid lines map the X and Y axes, while subtle digital gold accents highlight key data peaks. The visual style is clinical, precise, and gallery-like." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlne3JLo9eWuqS8fsa5SaZHGcjt4hjBREfiOVc4tYr8v2W4I6KYtm2uZ7p-SMsEpirZ77Y1RwdLGUkRkFMmwhgl4tH4Z4BQmDpJIPexqwXlMsdVwcbpGJ_Y4RIv8H9YwiEz4bRHr7kphFhGx_CGD1E5EnCEQsVo3p29Eh3kIiPE4YHwktXjLZh_2EbfkXErriWPmEtiEmWIAMXGYFAEtoQmVHNzxzxTV0Vu99J4f1Eh-G8dTc7fDcsPlTWoGGy6AoSkzOZ-fSjknA')"></div>
+<!-- Decorative Chart Elements -->
+<div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-surface to-transparent z-10"></div>
+</div>
+</div>
+<!-- Pillars Distribution Sidebar (Spans 4 cols) -->
+<div class="lg:col-span-4 glass-card rounded-xl p-8 flex flex-col h-[500px]">
+<div class="mb-6">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Pillars Breakdown</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Top behavior categories.</p>
+</div>
+<div class="flex-grow overflow-y-auto pr-2 space-y-4 scrollbar-thin">
+<!-- Item 1 -->
+<div class="flex flex-col gap-2 p-3 rounded-lg hover:bg-surface-variant/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">water_drop</span> Ocean Cleanup
+                            </span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim">32%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 32%"></div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col gap-2 p-3 rounded-lg hover:bg-surface-variant/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">forest</span> Reforestation
+                            </span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim">28%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 28%"></div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex flex-col gap-2 p-3 rounded-lg hover:bg-surface-variant/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">solar_power</span> Clean Energy Adoption
+                            </span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim">18%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 18%"></div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex flex-col gap-2 p-3 rounded-lg hover:bg-surface-variant/50 transition-colors">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">compost</span> Waste Reduction
+                            </span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim">12%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full" style="width: 12%"></div>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full py-3 border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface hover:bg-surface-variant transition-colors flex items-center justify-center gap-2 group">
+                    View All 75 Pillars
+                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Bottom Left (Spans 6) -->
+<div class="lg:col-span-6 glass-card rounded-xl p-8 relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Tokenomics Integrity</h2>
+<div class="beecoin-chip rounded-full p-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-fixed-dim">verified_user</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-8">
+<div class="p-4 rounded-lg bg-surface/50 border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Community Pool</p>
+<p class="font-body-md text-body-md text-on-surface font-medium text-lg">60.0%</p>
+</div>
+<div class="p-4 rounded-lg bg-surface/50 border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Ecosystem Fund</p>
+<p class="font-body-md text-body-md text-on-surface font-medium text-lg">25.0%</p>
+</div>
+<div class="p-4 rounded-lg bg-surface/50 border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Core Contributors</p>
+<p class="font-body-md text-body-md text-on-surface font-medium text-lg">10.0%</p>
+</div>
+<div class="p-4 rounded-lg bg-surface/50 border border-outline-variant/20">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Liquidity Reserve</p>
+<p class="font-body-md text-body-md text-on-surface font-medium text-lg">5.0%</p>
+</div>
+</div>
+</div>
+<!-- Abstract BG for the card -->
+<div class="absolute -bottom-20 -right-20 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+</div>
+<!-- Bottom Right (Spans 6) -->
+<div class="lg:col-span-6 glass-card rounded-xl p-8">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Recent Minting Events</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> Real-time
+                    </span>
+</div>
+<div class="space-y-4">
+<!-- Event 1 -->
+<div class="flex items-center justify-between p-3 border-b border-outline-variant/20 last:border-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">directions_bike</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-medium">Urban Mobility Pivot</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pillar #12 • Verified by Node 8xA...</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-secondary-fixed-dim bg-secondary-container/20 px-2 py-1 rounded">+ 2.45 BEE</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Just now</p>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="flex items-center justify-between p-3 border-b border-outline-variant/20 last:border-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-medium">Zero-Waste Purchase</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pillar #44 • Verified by Node 2zB...</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-secondary-fixed-dim bg-secondary-container/20 px-2 py-1 rounded">+ 1.10 BEE</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">2m ago</p>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="flex items-center justify-between p-3 border-b border-outline-variant/20 last:border-0">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">home_iot_device</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-medium">Smart Grid Integration</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pillar #03 • Verified by Node 9cV...</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-secondary-fixed-dim bg-secondary-container/20 px-2 py-1 rounded">+ 5.00 BEE</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">5m ago</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full py-section-gap border-t border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="col-span-1 md:col-span-4 flex flex-col gap-4">
+<div class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined icon-fill text-[32px]">hive</span>
+                    ANABEE
+                </div>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant mt-2 max-w-sm">Pioneering the Natural Tech movement through behavioral mining and verifiable environmental impact.</p>
+<p class="font-label-sm text-label-sm text-on-tertiary-fixed-variant mt-8">© 2024 ANABEE Ecosystem. All rights reserved.</p>
+</div>
+<div class="col-span-1 md:col-span-8 flex flex-wrap gap-8 md:justify-end items-start mt-8 md:mt-0">
+<nav class="flex flex-col gap-4">
+<h3 class="font-label-sm text-label-sm text-on-surface font-bold uppercase tracking-wider mb-2">Ecosystem</h3>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Environmental Data</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Smart E-Court</a>
+</nav>
+<nav class="flex flex-col gap-4 ml-0 md:ml-12">
+<h3 class="font-label-sm text-label-sm text-on-surface font-bold uppercase tracking-wider mb-2">Protocol</h3>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">7 Pillars</a>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Global Roadmap</a>
+</nav>
+<nav class="flex flex-col gap-4 ml-0 md:ml-12">
+<h3 class="font-label-sm text-label-sm text-on-surface font-bold uppercase tracking-wider mb-2">Network</h3>
+<a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded" href="#">Institutional Partners</a>
+</nav>
+</div>
+</div>
+</footer>
+</body></html>
