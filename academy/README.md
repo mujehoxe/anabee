@@ -25,19 +25,19 @@ npm run academy:logs                   # watch first-time install
 Open **http://localhost:8000/lms**
 
 - **Username:** `Administrator`
-- **Password:** `admin` (change before any public deploy)
+- Local default login is Frappe’s stock local admin (see [Frappe Learning docs](https://github.com/frappe/lms)); change it before any public deploy.
 
 First boot runs `bench init` + LMS install (~10–15 minutes). Later restarts are quick.
 
 ## Production (learn.anabee.org)
 
-Use the official production image (~5 min):
+Use the official production image (~5 min). Pass your ops contact via env (do not hardcode mailbox passwords in the repo):
 
 ```bash
 wget https://frappe.io/easy-install.py
 python3 ./easy-install.py deploy \
   --project=anabee_academy \
-  --email=academy@anabee.org \
+  --email="${ACADEMY_CONTACT_EMAIL}" \
   --image=ghcr.io/frappe/lms \
   --version=stable \
   --app=lms \
