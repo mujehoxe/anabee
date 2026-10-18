@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="About ANABEE — The UAE-origin global sustainability initiative built on seven pillars, blockchain, and AI."/>
+  <title>About ANABEE — Global Sustainability Initiative</title>
+  <link rel="icon" href="/assets/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
+  <meta name="theme-color" content="#FCFAF7"/>
+  <link rel="canonical" href="https://anabee.org/about.html"/>
+  <meta property="og:title" content="About ANABEE — Global Sustainability Initiative"/>
+  <meta property="og:description" content="The UAE-origin global sustainability initiative built on seven pillars, blockchain, and AI — protecting the Earth for generations to come."/>
+  <meta property="og:image" content="https://anabee.org/assets/anabee-logo.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://anabee.org/about.html"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="About ANABEE — Global Sustainability Initiative"/>
+  <meta name="twitter:description" content="The UAE-origin global sustainability initiative built on seven pillars, blockchain, and AI."/>
+  <meta name="twitter:image" content="https://anabee.org/assets/anabee-logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F4C3A',
+            mint: '#10B981',
+            gold: '#C5A059',
+            surface: '#FCFAF7',
+            mist: '#F3F5F4',
+            charcoal: '#1A1A1A',
+            earth: '#5C6160',
+            border: '#E2E5E4',
+          },
+          spacing: {
+            'container-max': '1440px',
+            'margin-desktop': '64px',
+            'margin-mobile': '20px',
+            'section-gap': '120px',
+            gutter: '32px',
+          },
+          fontFamily: { sans: ['Manrope', 'system-ui', 'sans-serif'] },
+          fontSize: {
+            'display': ['clamp(2.5rem,5vw,4.25rem)', { lineHeight: '1.1', letterSpacing: '-0.01em', fontWeight: '600' }],
+            'section': ['clamp(1.75rem,3vw,2.75rem)', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' }],
+            'card-title': ['clamp(1.25rem,2vw,1.75rem)', { lineHeight: '1.3', fontWeight: '500' }],
+            'body-lg': ['1.125rem', { lineHeight: '1.75', fontWeight: '400' }],
+            'meta': ['0.875rem', { lineHeight: '1.4', fontWeight: '500' }],
+          },
+          borderRadius: { btn: '0.5rem', card: '0.875rem' },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'Manrope', sans-serif; }
+    .feature-card {
+      background: #fff;
+      border: 1px solid #E2E5E4;
+      border-radius: 0.875rem;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .feature-card:hover {
+      box-shadow: 0 4px 20px rgba(15, 76, 58, 0.08);
+      transform: translateY(-2px);
+    }
+    .glass-panel {
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(12px);
+      border: 1px solid #E2E5E4;
+      box-shadow: 0 4px 24px rgba(0,0,0,.04);
+    }
+    .btn-primary {
+      background: #0F4C3A;
+      color: #fff;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .25s, filter .25s, box-shadow .25s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      box-shadow: 0 8px 24px rgba(15,76,58,.2);
+    }
+    .btn-secondary {
+      border: 1px solid #0F4C3A;
+      color: #0F4C3A;
+      border-radius: 0.5rem;
+      transition: background .25s, transform .25s;
+    }
+    .btn-secondary:hover {
+      background: rgba(16,185,129,.08);
+      transform: translateY(-1px);
+    }
+    .nav-link { color: #5C6160; transition: color .2s; }
+    .nav-link:hover { color: #0F4C3A; }
+    .nav-link.nav-active { color: #0F4C3A !important; font-weight: 600; border-bottom: 2px solid #0F4C3A; padding-bottom: 2px; }
+    .section-band { background: #F3F5F4; border-top: 1px solid #E2E5E4; border-bottom: 1px solid #E2E5E4; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: transform .6s ease, opacity .6s ease; }
+    .reveal-visible { opacity: 1; transform: translateY(0); }
+    h1, h2, h3, h4 { color: #1A1A1A; }
+    p { color: #5C6160; }
+    .pillar-mini { background: #F3F5F4; border: 1px solid #E2E5E4; border-radius: 0.875rem; }
+  </style>
+</head>
+<body class="bg-surface text-charcoal antialiased overflow-x-hidden">
+  <div id="site-chrome"></div>
+
+<main>
+
+  <!-- Hero -->
+  <section class="relative pt-24 md:pt-28 pb-16 md:pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="absolute top-32 left-1/2 -translate-x-1/2 w-[min(600px,80vw)] h-[min(600px,80vw)] bg-mint/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="max-w-3xl reveal">
+      <h1 class="text-display text-charcoal mb-6">Natural Tech for Planetary Stewardship</h1>
+      <p class="text-earth text-body-lg">ANABEE is a global sustainability initiative born in the United Arab Emirates — connecting everyday behaviour, open education, and product specifications toward measurable care for the planet.</p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="section-band py-24 md:py-section-gap px-margin-mobile md:px-margin-desktop">
+    <div class="max-w-container-max mx-auto grid lg:grid-cols-2 gap-12 items-center reveal">
+      <div class="space-y-6">
+        <span class="text-meta text-mint uppercase tracking-widest font-semibold">Our Mission</span>
+        <h2 class="text-section text-charcoal">Protect the Earth Through Decentralized Trust</h2>
+        <p class="text-earth text-body-lg">We believe environmental stewardship should be measurable, immutable, and accessible to everyone — from individuals planting trees to corporations certifying entire workforces.</p>
+        <p class="text-earth text-body-lg">ANABEE builds the infrastructure for that future: sensory networks, behavioral tokenomics, Smart E-Court governance, and open education — all anchored in seven foundational pillars of planetary health.</p>
+      </div>
+      <div class="glass-panel rounded-card p-8 md:p-10 space-y-6">
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-primary text-3xl shrink-0" style="font-variation-settings:'FILL' 1">visibility</span>
+          <div>
+            <h3 class="text-card-title text-charcoal mb-2">Radical Transparency</h3>
+            <p class="text-earth text-body-lg">Every claim, reward, and governance decision recorded on-chain.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-mint text-3xl shrink-0" style="font-variation-settings:'FILL' 1">groups</span>
+          <div>
+            <h3 class="text-card-title text-charcoal mb-2">Collective Action</h3>
+            <p class="text-earth text-body-lg">DAOs, juries, and community validators govern ecological outcomes together.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-gold text-3xl shrink-0" style="font-variation-settings:'FILL' 1">school</span>
+          <div>
+            <h3 class="text-card-title text-charcoal mb-2">Education First</h3>
+            <p class="text-earth text-body-lg">Academy certification ensures organizations act with shared knowledge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UAE Origin Story -->
+  <section class="py-24 md:py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
+    <div class="glass-panel rounded-card p-10 md:p-14 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-mint/5 via-transparent to-gold/5 pointer-events-none"></div>
+      <div class="relative max-w-3xl">
+        <span class="text-meta text-gold uppercase tracking-widest font-semibold">Origins</span>
+        <h2 class="text-section text-charcoal mt-3 mb-6">Born in the UAE, Built for the World</h2>
+        <p class="text-earth text-body-lg mb-4">ANABEE is rising from the United Arab Emirates — a movement where everyday behaviour becomes identity, and one shared phrase can travel the world.</p>
+        <p class="text-earth text-body-lg mb-4">Seven pillars. Seventy-five product specifications. A 7-second pledge anyone can record. Strategic conversations are open with partners who want to grow with us toward 2030.</p>
+        <p class="text-earth text-body-lg">The horizon is clear: every person on Earth saying ANABEE.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 Pillars Framing -->
+  <section class="section-band py-24 md:py-section-gap px-margin-mobile md:px-margin-desktop">
+    <div class="max-w-container-max mx-auto reveal">
+      <header class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-meta text-mint uppercase tracking-widest font-semibold">Foundational Architecture</span>
+        <h2 class="text-section text-charcoal mt-3 mb-4">Seven Pillars of Sustainability</h2>
+        <p class="text-earth text-body-lg">Every ANABEE product, reward, and governance decision maps to one of seven elemental pillars — the biological and technological framework of the ecosystem.</p>
+      </header>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="pillar-mini p-5 text-center">
+          <span class="material-symbols-outlined text-primary text-2xl mb-2">air</span>
+          <p class="text-meta font-semibold text-charcoal">Air</p>
+        </div>
+        <div class="pillar-mini p-5 text-center">
+          <span class="material-symbols-outlined text-primary text-2xl mb-2">water_drop</span>
+          <p class="text-meta font-semibold text-charcoal">Water</p>
+        </div>
+        <div class="pillar-mini p-5 text-center">
+          <span class="material-symbols-outlined text-primary text-2xl mb-2">grass</span>
+          <p class="text-meta font-semibold text-charcoal">Soil</p>
+        </div>
+        <div class="pillar-mini p-5 text-center">
+          <span class="material-symbols-outlined text-primary text-2xl mb-2">bolt</span>
+          <p class="text-meta font-semibold text-charcoal">Energy</p>
+        </div>
+        <div class="pillar-mini p-5 text-center">
+          <span class="material-symbols-outlined text-primary text-2xl mb-2">restaurant</span>
+          <p class="text-meta font-semibold text-charcoal">Food</p>
+        </div>
+        <div class="pillar-mini p-5 text-center">
+          <span class="material-symbols-outlined text-primary text-2xl mb-2">potted_plant</span>
+          <p class="text-meta font-semibold text-charcoal">Plant</p>
+        </div>
+        <div class="pillar-mini p-5 text-center">
+          <span class="material-symbols-outlined text-primary text-2xl mb-2">pets</span>
+          <p class="text-meta font-semibold text-charcoal">Animal</p>
+        </div>
+        <a href="/#pillars" class="pillar-mini p-5 text-center flex flex-col items-center justify-center hover:border-mint transition-colors group">
+          <span class="material-symbols-outlined text-mint text-2xl mb-2 group-hover:scale-110 transition-transform">arrow_forward</span>
+          <p class="text-meta font-semibold text-primary">Explore All</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Placeholder -->
+  <section class="py-24 md:py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
+    <header class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-meta text-mint uppercase tracking-widest font-semibold">Leadership</span>
+      <h2 class="text-section text-charcoal mt-3 mb-4">The ANABEE Team</h2>
+      <p class="text-earth text-body-lg">Leadership profiles and advisory board bios will be published as we grow the partner network.</p>
+    </header>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-gutter max-w-4xl mx-auto">
+      <div class="feature-card p-8 text-center">
+        <div class="w-20 h-20 rounded-full bg-mist border border-border mx-auto mb-4 flex items-center justify-center">
+          <span class="material-symbols-outlined text-earth text-3xl">person</span>
+        </div>
+        <p class="text-meta font-semibold text-charcoal">Founder &amp; CEO</p>
+        <p class="text-meta text-earth mt-1">Profile coming soon</p>
+      </div>
+      <div class="feature-card p-8 text-center">
+        <div class="w-20 h-20 rounded-full bg-mist border border-border mx-auto mb-4 flex items-center justify-center">
+          <span class="material-symbols-outlined text-earth text-3xl">person</span>
+        </div>
+        <p class="text-meta font-semibold text-charcoal">Chief Technology Officer</p>
+        <p class="text-meta text-earth mt-1">Profile coming soon</p>
+      </div>
+      <div class="feature-card p-8 text-center sm:col-span-2 lg:col-span-1">
+        <div class="w-20 h-20 rounded-full bg-mist border border-border mx-auto mb-4 flex items-center justify-center">
+          <span class="material-symbols-outlined text-earth text-3xl">groups</span>
+        </div>
+        <p class="text-meta font-semibold text-charcoal">Advisory Board</p>
+        <p class="text-meta text-earth mt-1">Profiles coming soon</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pb-24 md:pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
+    <div class="rounded-[1.75rem] overflow-hidden p-10 md:p-14 text-center bg-primary border border-primary relative">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,.25),transparent_60%)] pointer-events-none"></div>
+      <div class="relative z-10 space-y-6 max-w-2xl mx-auto">
+        <h2 class="text-section text-white">Next steps</h2>
+        <p class="text-white/80 text-body-lg">Certify teams through Academy, browse product specifications, or record your pledge on Join.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+          <a href="/academy" class="btn-primary px-10 py-4 font-semibold gap-2">
+            Explore Academy
+            <span class="material-symbols-outlined">school</span>
+          </a>
+          <a href="/join" class="px-10 py-4 border border-white/30 text-white rounded-btn font-semibold hover:bg-white/10 transition-all inline-flex items-center justify-center gap-2">
+            Join — record your pledge
+            <span class="material-symbols-outlined">videocam</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-border px-margin-mobile md:px-margin-desktop py-8 text-meta text-earth">
+  <div class="max-w-container-max mx-auto flex flex-wrap gap-4 justify-between">
+    <p>© 2026 ANABEE</p>
+    <p class="flex gap-4 flex-wrap">
+      <a href="/">Home</a>
+      <a href="/products">Products</a>
+      <a href="/academy">Academy</a>
+      <a href="/blog/">Blog</a>
+      <a href="/investors">Investors</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:info@anabee.org">info@anabee.org</a>
+    </p>
+  </div>
+</footer>
+
+<script src="/js/nav.js?v=10"></script>
+<script>
+  (function () {
+    var revealIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) entry.target.classList.add("reveal-visible");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(function (el) {
+      revealIo.observe(el);
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("reveal-visible");
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ANABEE</title>
+  <link rel="icon" href="/assets/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { primary:'#0F4C3A', surface:'#FCFAF7', mist:'#F3F5F4', charcoal:'#1A1A1A', earth:'#5C6160', border:'#E2E5E4' },
+      fontFamily: { sans: ['Manrope','system-ui','sans-serif'] },
+      spacing: { 'container-max':'1440px', 'margin-desktop':'64px', 'margin-mobile':'20px' },
+      borderRadius: { btn:'0.5rem', card:'0.875rem' }
+    } } };
+  </script>
+  <style>
+    body { font-family: Manrope, sans-serif; background:#FCFAF7; }
+    .nav-link { color:#5C6160; } .nav-link:hover { color:#0F4C3A; }
+    .btn-primary { background:#0F4C3A; color:#fff; border-radius:.5rem; display:inline-flex; }
+    .card { background:#fff; border:1px solid #E2E5E4; border-radius:.875rem; }
+  </style>
+</head>
+<body class="bg-surface text-charcoal antialiased overflow-x-hidden" data-pillar="air">
+  <div id="site-chrome"></div>
+  <main id="pillar-main" class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop pt-24 pb-10 min-w-0"></main>
+  <script src="/js/nav.js?v=10"></script>
+  <script src="/js/catalog.js?v=6"></script>
+  <script>
+    (function () {
+      var id = document.body.dataset.pillar;
+      var cat = window.ANABEE_CATALOG;
+      var pillar = cat.pillars.filter(function (p) { return p.id === id; })[0];
+      document.title = pillar.en + " — ANABEE";
+      var related = cat.products.filter(function (item) { return item.pillar === id; });
+      document.getElementById("pillar-main").innerHTML =
+        '<p class="text-sm text-primary font-semibold">Square-metre behaviour</p>' +
+        '<h1 class="text-3xl sm:text-4xl font-bold mt-1 mb-3">' + pillar.en + '</h1>' +
+        '<p class="text-earth mb-4">Simple behaviours for the square metre you stand in.</p>' +
+        '<ul class="card p-5 space-y-2 mb-6">' + pillar.behaviors.map(function (b) { return '<li>' + b + '</li>'; }).join('') + '</ul>' +
+        '<a class="btn-primary px-5 py-3 font-semibold" href="/join?pillar=' + id + '">Record 7 seconds for this pillar</a>' +
+        '<h2 class="text-2xl font-bold mt-10 mb-4">Related products</h2>' +
+        '<div class="space-y-3">' + related.map(function (item) {
+          return '<article class="card p-4"><h3 class="font-semibold">' + item.name + '</h3><p class="text-earth mt-1">' + item.behavior + '</p><p class="text-sm mt-1">Say it: “' + item.phrase + '”</p></article>';
+        }).join('') + '</div>';
+    })();
+  </script>
+</body>
+</html>

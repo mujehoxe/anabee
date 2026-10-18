@@ -1,8 +1,28 @@
 [build]
   publish = "site"
   command = "echo 'Static landing page'"
+  functions = "netlify/functions"
 
 [[redirects]]
   from = "/pristine/*"
   to = "/:splat"
   status = 200
+
+[[redirects]]
+  from = "/api/league"
+  to = "/.netlify/functions/league"
+  status = 200
+
+# Temporarily hide ADNOC League surfaces (restore by removing these).
+# force=true is required so redirects win over existing static HTML files.
+[[redirects]]
+  from = "/adnoc-league.html"
+  to = "/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/blog/ana-beei-football.html"
+  to = "/blog/"
+  status = 302
+  force = true

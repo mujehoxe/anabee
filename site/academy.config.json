@@ -1,0 +1,124 @@
+{
+  "platform": "frappe-lms",
+  "siteName": "ANABEE Academy",
+  "tagline": "Video-based environmental certification for organizations and corporate teams.",
+  "lmsUrl": "https://learn.anabee.org/lms",
+  "lmsLocalUrl": "http://localhost:8000/lms",
+  "contactEmail": "academy@anabee.org",
+  "hero": {
+    "badge": "Open Source · Frappe Learning",
+    "headline": "Certify Your Teams for Planetary Stewardship",
+    "description": "Deploy branded video curricula across your organization. Track completion, issue verifiable certificates, and align staff with the ANABEE 7 Pillars framework."
+  },
+  "stats": [
+    { "value": "7", "label": "Pillar Tracks" },
+    { "value": "Video", "label": "Primary Format" },
+    { "value": "Org", "label": "Cohort Enrolment" }
+  ],
+  "features": [
+    {
+      "icon": "play_circle",
+      "title": "Video-First Learning",
+      "description": "HD lesson modules, chapter markers, and interactive checkpoints — optimized for staff on desktop and mobile."
+    },
+    {
+      "icon": "corporate_fare",
+      "title": "Organization Cohorts",
+      "description": "Enrol entire companies or departments. Bulk import, domain-based access, and per-org progress dashboards."
+    },
+    {
+      "icon": "verified",
+      "title": "Branded Certificates",
+      "description": "Custom PDF credentials with your logo, pillar badge, completion date, and unique verification ID."
+    },
+    {
+      "icon": "tune",
+      "title": "Fully Customizable",
+      "description": "Open-source Frappe Learning — modern UI, batches, certificates, and full control over course structure."
+    }
+  ],
+  "orgSteps": [
+    {
+      "step": "01",
+      "title": "Partner Onboarding",
+      "description": "We provision your organization space, branding, and admin accounts on the ANABEE Academy instance."
+    },
+    {
+      "step": "02",
+      "title": "Staff Enrolment",
+      "description": "Invite employees via cohort codes, CSV upload, or SSO. Assign pillar tracks by role or department."
+    },
+    {
+      "step": "03",
+      "title": "Video Curriculum",
+      "description": "Learners progress through modular video courses with quizzes and practical checkpoints."
+    },
+    {
+      "step": "04",
+      "title": "Certification",
+      "description": "Automated certificates on completion — exportable records for ESG reporting and compliance."
+    }
+  ],
+  "courses": [
+    {
+      "id": "air",
+      "pillar": "Air",
+      "icon": "air",
+      "title": "Atmospheric Stewardship",
+      "duration": "3.5 hrs",
+      "modules": 5,
+      "level": "Staff",
+      "description": "Emissions awareness, air quality monitoring, and urban canopy practices for corporate facilities."
+    },
+    {
+      "id": "water",
+      "pillar": "Water",
+      "icon": "water_drop",
+      "title": "Water Governance Essentials",
+      "duration": "4 hrs",
+      "modules": 6,
+      "level": "Staff",
+      "description": "Conservation protocols, smart metering, and responsible water use across operations."
+    },
+    {
+      "id": "energy",
+      "pillar": "Energy",
+      "icon": "bolt",
+      "title": "Clean Energy Operations",
+      "duration": "3 hrs",
+      "modules": 4,
+      "level": "Managers",
+      "description": "Renewable integration, efficiency audits, and decarbonization roadmaps for enterprise sites."
+    },
+    {
+      "id": "food",
+      "pillar": "Food",
+      "icon": "restaurant",
+      "title": "Sustainable Food Systems",
+      "duration": "2.5 hrs",
+      "modules": 4,
+      "level": "Staff",
+      "description": "Supply chain transparency, waste reduction, and responsible sourcing for institutional catering."
+    },
+    {
+      "id": "ambassador",
+      "pillar": "Leadership",
+      "icon": "emoji_events",
+      "title": "Ana Bee'i Ambassador",
+      "duration": "5 hrs",
+      "modules": 8,
+      "level": "Leaders",
+      "description": "Executive program for environmental champions — public pledges, team mobilization, and league partnerships."
+    },
+    {
+      "id": "ecourt",
+      "pillar": "Governance",
+      "icon": "gavel",
+      "title": "Smart E-Court Verification",
+      "duration": "4 hrs",
+      "modules": 6,
+      "level": "Compliance",
+      "description": "How AI-verified evidence, documentation standards, and BEECOIN rewards support audit-ready reporting."
+    }
+  ]
+}

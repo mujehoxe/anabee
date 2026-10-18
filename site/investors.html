@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invest in ANABEE — Behaviour that scales</title>
+  <meta name="description" content="ANABEE turns everyday behaviour into a global identity movement. Seven pillars, seventy-five products, and a path to 2030. Seeking AED 10M in tranches."/>
+  <link rel="canonical" href="https://anabee.org/investors"/>
+  <meta property="og:title" content="Invest in ANABEE"/>
+  <meta property="og:description" content="From the square metre you stand in — a lifestyle movement with global scale."/>
+  <meta property="og:image" content="https://anabee.org/assets/anabee-logo.png"/>
+  <meta property="og:type" content="website"/>
+  <link rel="icon" href="/assets/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { primary:'#0F4C3A', mint:'#10B981', gold:'#C5A059', surface:'#FCFAF7', mist:'#F3F5F4', charcoal:'#1A1A1A', earth:'#5C6160', border:'#E2E5E4' },
+      fontFamily: { sans: ['Manrope','system-ui','sans-serif'] },
+      fontSize: {
+        display:['clamp(2.5rem,5vw,4.25rem)',{lineHeight:'1.1',letterSpacing:'-0.01em',fontWeight:'600'}],
+        section:['clamp(1.75rem,3vw,2.75rem)',{lineHeight:'1.2',letterSpacing:'-0.01em',fontWeight:'600'}],
+      },
+      spacing: { 'container-max':'1440px', 'margin-desktop':'64px', 'margin-mobile':'20px' },
+      borderRadius: { btn:'0.5rem', card:'0.875rem' }
+    } } };
+  </script>
+  <style>
+    body { font-family: Manrope, sans-serif; background:#FCFAF7; color:#1A1A1A; }
+    .nav-link { color:#5C6160; } .nav-link:hover { color:#0F4C3A; }
+    .btn-primary {
+      background:#0F4C3A; color:#fff; border-radius:.5rem; display:inline-flex; align-items:center; gap:.5rem;
+      transition: filter .2s, transform .2s;
+    }
+    .btn-primary:hover { filter:brightness(1.08); transform:translateY(-1px); }
+    .btn-light {
+      background:rgba(252,250,247,.92); color:#0F4C3A; border-radius:.5rem; display:inline-flex; align-items:center;
+      transition: background .2s, transform .2s;
+    }
+    .btn-light:hover { background:#fff; transform:translateY(-1px); }
+    .display {
+      font-family: Manrope, system-ui, sans-serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .hero {
+      position:relative; min-height: min(92vh, 900px);
+      display:flex; align-items:flex-end;
+      overflow:hidden; color:#FCFAF7;
+      background: linear-gradient(160deg, #0B1914 0%, #0F4C3A 55%, #16382C 100%);
+    }
+    .hero video {
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; opacity:.55;
+    }
+    .hero::after {
+      content:""; position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(11,25,20,.82) 0%, rgba(11,25,20,.35) 55%, rgba(11,25,20,.2) 100%),
+        linear-gradient(0deg, rgba(11,25,20,.88) 0%, rgba(11,25,20,.15) 45%, transparent 70%);
+    }
+    .hero-inner { position:relative; z-index:1; width:100%; }
+    .fade-up { animation: fadeUp .9s ease both; }
+    .fade-up-delay { animation: fadeUp 1s .15s ease both; }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(18px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+    .panel {
+      background:#fff; border:1px solid #E2E5E4; border-radius:1rem; overflow:hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .panel:hover { transform:translateY(-3px); box-shadow:0 18px 40px rgba(15,76,58,.08); }
+    .metric {
+      font-family: Manrope, system-ui, sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem); line-height:1; color:#0F4C3A; font-weight:700;
+    }
+    .mosaic img { width:100%; height:100%; object-fit:cover; display:block; }
+    .field-label {
+      display:block; font-size:.875rem; font-weight:600; color:#1A1A1A; margin-bottom:.5rem;
+    }
+    .field {
+      display:block; width:100%; margin:0; box-sizing:border-box;
+      padding:.85rem 1rem; font:inherit; font-size:1rem; line-height:1.4; color:#1A1A1A;
+      background:#FCFAF7; border:1px solid #E2E5E4; border-radius:.5rem; outline:none;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+      appearance:none; -webkit-appearance:none;
+    }
+    .field::placeholder { color:#8A908E; }
+    .field:focus {
+      background:#fff; border-color:#0F4C3A;
+      box-shadow: 0 0 0 3px rgba(15,76,58,.14);
+    }
+    .field-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235C6160' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.75rem;
+    }
+    textarea.field { min-height:7rem; resize:vertical; }
+    #investor-toast {
+      opacity:0; transform:translateY(12px); pointer-events:none;
+      transition: opacity .3s, transform .3s;
+    }
+    #investor-toast.visible { opacity:1; transform:translateY(0); }
+  </style>
+</head>
+<body class="bg-surface text-charcoal antialiased overflow-x-hidden">
+  <div id="site-chrome"></div>
+
+  <section class="hero">
+    <video autoplay muted loop playsinline preload="metadata" poster="/assets/products/stadium.jpg" aria-label="ANABEE movement reel">
+      <source src="/assets/videos/investors-reel.mp4" type="video/mp4"/>
+    </video>
+    <div class="hero-inner max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-16 md:pb-24 pt-32">
+      <p class="fade-up text-sm uppercase tracking-[0.22em] text-gold font-semibold mb-4">ANABEE · Investors</p>
+      <h1 class="fade-up display text-4xl sm:text-5xl md:text-7xl max-w-4xl leading-[1.05] mb-5">
+        Behaviour that becomes a brand the world can say.
+      </h1>
+      <p class="fade-up-delay text-lg md:text-xl max-w-2xl text-white/85 mb-8">
+        From one square metre to a global voice. Seven pillars. Seventy-five product lines. A lifestyle movement built for scale — and seeking partners ready for 2026–2030.
+      </p>
+      <div class="fade-up-delay flex flex-wrap gap-3">
+        <a href="#investor-form" class="btn-light px-6 py-3 font-semibold">Request the brief</a>
+        <a href="/join" class="btn-primary w-full sm:w-auto max-w-full px-6 py-3 font-semibold text-center whitespace-normal">Experience the 7-second pledge</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-16 md:py-24 grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-5">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-gold mb-3">The opportunity</p>
+        <h2 class="display text-4xl md:text-5xl text-charcoal mb-5">A simple act. A planetary stage.</h2>
+        <p class="text-earth text-lg leading-relaxed mb-4">
+          ANABEE invites people to say what they love — then ANABEE — in seven seconds. That pledge becomes their presence in the movement: a personal signal tied to place, pillar, and behaviour.
+        </p>
+        <p class="text-earth text-lg leading-relaxed">
+          Around it sits a full ecosystem architecture: Air, Water, Soil, Energy, Food, Plant, Animal — and product specifications designed for restaurants, hotels, cities, travel, worship, celebrations, and sport.
+        </p>
+      </div>
+      <div class="lg:col-span-7 mosaic grid grid-cols-2 md:grid-cols-3 gap-3 min-h-[360px]">
+        <div class="row-span-2 rounded-card overflow-hidden"><img src="/assets/products/stadium.jpg" alt="Stadium lifestyle" loading="lazy"/></div>
+        <div class="rounded-card overflow-hidden"><img src="/assets/products/restaurant.jpg" alt="Restaurant lifestyle" loading="lazy"/></div>
+        <div class="rounded-card overflow-hidden"><img src="/assets/products/hotel.jpg" alt="Hotel lifestyle" loading="lazy"/></div>
+        <div class="rounded-card overflow-hidden"><img src="/assets/products/street.jpg" alt="City lifestyle" loading="lazy"/></div>
+        <div class="rounded-card overflow-hidden"><img src="/assets/products/transit.jpg" alt="Travel lifestyle" loading="lazy"/></div>
+      </div>
+    </section>
+
+    <section class="bg-mist border-y border-border py-16 md:py-20">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div><p class="metric">7</p><p class="mt-2 font-semibold">Environmental pillars</p><p class="text-sm text-earth mt-1">A complete lifestyle map</p></div>
+          <div><p class="metric">75</p><p class="mt-2 font-semibold">Product specifications</p><p class="text-sm text-earth mt-1">Designed by place of use</p></div>
+          <div><p class="metric">7s</p><p class="mt-2 font-semibold">Pledge protocol</p><p class="text-sm text-earth mt-1">Live recording on anabee.org</p></div>
+          <div><p class="metric">2030</p><p class="mt-2 font-semibold">Global horizon</p><p class="text-sm text-earth mt-1">One shared phrase, worldwide</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-16 md:py-24">
+      <div class="max-w-3xl mb-10">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-gold mb-3">What is live today</p>
+        <h2 class="display text-4xl md:text-5xl text-charcoal mb-4">Architecture you can open now</h2>
+        <p class="text-earth text-lg">The brand, framework, product library, and pledge experience are already on the public web — ready for partners to accelerate.</p>
+      </div>
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+        <article class="panel p-6">
+          <span class="material-symbols-outlined text-primary text-3xl">language</span>
+          <h3 class="text-xl font-semibold mt-4">Brand &amp; domain</h3>
+          <p class="text-earth mt-2">anabee.org is live — the public face of the movement.</p>
+        </article>
+        <article class="panel p-6">
+          <span class="material-symbols-outlined text-primary text-3xl">hub</span>
+          <h3 class="text-xl font-semibold mt-4">Seven pillars</h3>
+          <p class="text-earth mt-2">A clear behavioural framework across air, water, soil, energy, food, plant, and animal.</p>
+        </article>
+        <article class="panel p-6">
+          <span class="material-symbols-outlined text-primary text-3xl">inventory_2</span>
+          <h3 class="text-xl font-semibold mt-4">75 product specs</h3>
+          <p class="text-earth mt-2">Electronic specifications organised by where people live, eat, travel, pray, celebrate, and cheer. <a class="text-primary font-semibold" href="/products">Explore</a></p>
+        </article>
+        <article class="panel p-6">
+          <span class="material-symbols-outlined text-primary text-3xl">videocam</span>
+          <h3 class="text-xl font-semibold mt-4">7-second pledges</h3>
+          <p class="text-earth mt-2">Anyone can record a personal pledge and join Founding Voices. <a class="text-primary font-semibold" href="/join">Try it</a></p>
+        </article>
+        <article class="panel p-6">
+          <span class="material-symbols-outlined text-primary text-3xl">public</span>
+          <h3 class="text-xl font-semibold mt-4">Voice map</h3>
+          <p class="text-earth mt-2">Pledges can appear on a living map — each point a square metre that chose ANABEE.</p>
+        </article>
+        <article class="panel p-6">
+          <span class="material-symbols-outlined text-primary text-3xl">handshake</span>
+          <h3 class="text-xl font-semibold mt-4">Partnership pipeline</h3>
+          <p class="text-earth mt-2">Strategic conversations underway for sport, hospitality, and institutional reach.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-8">
+      <div class="rounded-[1.5rem] overflow-hidden relative min-h-[420px] bg-primary text-white">
+        <video class="absolute inset-0 w-full h-full object-cover opacity-40" autoplay muted loop playsinline preload="metadata">
+          <source src="/assets/videos/investors-reel.mp4" type="video/mp4"/>
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/85 to-primary/40"></div>
+        <div class="relative p-8 md:p-14 max-w-2xl">
+          <p class="text-sm uppercase tracking-[0.18em] text-gold font-semibold mb-3">Growth path</p>
+          <h2 class="display text-4xl md:text-5xl mb-6">From Dubai to the world</h2>
+          <ol class="space-y-4 text-lg text-white/90">
+            <li><span class="text-gold font-semibold">2026</span> — 1,000 voices in Dubai</li>
+            <li><span class="text-gold font-semibold">2027</span> — 100,000 across the UAE and Saudi Arabia</li>
+            <li><span class="text-gold font-semibold">2028</span> — 10 million across the Gulf</li>
+            <li><span class="text-gold font-semibold">2030</span> — one billion voices worldwide</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="investor-form" class="scroll-mt-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-16 md:py-24">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-gold mb-3">Investment</p>
+          <h2 class="display text-4xl md:text-5xl text-charcoal mb-4">Seeking AED 10M</h2>
+          <p class="text-earth text-lg mb-8">Capital structured to unlock partnerships first, then scale the platform and product ecosystem with proof of momentum.</p>
+          <div class="space-y-4">
+            <article class="panel p-6 border-l-4 border-l-gold">
+              <p class="text-sm font-semibold text-gold uppercase tracking-wider">Tranche 1 · AED 1M</p>
+              <h3 class="text-xl font-semibold mt-2">Ignition</h3>
+              <p class="text-earth mt-2">Advance key letters of intent and ship the pledge experience with polish — the foundation for the first 1,000 voices.</p>
+            </article>
+            <article class="panel p-6 border-l-4 border-l-primary">
+              <p class="text-sm font-semibold text-primary uppercase tracking-wider">Tranche 2 · AED 9M</p>
+              <h3 class="text-xl font-semibold mt-2">Scale</h3>
+              <p class="text-earth mt-2">Expand after early traction: licensing pathway, pilot programmes, product partnerships, and the next wave of growth.</p>
+            </article>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="panel p-5"><p class="font-semibold">Regulatory pathway</p><p class="text-sm text-earth mt-1">VARA licensing targeted for early 2027</p></div>
+              <div class="panel p-5"><p class="font-semibold">Sport &amp; culture pilots</p><p class="text-sm text-earth mt-1">League and venue conversations in motion</p></div>
+              <div class="panel p-5"><p class="font-semibold">Token architecture</p><p class="text-sm text-earth mt-1">BEECOIN protocol design ready for audit</p></div>
+              <div class="panel p-5"><p class="font-semibold">Manufacturing partners</p><p class="text-sm text-earth mt-1">Specs ready for production alliances</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel p-6 md:p-8">
+          <h3 class="text-2xl font-semibold text-charcoal mb-2">Start a conversation</h3>
+          <p class="text-earth mb-6">Share a few details — we respond with the investor brief and next steps.</p>
+          <form id="invest-form" class="space-y-5" novalidate>
+            <div>
+              <label class="field-label" for="inv-name">Full name</label>
+              <input id="inv-name" name="name" required maxlength="80" class="field" autocomplete="name" placeholder="Example: Sara Al Maktoum"/>
+            </div>
+            <div>
+              <label class="field-label" for="inv-email">Work email</label>
+              <input id="inv-email" name="email" type="email" required maxlength="120" class="field" autocomplete="email" placeholder="you@fund.com"/>
+            </div>
+            <div>
+              <label class="field-label" for="inv-org">Organisation / fund</label>
+              <input id="inv-org" name="organisation" maxlength="120" class="field" autocomplete="organization" placeholder="Optional"/>
+            </div>
+            <div>
+              <label class="field-label" for="inv-interest">Interest</label>
+              <select id="inv-interest" name="interest" required class="field field-select">
+                <option value="">Select…</option>
+                <option value="Tranche 1 — Ignition (AED 1M)">Tranche 1 — Ignition (AED 1M)</option>
+                <option value="Tranche 2 — Scale (AED 9M)">Tranche 2 — Scale (AED 9M)</option>
+                <option value="Full round — AED 10M">Full round — AED 10M</option>
+                <option value="Strategic partnership">Strategic partnership</option>
+                <option value="Investor brief only">Investor brief only</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label" for="inv-message">Message</label>
+              <textarea id="inv-message" name="message" maxlength="800" class="field" placeholder="Timeline, ticket size, or questions…"></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full justify-center px-6 py-3.5 font-semibold">Send enquiry</button>
+            <p class="text-sm text-earth">Or email <a class="text-primary font-semibold" href="mailto:info@anabee.org?subject=ANABEE%20investor%20conversation">info@anabee.org</a> directly.</p>
+            <p id="invest-status" class="text-sm text-earth min-h-[1.25rem]" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary text-white py-16 md:py-20">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+        <div>
+          <h2 class="display text-4xl md:text-5xl mb-3">Build the voice the planet recognises.</h2>
+          <p class="text-white/80 text-lg max-w-xl">We share the investor brief, roadmap, and next steps in person or by call.</p>
+        </div>
+        <a href="#investor-form" class="btn-light w-full sm:w-auto max-w-full px-7 py-4 font-semibold text-lg text-center">Open the form</a>
+      </div>
+    </section>
+
+    <div id="investor-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[80] px-6 py-3 rounded-btn bg-primary text-white text-sm font-medium shadow-lg" role="status"></div>
+  </main>
+
+  <footer class="border-t border-border px-margin-mobile md:px-margin-desktop py-8 text-sm text-earth">
+    <div class="max-w-container-max mx-auto flex flex-wrap gap-4 justify-between">
+      <p>© 2026 ANABEE</p>
+      <p class="flex gap-4 flex-wrap"><a href="/">Home</a><a href="/products">Products</a><a href="/academy">Academy</a><a href="/blog/">Blog</a><a href="/join">Join</a></p>
+    </div>
+  </footer>
+  <script src="/js/nav.js?v=10"></script>
+  <script>
+    (function () {
+      var form = document.getElementById("invest-form");
+      var status = document.getElementById("invest-status");
+      var toast = document.getElementById("investor-toast");
+      if (!form) return;
+
+      function showToast(msg) {
+        if (!toast) return;
+        toast.textContent = msg;
+        toast.classList.add("visible");
+        clearTimeout(showToast._t);
+        showToast._t = setTimeout(function () { toast.classList.remove("visible"); }, 4000);
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var name = document.getElementById("inv-name").value.trim();
+        var email = document.getElementById("inv-email").value.trim();
+        var org = document.getElementById("inv-org").value.trim();
+        var interest = document.getElementById("inv-interest").value;
+        var message = document.getElementById("inv-message").value.trim();
+        if (!name || !email || !interest) {
+          status.textContent = "Please complete name, email, and interest.";
+          return;
+        }
+        var subject = "ANABEE investor enquiry — " + interest;
+        var body = [
+          "Name: " + name,
+          "Email: " + email,
+          "Organisation: " + (org || "—"),
+          "Interest: " + interest,
+          "",
+          message || "(No additional message)"
+        ].join("\n");
+        status.textContent = "Opening your email app…";
+        window.location.href =
+          "mailto:info@anabee.org?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(body);
+        showToast("Thanks — finish sending in your email app.");
+        form.reset();
+        status.textContent = "";
+      });
+    })();
+  </script>
+</body>
+</html>

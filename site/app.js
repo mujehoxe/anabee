@@ -4,7 +4,9 @@
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileClose = document.getElementById('mobile-close');
   const navLinks = document.querySelectorAll('.nav-link[data-nav]');
-  const sections = [...document.querySelectorAll('section[id]')];
+  const sections = [...document.querySelectorAll('section[id]')].filter((s) =>
+    navLinks.some((l) => l.getAttribute('href') === `#${s.id}`)
+  );
   const walletBtn = document.getElementById('wallet-btn');
   const walletModal = document.getElementById('wallet-modal');
   const walletClose = document.getElementById('wallet-close');
@@ -97,6 +99,32 @@
 
   document.getElementById('view-cases')?.addEventListener('click', () => {
     showToast('12 active cases in Smart E-Court — full dashboard launches with mainnet.');
+  });
+
+  document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    const name = String(data.get('name') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const org = String(data.get('organization') || '').trim();
+    const message = String(data.get('message') || '').trim();
+    const subject = encodeURIComponent(`ANABEE inquiry from ${name || 'website'}`);
+    const body = encodeURIComponent(
+      [`Name: ${name}`, `Email: ${email}`, org ? `Organization: ${org}` : '', '', message]
+        .filter(Boolean)
+        .join('\n')
+    );
+    window.location.href = `mailto:info@anabee.org?subject=${subject}&body=${body}`;
+    showToast("Opening your email client — or write us at info@anabee.org.");
+    form.reset();
+  });
+
+  document.querySelectorAll('[data-todo^="social:"], #whatsapp-float').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('Link coming soon — follow ANABEE for updates.');
+    });
   });
 
   document.addEventListener('keydown', (e) => {
@@ -277,6 +305,29 @@
   };
 
   initPillarSwiper();
+
+  const initScrollVideos = () => {
+    const videos = document.querySelectorAll('video[data-video-scroll]');
+    if (!videos.length) return;
+
+    const videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    videos.forEach((video) => videoObserver.observe(video));
+  };
+
+  initScrollVideos();
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();

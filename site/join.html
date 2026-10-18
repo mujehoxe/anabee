@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#FCFAF7"/>
+  <title>Record 7 seconds — ANABEE</title>
+  <meta name="description" content="Record 7 seconds for ANABEE. Say something you love + ANABEE — and join Founding Voices."/>
+  <link rel="icon" href="/assets/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { primary:'#0F4C3A', mint:'#10B981', gold:'#C5A059', surface:'#FCFAF7', mist:'#F3F5F4', charcoal:'#1A1A1A', earth:'#5C6160', border:'#E2E5E4' },
+      fontFamily: { sans: ['Manrope','system-ui','sans-serif'] },
+      spacing: { 'container-max':'1440px', 'margin-desktop':'64px', 'margin-mobile':'20px' },
+      borderRadius: { btn:'0.5rem', card:'0.875rem' }
+    } } };
+  </script>
+  <style>
+    body { font-family: Manrope, sans-serif; background:#FCFAF7; color:#1A1A1A; }
+    .nav-link { color:#5C6160; } .nav-link:hover { color:#0F4C3A; }
+    .btn-primary {
+      background:#0F4C3A; color:#fff; border-radius:.5rem;
+      border: none; cursor: pointer;
+      transition: filter .2s, transform .2s, opacity .2s;
+    }
+    .btn-primary:hover:not(:disabled) { filter: brightness(1.08); transform: translateY(-1px); }
+    .btn-primary:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+    .btn-ghost {
+      background:#fff; color:#0F4C3A; border:1px solid #E2E5E4; border-radius:.5rem; cursor:pointer;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover { border-color:#0F4C3A; background:#F3F5F4; }
+    .card { background:#fff; border:1px solid #E2E5E4; border-radius:.875rem; }
+    .field-label {
+      display:block; font-size:.875rem; font-weight:600; color:#1A1A1A; margin-bottom:.5rem;
+    }
+    .field {
+      display:block; width:100%;
+      margin:0; box-sizing:border-box;
+      padding:.85rem 1rem;
+      font: inherit; font-size:1rem; line-height:1.4; color:#1A1A1A;
+      background:#FCFAF7;
+      border:1px solid #E2E5E4;
+      border-radius:.5rem;
+      outline:none;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+      appearance:none; -webkit-appearance:none;
+    }
+    .field::placeholder { color:#8A908E; }
+    .field:hover { border-color:#C5CBC9; }
+    .field:focus {
+      background:#fff;
+      border-color:#0F4C3A;
+      box-shadow: 0 0 0 3px rgba(15,76,58,.14);
+    }
+    .field-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235C6160' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.75rem;
+    }
+    .check-row {
+      display:flex; gap:.75rem; align-items:flex-start;
+      padding:1rem; border:1px solid #E2E5E4; border-radius:.75rem; background:#FCFAF7;
+    }
+    .check-row input[type="checkbox"] {
+      width:1.15rem; height:1.15rem; margin-top:.15rem; flex-shrink:0;
+      accent-color:#0F4C3A; cursor:pointer;
+    }
+    .phrase {
+      padding:.9rem 1rem; border-radius:.75rem;
+      background: rgba(15,76,58,.06); border:1px solid rgba(15,76,58,.12);
+      color:#0F4C3A; font-weight:600;
+    }
+    .video-shell {
+      position:relative; overflow:hidden; border-radius:.75rem; border:1px solid #E2E5E4; background:#F3F5F4;
+      aspect-ratio: 16 / 9;
+    }
+    .video-shell video {
+      width:100%; height:100%; object-fit:cover; display:block; background:#0B1914;
+    }
+    .video-shell video.hidden,
+    .video-shell.hidden { display:none !important; }
+    .video-shell.idle {
+      display:flex; align-items:center; justify-content:center;
+      color:#8A908E; font-size:.95rem; background:#F3F5F4;
+      padding:1.25rem; text-align:center;
+    }
+    .video-shell.idle video { display:none !important; }
+    #rec-overlay {
+      display:none; position:absolute; inset:0; z-index:2;
+      align-items:center; justify-content:center;
+      background:rgba(11,25,20,.35); pointer-events:none;
+    }
+    #rec-overlay.is-on { display:flex; }
+    #rec-overlay .rec-count {
+      font-size:clamp(3.5rem,12vw,5.5rem); font-weight:800; color:#fff;
+      line-height:1; text-shadow:0 4px 24px rgba(0,0,0,.35);
+    }
+    #rec-overlay .rec-dot {
+      position:absolute; top:1rem; left:1rem;
+      display:flex; align-items:center; gap:.4rem;
+      color:#fff; font-size:.8rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    }
+    #rec-overlay .rec-dot::before {
+      content:""; width:.65rem; height:.65rem; border-radius:999px; background:#ef4444;
+      box-shadow:0 0 0 4px rgba(239,68,68,.25); animation: recPulse 1s ease infinite;
+    }
+    @keyframes recPulse {
+      0%,100% { opacity:1; } 50% { opacity:.45; }
+    }
+    .phrase { overflow-wrap:anywhere; word-break:break-word; }
+    #pledge-form { min-width:0; max-width:100%; }
+    .form-actions { display:flex; flex-direction:column; gap:.75rem; }
+    @media (min-width:640px) {
+      .form-actions { flex-direction:row; flex-wrap:wrap; align-items:stretch; }
+    }
+    .form-actions .btn-primary,
+    .form-actions .btn-ghost {
+      width:100%; min-height:2.75rem; text-align:center;
+      max-width:100%; box-sizing:border-box;
+    }
+    @media (min-width:640px) {
+      .form-actions .btn-primary,
+      .form-actions .btn-ghost { width:auto; }
+    }
+  </style>
+</head>
+<body class="bg-surface text-charcoal antialiased overflow-x-hidden">
+  <div id="site-chrome"></div>
+  <main class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop pt-24 pb-10 min-w-0">
+    <h1 class="text-2xl sm:text-3xl font-bold mb-2">Record 7 seconds</h1>
+    <p class="text-earth mb-6">In your clip, say something you love <strong>+ ANABEE</strong>. Example: “clean air + ANABEE”. Your recording becomes your Founding Voice.</p>
+    <form id="pledge-form" class="card p-4 sm:p-6 md:p-8 space-y-5">
+      <div>
+        <label class="field-label" for="name">First name</label>
+        <input id="name" required maxlength="40" class="field" placeholder="Example: Sara" autocomplete="given-name"/>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label class="field-label" for="pillar">Pillar</label>
+          <select id="pillar" required class="field field-select"></select>
+        </div>
+        <div>
+          <label class="field-label" for="place">Place type</label>
+          <select id="place" required class="field field-select"></select>
+        </div>
+      </div>
+      <div>
+        <label class="field-label" for="city">City <span class="font-normal text-earth">(optional)</span></label>
+        <input id="city" name="city" maxlength="60" class="field" placeholder="Example: Dubai" autocomplete="address-level2"/>
+      </div>
+      <p id="phrase" class="phrase">Say, within 7 seconds: something you love + ANABEE<br/><span class="font-medium text-earth">e.g. clean air + ANABEE</span></p>
+      <div class="form-actions">
+        <button type="button" id="rec" class="btn-primary px-5 py-3 font-semibold">Record 7 seconds</button>
+      </div>
+      <p id="count" class="text-sm text-earth min-h-[1.25rem]" role="status"></p>
+      <div id="live-shell" class="video-shell idle">
+        <span id="live-placeholder">Press Record — we’ll ask for camera and microphone</span>
+        <video id="live" class="hidden" playsinline muted autoplay></video>
+        <div id="rec-overlay" aria-hidden="true">
+          <span class="rec-dot">Recording</span>
+          <span class="rec-count" id="rec-count">7</span>
+        </div>
+      </div>
+      <div id="preview-shell" class="video-shell hidden">
+        <video id="preview" playsinline controls></video>
+      </div>
+      <label class="check-row text-sm text-earth">
+        <input id="consent" type="checkbox"/>
+        <span>I agree to publish this video and my first name on anabee.org as my Founding Voice.</span>
+      </label>
+      <button type="submit" id="send" class="btn-primary w-full sm:w-auto min-h-[2.75rem] px-6 py-3.5 font-semibold" disabled>Publish pledge</button>
+      <p id="status" class="text-sm text-earth" role="status"></p>
+    </form>
+  </main>
+  <script src="/js/nav.js?v=10"></script>
+  <script src="/js/catalog.js?v=6"></script>
+  <script>
+    (function () {
+      var cat = window.ANABEE_CATALOG;
+      var pillar = document.getElementById("pillar");
+      var place = document.getElementById("place");
+      var params = new URLSearchParams(location.search);
+      cat.pillars.forEach(function (p) {
+        var o = document.createElement("option");
+        o.value = p.id; o.textContent = p.en;
+        if (params.get("pillar") === p.id) o.selected = true;
+        pillar.appendChild(o);
+      });
+      cat.joinPlaces.forEach(function (p) {
+        var o = document.createElement("option");
+        o.value = p.id; o.textContent = p.en;
+        if (params.get("place") === p.id) o.selected = true;
+        place.appendChild(o);
+      });
+      var live = document.getElementById("live");
+      var preview = document.getElementById("preview");
+      var liveShell = document.getElementById("live-shell");
+      var previewShell = document.getElementById("preview-shell");
+      var livePlaceholder = document.getElementById("live-placeholder");
+      var recOverlay = document.getElementById("rec-overlay");
+      var recCountEl = document.getElementById("rec-count");
+      var countEl = document.getElementById("count");
+      var recBtn = document.getElementById("rec");
+      var sendBtn = document.getElementById("send");
+      var cityInput = document.getElementById("city");
+      var stream = null;
+      var blob = null;
+      var blobUrl = "";
+      var chunks = [];
+      var recorder = null;
+      var recTimer = null;
+      var recording = false;
+      var userId = localStorage.getItem("anabee_user_id") || "";
+
+      function pickMime() {
+        var candidates = [
+          "video/webm;codecs=vp9,opus",
+          "video/webm;codecs=vp8,opus",
+          "video/webm;codecs=vp9,vorbis",
+          "video/webm;codecs=vp8,vorbis",
+          "video/webm",
+          "video/mp4"
+        ];
+        for (var i = 0; i < candidates.length; i++) {
+          if (window.MediaRecorder && MediaRecorder.isTypeSupported(candidates[i])) return candidates[i];
+        }
+        return "";
+      }
+
+      function clearClip() {
+        if (blobUrl) {
+          try { URL.revokeObjectURL(blobUrl); } catch (e) {}
+          blobUrl = "";
+        }
+        blob = null;
+        chunks = [];
+        preview.removeAttribute("src");
+        preview.load();
+        sendBtn.disabled = true;
+      }
+
+      function showLive() {
+        previewShell.classList.add("hidden");
+        liveShell.classList.remove("hidden");
+        if (stream) {
+          liveShell.classList.remove("idle");
+          live.classList.remove("hidden");
+          livePlaceholder.classList.add("hidden");
+        }
+      }
+
+      function setRecUi(active, left) {
+        if (active) {
+          recOverlay.classList.add("is-on");
+          recOverlay.setAttribute("aria-hidden", "false");
+          recCountEl.textContent = String(left);
+          countEl.textContent = "Recording… " + left + "s left — say what you love + ANABEE";
+          recBtn.textContent = "Recording…";
+          recBtn.disabled = true;
+        } else {
+          recOverlay.classList.remove("is-on");
+          recOverlay.setAttribute("aria-hidden", "true");
+          recBtn.disabled = false;
+          recBtn.textContent = blob ? "Re-record 7 seconds" : "Record 7 seconds";
+        }
+      }
+
+      function stopTimer() {
+        if (recTimer) {
+          clearInterval(recTimer);
+          recTimer = null;
+        }
+      }
+
+      async function ensureCamera() {
+        if (stream) return stream;
+        countEl.textContent = "Allow camera and microphone…";
+        stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: "user", width: { ideal: 1280 }, height: { ideal: 720 } },
+          audio: {
+            echoCancellation: true,
+            noiseSuppression: true,
+            autoGainControl: true
+          }
+        });
+        live.srcObject = stream;
+        live.muted = true;
+        await live.play().catch(function () {});
+        showLive();
+        return stream;
+      }
+
+      function beginRecording() {
+        if (!stream || recording) return;
+        if (!window.MediaRecorder) {
+          document.getElementById("status").textContent = "This browser cannot record video.";
+          setRecUi(false, 7);
+          return;
+        }
+
+        clearClip();
+        showLive();
+
+        if (!stream.getAudioTracks().length) {
+          document.getElementById("status").textContent = "No microphone — allow mic access and try again.";
+          setRecUi(false, 7);
+          return;
+        }
+
+        chunks = [];
+        var mime = pickMime();
+        try {
+          recorder = mime
+            ? new MediaRecorder(stream, { mimeType: mime, audioBitsPerSecond: 128000, videoBitsPerSecond: 2500000 })
+            : new MediaRecorder(stream);
+        } catch (err) {
+          try { recorder = new MediaRecorder(stream); }
+          catch (err2) {
+            document.getElementById("status").textContent = "Recording could not start in this browser.";
+            setRecUi(false, 7);
+            return;
+          }
+        }
+
+        recording = true;
+        var left = 7;
+        setRecUi(true, left);
+
+        recorder.ondataavailable = function (e) {
+          if (e.data && e.data.size) chunks.push(e.data);
+        };
+        recorder.onerror = function () {
+          stopTimer();
+          recording = false;
+          setRecUi(false, 7);
+          document.getElementById("status").textContent = "Recording failed. Try again.";
+        };
+        recorder.onstop = function () {
+          stopTimer();
+          recording = false;
+          var type = (recorder && recorder.mimeType) || mime || "video/webm";
+          blob = new Blob(chunks, { type: type });
+          if (!blob.size) {
+            setRecUi(false, 7);
+            document.getElementById("status").textContent = "The clip was empty. Check microphone permission and try again.";
+            return;
+          }
+          blobUrl = URL.createObjectURL(blob);
+          preview.src = blobUrl;
+          preview.muted = false;
+          preview.volume = 1;
+          previewShell.classList.remove("hidden");
+          liveShell.classList.add("hidden");
+          setRecUi(false, 7);
+          countEl.textContent = "Done — review with sound on. Re-record replaces this take.";
+          sendBtn.disabled = !document.getElementById("consent").checked;
+          document.getElementById("status").textContent = "";
+          preview.play().catch(function () {});
+        };
+
+        try {
+          recorder.start(200);
+        } catch (err) {
+          recording = false;
+          setRecUi(false, 7);
+          document.getElementById("status").textContent = "Recording could not start.";
+          return;
+        }
+
+        recTimer = setInterval(function () {
+          left -= 1;
+          if (left > 0) {
+            setRecUi(true, left);
+          } else {
+            stopTimer();
+            recCountEl.textContent = "0";
+            if (recorder && recorder.state === "recording") {
+              try { recorder.requestData(); } catch (e) {}
+              recorder.stop();
+            }
+          }
+        }, 1000);
+      }
+
+      recBtn.onclick = async function () {
+        if (recording) return;
+        recBtn.disabled = true;
+        recBtn.textContent = "Starting…";
+        document.getElementById("status").textContent = "";
+        try {
+          await ensureCamera();
+          // brief beat so the preview is visible before countdown starts
+          await new Promise(function (r) { setTimeout(r, 350); });
+          beginRecording();
+        } catch (err) {
+          setRecUi(false, 7);
+          document.getElementById("status").textContent = "Could not open camera/microphone. Allow both, then press Record again.";
+        }
+      };
+
+      document.getElementById("consent").onchange = function () {
+        sendBtn.disabled = !(blob && document.getElementById("consent").checked);
+      };
+
+      document.getElementById("pledge-form").onsubmit = async function (e) {
+        e.preventDefault();
+        var status = document.getElementById("status");
+        if (recording) { status.textContent = "Wait for the recording to finish."; return; }
+        if (!blob) { status.textContent = "Record 7 seconds first."; return; }
+        if (!document.getElementById("consent").checked) { status.textContent = "Publishing needs your agreement."; return; }
+        sendBtn.disabled = true;
+        status.textContent = "Uploading…";
+        var type = blob.type && blob.type.indexOf("mp4") !== -1 ? "video/mp4" : (blob.type || "video/webm");
+        var q = new URLSearchParams({
+          name: document.getElementById("name").value,
+          pillar: pillar.value,
+          place: place.value,
+          consent: "1",
+          userId: userId
+        });
+        var city = (cityInput.value || "").trim();
+        if (city) q.set("city", city);
+        try {
+          var res = await fetch("/api/pledge?" + q.toString(), { method: "POST", headers: { "Content-Type": type }, body: blob });
+          var data = await res.json();
+          if (!res.ok) throw new Error(data.error || "Upload failed");
+          localStorage.setItem("anabee_user_id", data.userId);
+          status.textContent = "Published. Welcome to Founding Voices — " + data.pledge.filename;
+          var a = document.createElement("a");
+          a.href = "/#voices";
+          a.className = "block mt-3 text-primary font-semibold";
+          a.textContent = "Show it under Founding Voices";
+          status.appendChild(a);
+          if (stream) {
+            stream.getTracks().forEach(function (t) { t.stop(); });
+            stream = null;
+          }
+          recBtn.disabled = true;
+        } catch (err) {
+          status.textContent = err.message || "The upload failed.";
+          sendBtn.disabled = false;
+        }
+      };
+    })();
+  </script>
+</body>
+</html>

@@ -11,7 +11,19 @@ Built from `design.html`, `design2.html`, and `design-dark.html` (light palette 
 
 ## Sections (one scroll)
 
-Hero → Ecosystem → 7 Pillars → BEECOIN → Smart E-Court → Roadmap → Whitepaper → Partners
+Hero → Ecosystem → 7 Pillars → BEECOIN → Smart E-Court → Roadmap → **Academy** → ADNOC League → Whitepaper → Partners
+
+## Academy (Frappe Learning)
+
+Corporate video certification — modern UX, light Docker deploy:
+
+```bash
+cp academy/.env.example academy/.env   # optional
+npm run academy:up                     # http://localhost:8000/lms
+```
+
+Customize in `site/academy.config.json`. Docs: `academy/README.md`. Moodle alternative: `academy/moodle/`.
+
 
 ## Local dev
 

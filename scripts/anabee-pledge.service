@@ -1,0 +1,15 @@
+[Unit]
+Description=ANABEE voluntary pledge upload
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /opt/anabee/anabee-pledge.py
+Restart=on-failure
+RestartSec=2
+User=www-data
+Group=www-data
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

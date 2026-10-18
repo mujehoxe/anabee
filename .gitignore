@@ -5,4 +5,7 @@ screenshot*.png
 .env
 .env.*
 !.env.example
+academy/.env
 .DS_Store
+__pycache__/
+.cursor/

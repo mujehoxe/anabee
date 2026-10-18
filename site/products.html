@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#FCFAF7"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <title>75 electronic specifications — ANABEE</title>
+  <meta name="description" content="75 ANABEE product specifications — designed by place for restaurants, hotels, cities, travel, worship, celebrations, and sport."/>
+  <link rel="icon" href="/assets/favicon.ico"/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { primary:'#0F4C3A', gold:'#C5A059', surface:'#FCFAF7', mist:'#F3F5F4', charcoal:'#1A1A1A', earth:'#5C6160', border:'#E2E5E4' },
+      fontFamily: { sans: ['Manrope','system-ui','sans-serif'] },
+      spacing: { 'container-max':'1440px', 'margin-desktop':'64px', 'margin-mobile':'20px' },
+      borderRadius: { btn:'0.5rem', card:'0.875rem' }
+    } } };
+  </script>
+  <style>
+    body { font-family: Manrope, sans-serif; background:#FCFAF7; }
+    .nav-link { color:#5C6160; } .nav-link:hover { color:#0F4C3A; }
+    .btn-primary { background:#0F4C3A; color:#fff; border-radius:.5rem; }
+    .card { background:#fff; border:1px solid #E2E5E4; border-radius:.875rem; overflow:hidden; }
+    .product-visual { position:relative; aspect-ratio: 1 / 1; background:#E8EDE9; }
+    .product-visual img { width:100%; height:100%; object-fit:cover; display:block; }
+    .product-visual .shade {
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, transparent 55%, rgba(15,76,58,.18) 100%);
+      pointer-events:none;
+    }
+    .product-visual .icon-chip {
+      position:absolute; bottom:12px; left:12px;
+      width:48px; height:48px;
+      border-radius: .75rem;
+      background: rgba(252,250,247,.95);
+      display:flex; align-items:center; justify-content:center;
+      color:#0F4C3A;
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+      overflow:hidden;
+    }
+    .product-visual .icon-chip .material-symbols-outlined {
+      font-size: 24px;
+      line-height: 1;
+      max-width: 28px;
+      overflow: hidden;
+      white-space: nowrap;
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+    }
+  </style>
+</head>
+<body class="bg-surface text-charcoal antialiased overflow-x-hidden">
+  <div id="site-chrome"></div>
+  <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-24 pb-10 min-w-0">
+    <h1 class="text-2xl sm:text-3xl font-bold mb-2">75 product specifications</h1>
+    <p class="text-earth mb-8 max-w-3xl">Designed by place — where people eat, stay, walk, travel, gather, celebrate, and cheer. Each card pairs a product idea with a simple behaviour and a 7-second line you can say.</p>
+    <div id="groups" class="space-y-10"></div>
+  </main>
+  <script src="/js/nav.js?v=10"></script>
+  <script src="/js/catalog.js?v=9"></script>
+  <script>
+    (function () {
+      var cat = window.ANABEE_CATALOG;
+      var pillarEn = {};
+      cat.pillars.forEach(function (p) { pillarEn[p.id] = p.en; });
+      document.getElementById("groups").innerHTML = cat.places.map(function (place) {
+        var items = cat.products.filter(function (item) { return item.place === place.id; });
+        return '<section id="' + place.id + '"><h2 class="text-2xl font-bold mb-4">' + place.en + ' (' + items.length + ')</h2><div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">' +
+          items.map(function (item) {
+            return '<article class="card">' +
+              '<div class="product-visual">' +
+                '<img src="' + item.imageCard + '" srcset="' + item.imageSrcset + '" sizes="(min-width: 1280px) 400px, (min-width: 768px) 45vw, 100vw" alt="' + item.name + '" loading="lazy" decoding="async" width="480" height="480"/>' +
+                '<div class="shade" aria-hidden="true"></div>' +
+                '<span class="icon-chip" aria-hidden="true"><span class="material-symbols-outlined">' + item.icon + '</span></span>' +
+              '</div>' +
+              '<div class="p-5">' +
+              '<p class="text-xs font-semibold text-primary">Product specification</p>' +
+              '<h3 class="text-xl font-semibold mt-1">' + item.name + '</h3>' +
+              '<p class="mt-2 text-earth">' + item.spec + '</p>' +
+              '<p class="mt-2"><span class="font-semibold">Behaviour: </span>' + item.behavior + '</p>' +
+              '<p class="mt-2"><span class="font-semibold">Pillar: </span><a class="text-primary" href="/pillar/' + item.pillar + '">' + pillarEn[item.pillar] + '</a></p>' +
+              '<p class="mt-2 text-sm">Say it in 7 seconds: “' + item.phrase + '”</p>' +
+              '<a class="inline-block mt-3 text-primary font-semibold" href="/join?pillar=' + item.pillar + '&place=' + item.place + '">Record this place</a>' +
+              '</div></article>';
+          }).join("") + '</div></section>';
+      }).join("");
+    })();
+  </script>
+</body>
+</html>
